@@ -1,12 +1,15 @@
 {
     "name": "dolead/DcmApiClient-php",
-    "description": "Dolead Campaign Manager PHP API client",
+    "description": "",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api",
-        "dolead"
+        "dolead",
+        "adwords",
+        "bing_ads",
+        "facebook_ads"
     ],
     "homepage": "http://swagger.io",
     "license": "Apache v2",
@@ -28,9 +31,9 @@
         "squizlabs/php_codesniffer": "~2.6"
     },
     "autoload": {
-        "psr-4": { "DcmApiClient\\" : "lib/" }
+        "psr-4": { "Dcm\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "DcmApiClient\\" : "test/" }
+        "psr-4": { "Dcm\\" : "test/" }
     }
 }

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace DcmApi;
+namespace Dcm\Api;
 
-use \DcmApiClient\Configuration;
-use \DcmApiClient\ApiClient;
-use \DcmApiClient\ApiException;
-use \DcmApiClient\ObjectSerializer;
+use \Dcm\Configuration;
+use \Dcm\ApiClient;
+use \Dcm\ApiException;
+use \Dcm\ObjectSerializer;
 
 /**
  * RevenueTrackingApi Class Doc Comment
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class RevenueTrackingApi
     /**
      * API Client
      *
-     * @var \DcmApiClient\ApiClient instance of the ApiClient
+     * @var \Dcm\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DcmApiClient\ApiClient|null $apiClient The api client to use
+     * @param \Dcm\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\DcmApiClient\ApiClient $apiClient = null)
+    public function __construct(\Dcm\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class RevenueTrackingApi
     /**
      * Get API client
      *
-     * @return \DcmApiClient\ApiClient get the API client
+     * @return \Dcm\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class RevenueTrackingApi
     /**
      * Set the API client
      *
-     * @param \DcmApiClient\ApiClient $apiClient set the API client
+     * @param \Dcm\ApiClient $apiClient set the API client
      *
      * @return RevenueTrackingApi
      */
-    public function setApiClient(\DcmApiClient\ApiClient $apiClient)
+    public function setApiClient(\Dcm\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -107,9 +107,9 @@ class RevenueTrackingApi
      *
      * Create or update a list of Adwords conversions / revenues, using gclid
      *
-     * @param \DcmModel\AdwordsClickRevenue[] $body  (optional)
+     * @param \Dcm\Model\AdwordsClickRevenue[] $body  (optional)
      * @return void
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersClickRevenueAdwordsUpsert($body = null)
     {
@@ -122,9 +122,9 @@ class RevenueTrackingApi
      *
      * Create or update a list of Adwords conversions / revenues, using gclid
      *
-     * @param \DcmModel\AdwordsClickRevenue[] $body  (optional)
+     * @param \Dcm\Model\AdwordsClickRevenue[] $body  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersClickRevenueAdwordsUpsertWithHttpInfo($body = null)
     {
@@ -186,9 +186,9 @@ class RevenueTrackingApi
      *
      * Create or update a list of Bing Ads conversions / revenues, using Bing URL tracking
      *
-     * @param \DcmModel\BingClickRevenue[] $body  (optional)
+     * @param \Dcm\Model\BingClickRevenue[] $body  (optional)
      * @return void
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersClickRevenueBingUpsert($body = null)
     {
@@ -201,9 +201,9 @@ class RevenueTrackingApi
      *
      * Create or update a list of Bing Ads conversions / revenues, using Bing URL tracking
      *
-     * @param \DcmModel\BingClickRevenue[] $body  (optional)
+     * @param \Dcm\Model\BingClickRevenue[] $body  (optional)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersClickRevenueBingUpsertWithHttpInfo($body = null)
     {

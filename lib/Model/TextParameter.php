@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
@@ -49,7 +49,7 @@ use \ArrayAccess;
  * @category    Class */
  // @description Describe a query over a text field. Query is defined as an object of operator -&gt; value. Multiple operators may be specified in the query, but only one of each kind (For example, a contains operator can be combined with a not_contains operator)
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -358,10 +358,10 @@ class TextParameter implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

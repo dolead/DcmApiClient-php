@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace DcmApi;
+namespace Dcm\Api;
 
-use \DcmApiClient\Configuration;
-use \DcmApiClient\ApiClient;
-use \DcmApiClient\ApiException;
-use \DcmApiClient\ObjectSerializer;
+use \Dcm\Configuration;
+use \Dcm\ApiClient;
+use \Dcm\ApiException;
+use \Dcm\ObjectSerializer;
 
 /**
  * CampaignBidModifierApi Class Doc Comment
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class CampaignBidModifierApi
     /**
      * API Client
      *
-     * @var \DcmApiClient\ApiClient instance of the ApiClient
+     * @var \Dcm\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DcmApiClient\ApiClient|null $apiClient The api client to use
+     * @param \Dcm\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\DcmApiClient\ApiClient $apiClient = null)
+    public function __construct(\Dcm\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class CampaignBidModifierApi
     /**
      * Get API client
      *
-     * @return \DcmApiClient\ApiClient get the API client
+     * @return \Dcm\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class CampaignBidModifierApi
     /**
      * Set the API client
      *
-     * @param \DcmApiClient\ApiClient $apiClient set the API client
+     * @param \Dcm\ApiClient $apiClient set the API client
      *
      * @return CampaignBidModifierApi
      */
-    public function setApiClient(\DcmApiClient\ApiClient $apiClient)
+    public function setApiClient(\Dcm\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -110,8 +110,8 @@ class CampaignBidModifierApi
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
      * @param string $bid_modifier_id ID of bid modifier (required)
-     * @return \DcmModel\BidModifier
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\BidModifier
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierGet($campaign_id, $bm_type, $bid_modifier_id)
     {
@@ -127,8 +127,8 @@ class CampaignBidModifierApi
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
      * @param string $bid_modifier_id ID of bid modifier (required)
-     * @return Array of \DcmModel\BidModifier, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierGetWithHttpInfo($campaign_id, $bm_type, $bid_modifier_id)
     {
@@ -203,15 +203,15 @@ class CampaignBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\BidModifier',
+                '\Dcm\Model\BidModifier',
                 '/campaign/{campaign_id}/bid_modifier/{bm_type}/{bid_modifier_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\BidModifier', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\BidModifier', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -227,11 +227,11 @@ class CampaignBidModifierApi
      *
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \DcmModel\BidModifierQuery $body  (optional)
+     * @param \Dcm\Model\BidModifierQuery $body  (optional)
      * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return \DcmModel\BidModifier[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\BidModifier[]
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierList($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
     {
@@ -246,11 +246,11 @@ class CampaignBidModifierApi
      *
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \DcmModel\BidModifierQuery $body  (optional)
+     * @param \Dcm\Model\BidModifierQuery $body  (optional)
      * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return Array of \DcmModel\BidModifier[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\BidModifier[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierListWithHttpInfo($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
     {
@@ -337,15 +337,15 @@ class CampaignBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\BidModifier[]',
+                '\Dcm\Model\BidModifier[]',
                 '/campaign/{campaign_id}/bid_modifier/{bm_type}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\BidModifier[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\BidModifier[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -361,9 +361,9 @@ class CampaignBidModifierApi
      *
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \DcmModel\BidModifierUpdate $body  (optional)
+     * @param \Dcm\Model\BidModifierUpdate $body  (optional)
      * @return string[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierUpdateMany($campaign_id, $bm_type, $body = null)
     {
@@ -378,9 +378,9 @@ class CampaignBidModifierApi
      *
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \DcmModel\BidModifierUpdate $body  (optional)
+     * @param \Dcm\Model\BidModifierUpdate $body  (optional)
      * @return Array of string[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierUpdateManyWithHttpInfo($campaign_id, $bm_type, $body = null)
     {
@@ -473,9 +473,9 @@ class CampaignBidModifierApi
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
      * @param string $bid_modifier_id ID of bid_modifier to perform update on (required)
-     * @param \DcmModel\UpdatableBidModifier $body Update operation (required)
-     * @return \DcmModel\BidModifier
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableBidModifier $body Update operation (required)
+     * @return \Dcm\Model\BidModifier
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierUpdateOne($campaign_id, $bm_type, $bid_modifier_id, $body)
     {
@@ -491,9 +491,9 @@ class CampaignBidModifierApi
      * @param string $campaign_id ID of campaign (required)
      * @param string $bm_type Filter over the bid modifier type (required)
      * @param string $bid_modifier_id ID of bid_modifier to perform update on (required)
-     * @param \DcmModel\UpdatableBidModifier $body Update operation (required)
-     * @return Array of \DcmModel\BidModifier, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableBidModifier $body Update operation (required)
+     * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignBidModifierUpdateOneWithHttpInfo($campaign_id, $bm_type, $bid_modifier_id, $body)
     {
@@ -577,15 +577,15 @@ class CampaignBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\BidModifier',
+                '\Dcm\Model\BidModifier',
                 '/campaign/{campaign_id}/bid_modifier/{bm_type}/{bid_modifier_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\BidModifier', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\BidModifier', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

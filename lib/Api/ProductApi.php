@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace DcmApi;
+namespace Dcm\Api;
 
-use \DcmApiClient\Configuration;
-use \DcmApiClient\ApiClient;
-use \DcmApiClient\ApiException;
-use \DcmApiClient\ObjectSerializer;
+use \Dcm\Configuration;
+use \Dcm\ApiClient;
+use \Dcm\ApiException;
+use \Dcm\ObjectSerializer;
 
 /**
  * ProductApi Class Doc Comment
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class ProductApi
     /**
      * API Client
      *
-     * @var \DcmApiClient\ApiClient instance of the ApiClient
+     * @var \Dcm\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DcmApiClient\ApiClient|null $apiClient The api client to use
+     * @param \Dcm\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\DcmApiClient\ApiClient $apiClient = null)
+    public function __construct(\Dcm\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class ProductApi
     /**
      * Get API client
      *
-     * @return \DcmApiClient\ApiClient get the API client
+     * @return \Dcm\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class ProductApi
     /**
      * Set the API client
      *
-     * @param \DcmApiClient\ApiClient $apiClient set the API client
+     * @param \Dcm\ApiClient $apiClient set the API client
      *
      * @return ProductApi
      */
-    public function setApiClient(\DcmApiClient\ApiClient $apiClient)
+    public function setApiClient(\Dcm\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -108,8 +108,8 @@ class ProductApi
      * Get product by its Dolead id
      *
      * @param string $product_id ID of product (required)
-     * @return \DcmModel\Product
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\Product
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductGet($product_id)
     {
@@ -123,8 +123,8 @@ class ProductApi
      * Get product by its Dolead id
      *
      * @param string $product_id ID of product (required)
-     * @return Array of \DcmModel\Product, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\Product, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductGetWithHttpInfo($product_id)
     {
@@ -175,15 +175,15 @@ class ProductApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Product',
+                '\Dcm\Model\Product',
                 '/product/{product_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Product', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Product', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Product', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Product', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -197,11 +197,11 @@ class ProductApi
      *
      * List product matching given criteria
      *
-     * @param \DcmModel\ProductQuery $body  (optional)
+     * @param \Dcm\Model\ProductQuery $body  (optional)
      * @param int $limit Number of product returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return \DcmModel\Product[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\Product[]
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductList($body = null, $limit = null, $offset = null)
     {
@@ -214,11 +214,11 @@ class ProductApi
      *
      * List product matching given criteria
      *
-     * @param \DcmModel\ProductQuery $body  (optional)
+     * @param \Dcm\Model\ProductQuery $body  (optional)
      * @param int $limit Number of product returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return Array of \DcmModel\Product[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\Product[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductListWithHttpInfo($body = null, $limit = null, $offset = null)
     {
@@ -281,15 +281,15 @@ class ProductApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Product[]',
+                '\Dcm\Model\Product[]',
                 '/product'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Product[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Product[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Product[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Product[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -303,9 +303,9 @@ class ProductApi
      *
      * Update campaigns matching given criteria.
      *
-     * @param \DcmModel\ProductUpdate $body  (optional)
+     * @param \Dcm\Model\ProductUpdate $body  (optional)
      * @return string[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductUpdateMany($body = null)
     {
@@ -318,9 +318,9 @@ class ProductApi
      *
      * Update campaigns matching given criteria.
      *
-     * @param \DcmModel\ProductUpdate $body  (optional)
+     * @param \Dcm\Model\ProductUpdate $body  (optional)
      * @return Array of string[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductUpdateManyWithHttpInfo($body = null)
     {
@@ -387,9 +387,9 @@ class ProductApi
      * Update product by its id
      *
      * @param string $product_id Dolead ID of product to perform update on (required)
-     * @param \DcmModel\UpdatableProduct $body Update operation (required)
-     * @return \DcmModel\Product
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableProduct $body Update operation (required)
+     * @return \Dcm\Model\Product
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductUpdateOne($product_id, $body)
     {
@@ -403,9 +403,9 @@ class ProductApi
      * Update product by its id
      *
      * @param string $product_id Dolead ID of product to perform update on (required)
-     * @param \DcmModel\UpdatableProduct $body Update operation (required)
-     * @return Array of \DcmModel\Product, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableProduct $body Update operation (required)
+     * @return Array of \Dcm\Model\Product, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersProductUpdateOneWithHttpInfo($product_id, $body)
     {
@@ -465,15 +465,15 @@ class ProductApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Product',
+                '\Dcm\Model\Product',
                 '/product/{product_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Product', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Product', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Product', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Product', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

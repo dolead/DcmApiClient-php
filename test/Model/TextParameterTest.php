@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace DcmApiClient;
+namespace Dcm;
 
 /**
  * TextParameterTest Class Doc Comment
@@ -47,7 +47,7 @@ namespace DcmApiClient;
  * @category    Class */
 // * @description Describe a query over a text field. Query is defined as an object of operator -&gt; value. Multiple operators may be specified in the query, but only one of each kind (For example, a contains operator can be combined with a not_contains operator)
 /**
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen

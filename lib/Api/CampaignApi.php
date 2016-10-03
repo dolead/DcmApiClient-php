@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace DcmApi;
+namespace Dcm\Api;
 
-use \DcmApiClient\Configuration;
-use \DcmApiClient\ApiClient;
-use \DcmApiClient\ApiException;
-use \DcmApiClient\ObjectSerializer;
+use \Dcm\Configuration;
+use \Dcm\ApiClient;
+use \Dcm\ApiException;
+use \Dcm\ObjectSerializer;
 
 /**
  * CampaignApi Class Doc Comment
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class CampaignApi
     /**
      * API Client
      *
-     * @var \DcmApiClient\ApiClient instance of the ApiClient
+     * @var \Dcm\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DcmApiClient\ApiClient|null $apiClient The api client to use
+     * @param \Dcm\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\DcmApiClient\ApiClient $apiClient = null)
+    public function __construct(\Dcm\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class CampaignApi
     /**
      * Get API client
      *
-     * @return \DcmApiClient\ApiClient get the API client
+     * @return \Dcm\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class CampaignApi
     /**
      * Set the API client
      *
-     * @param \DcmApiClient\ApiClient $apiClient set the API client
+     * @param \Dcm\ApiClient $apiClient set the API client
      *
      * @return CampaignApi
      */
-    public function setApiClient(\DcmApiClient\ApiClient $apiClient)
+    public function setApiClient(\Dcm\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -108,8 +108,8 @@ class CampaignApi
      * Get campaign by its id
      *
      * @param string $campaign_id ID of campaign (required)
-     * @return \DcmModel\Campaign
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\Campaign
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignGet($campaign_id)
     {
@@ -123,8 +123,8 @@ class CampaignApi
      * Get campaign by its id
      *
      * @param string $campaign_id ID of campaign (required)
-     * @return Array of \DcmModel\Campaign, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignGetWithHttpInfo($campaign_id)
     {
@@ -175,15 +175,15 @@ class CampaignApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Campaign',
+                '\Dcm\Model\Campaign',
                 '/campaign/{campaign_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Campaign', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Campaign', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -197,11 +197,11 @@ class CampaignApi
      *
      * List campaigns matching given criteria
      *
-     * @param \DcmModel\CampaignQuery $body  (optional)
+     * @param \Dcm\Model\CampaignQuery $body  (optional)
      * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return \DcmModel\Campaign[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\Campaign[]
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignList($body = null, $limit = null, $offset = null)
     {
@@ -214,11 +214,11 @@ class CampaignApi
      *
      * List campaigns matching given criteria
      *
-     * @param \DcmModel\CampaignQuery $body  (optional)
+     * @param \Dcm\Model\CampaignQuery $body  (optional)
      * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
      * @param int $offset Pagination offset (optional, default to 0)
-     * @return Array of \DcmModel\Campaign[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\Campaign[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignListWithHttpInfo($body = null, $limit = null, $offset = null)
     {
@@ -281,15 +281,15 @@ class CampaignApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Campaign[]',
+                '\Dcm\Model\Campaign[]',
                 '/campaign'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Campaign[]', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign[]', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Campaign[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -303,9 +303,9 @@ class CampaignApi
      *
      * Update campaigns matching given criteria.
      *
-     * @param \DcmModel\CampaignUpdate $body  (optional)
+     * @param \Dcm\Model\CampaignUpdate $body  (optional)
      * @return string[]
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignUpdateMany($body = null)
     {
@@ -318,9 +318,9 @@ class CampaignApi
      *
      * Update campaigns matching given criteria.
      *
-     * @param \DcmModel\CampaignUpdate $body  (optional)
+     * @param \Dcm\Model\CampaignUpdate $body  (optional)
      * @return Array of string[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignUpdateManyWithHttpInfo($body = null)
     {
@@ -387,9 +387,9 @@ class CampaignApi
      * Update campaign by its id
      *
      * @param string $campaign_id ID of campaign to perform update on (required)
-     * @param \DcmModel\UpdatableCampaign $body Update operation (required)
-     * @return \DcmModel\Campaign
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableCampaign $body Update operation (required)
+     * @return \Dcm\Model\Campaign
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignUpdateOne($campaign_id, $body)
     {
@@ -403,9 +403,9 @@ class CampaignApi
      * Update campaign by its id
      *
      * @param string $campaign_id ID of campaign to perform update on (required)
-     * @param \DcmModel\UpdatableCampaign $body Update operation (required)
-     * @return Array of \DcmModel\Campaign, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\UpdatableCampaign $body Update operation (required)
+     * @return Array of \Dcm\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersCampaignUpdateOneWithHttpInfo($campaign_id, $body)
     {
@@ -465,15 +465,15 @@ class CampaignApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\Campaign',
+                '\Dcm\Model\Campaign',
                 '/campaign/{campaign_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\Campaign', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\Campaign', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

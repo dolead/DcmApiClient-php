@@ -1,11 +1,11 @@
 <?php
 /**
- * AdwordsClickRevenue
+ * GeoBidModifierUpdate
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,38 +39,35 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * AdwordsClickRevenue Class Doc Comment
+ * GeoBidModifierUpdate Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AdwordsClickRevenue implements ArrayAccess
+class GeoBidModifierUpdate implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AdwordsClickRevenue';
+    protected static $swaggerModelName = 'GeoBidModifierUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'conversions_many_per_click' => 'int',
-        'conversions_one_per_click' => 'int',
-        'gclid' => 'string',
-        'revenue' => 'float',
-        'transaction_id' => 'string'
+        'geo_criteria' => '\Dcm\Model\GeoCriteria',
+        'value' => 'float'
     );
 
     public static function swaggerTypes()
@@ -83,11 +80,8 @@ class AdwordsClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'conversions_many_per_click' => 'conversions_many_per_click',
-        'conversions_one_per_click' => 'conversions_one_per_click',
-        'gclid' => 'gclid',
-        'revenue' => 'revenue',
-        'transaction_id' => 'transaction_id'
+        'geo_criteria' => 'geo_criteria',
+        'value' => 'value'
     );
 
     public static function attributeMap()
@@ -100,11 +94,8 @@ class AdwordsClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'conversions_many_per_click' => 'setConversionsManyPerClick',
-        'conversions_one_per_click' => 'setConversionsOnePerClick',
-        'gclid' => 'setGclid',
-        'revenue' => 'setRevenue',
-        'transaction_id' => 'setTransactionId'
+        'geo_criteria' => 'setGeoCriteria',
+        'value' => 'setValue'
     );
 
     public static function setters()
@@ -117,11 +108,8 @@ class AdwordsClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'conversions_many_per_click' => 'getConversionsManyPerClick',
-        'conversions_one_per_click' => 'getConversionsOnePerClick',
-        'gclid' => 'getGclid',
-        'revenue' => 'getRevenue',
-        'transaction_id' => 'getTransactionId'
+        'geo_criteria' => 'getGeoCriteria',
+        'value' => 'getValue'
     );
 
     public static function getters()
@@ -145,11 +133,8 @@ class AdwordsClickRevenue implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversions_many_per_click'] = isset($data['conversions_many_per_click']) ? $data['conversions_many_per_click'] : null;
-        $this->container['conversions_one_per_click'] = isset($data['conversions_one_per_click']) ? $data['conversions_one_per_click'] : null;
-        $this->container['gclid'] = isset($data['gclid']) ? $data['gclid'] : null;
-        $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
-        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
+        $this->container['geo_criteria'] = isset($data['geo_criteria']) ? $data['geo_criteria'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -176,106 +161,43 @@ class AdwordsClickRevenue implements ArrayAccess
 
 
     /**
-     * Gets conversions_many_per_click
-     * @return int
+     * Gets geo_criteria
+     * @return \Dcm\Model\GeoCriteria
      */
-    public function getConversionsManyPerClick()
+    public function getGeoCriteria()
     {
-        return $this->container['conversions_many_per_click'];
+        return $this->container['geo_criteria'];
     }
 
     /**
-     * Sets conversions_many_per_click
-     * @param int $conversions_many_per_click Conversions (many per click) count, for current (gclid, transaction_id)
+     * Sets geo_criteria
+     * @param \Dcm\Model\GeoCriteria $geo_criteria
      * @return $this
      */
-    public function setConversionsManyPerClick($conversions_many_per_click)
+    public function setGeoCriteria($geo_criteria)
     {
-        $this->container['conversions_many_per_click'] = $conversions_many_per_click;
+        $this->container['geo_criteria'] = $geo_criteria;
 
         return $this;
     }
 
     /**
-     * Gets conversions_one_per_click
-     * @return int
-     */
-    public function getConversionsOnePerClick()
-    {
-        return $this->container['conversions_one_per_click'];
-    }
-
-    /**
-     * Sets conversions_one_per_click
-     * @param int $conversions_one_per_click Converted clicks (one per click conversions) count, for current (gclid, transaction_id).
-     * @return $this
-     */
-    public function setConversionsOnePerClick($conversions_one_per_click)
-    {
-        $this->container['conversions_one_per_click'] = $conversions_one_per_click;
-
-        return $this;
-    }
-
-    /**
-     * Gets gclid
-     * @return string
-     */
-    public function getGclid()
-    {
-        return $this->container['gclid'];
-    }
-
-    /**
-     * Sets gclid
-     * @param string $gclid Google Click Id
-     * @return $this
-     */
-    public function setGclid($gclid)
-    {
-        $this->container['gclid'] = $gclid;
-
-        return $this;
-    }
-
-    /**
-     * Gets revenue
+     * Gets value
      * @return float
      */
-    public function getRevenue()
+    public function getValue()
     {
-        return $this->container['revenue'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets revenue
-     * @param float $revenue Generated revenue (aggregated for current google click id, if multiple conversions for the same click)
+     * Sets value
+     * @param float $value The bid modifier value (in percentage) to apply. Between -100 (%) and +inf.
      * @return $this
      */
-    public function setRevenue($revenue)
+    public function setValue($value)
     {
-        $this->container['revenue'] = $revenue;
-
-        return $this;
-    }
-
-    /**
-     * Gets transaction_id
-     * @return string
-     */
-    public function getTransactionId()
-    {
-        return $this->container['transaction_id'];
-    }
-
-    /**
-     * Sets transaction_id
-     * @param string $transaction_id (Optional) a transaction ID (if a click can generate multiple conversions)
-     * @return $this
-     */
-    public function setTransactionId($transaction_id)
-    {
-        $this->container['transaction_id'] = $transaction_id;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -331,10 +253,10 @@ class AdwordsClickRevenue implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

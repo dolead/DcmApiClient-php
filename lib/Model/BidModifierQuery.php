@@ -1,11 +1,11 @@
 <?php
 /**
- * IDParameter
+ * BidModifierQuery
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,38 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * IDParameter Class Doc Comment
+ * BidModifierQuery Class Doc Comment
  *
  * @category    Class */
- // @description Describe a query over a text field. Query is defined as an object of operator -&gt; value. Multiple operators may be specified in the query, but only one of each kind (For example, a contains operator can be combined with a not_contains operator)
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class IDParameter implements ArrayAccess
+class BidModifierQuery implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'IDParameter';
+    protected static $swaggerModelName = 'BidModifierQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'eq' => 'string',
-        'in' => 'string[]',
-        'neq' => 'string',
-        'not_in' => 'string[]'
+        '_id' => '\Dcm\Model\IDParameter'
     );
 
     public static function swaggerTypes()
@@ -83,10 +79,7 @@ class IDParameter implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'eq' => 'eq',
-        'in' => 'in',
-        'neq' => 'neq',
-        'not_in' => 'not_in'
+        '_id' => '_id'
     );
 
     public static function attributeMap()
@@ -99,10 +92,7 @@ class IDParameter implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'eq' => 'setEq',
-        'in' => 'setIn',
-        'neq' => 'setNeq',
-        'not_in' => 'setNotIn'
+        '_id' => 'setId'
     );
 
     public static function setters()
@@ -115,10 +105,7 @@ class IDParameter implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'eq' => 'getEq',
-        'in' => 'getIn',
-        'neq' => 'getNeq',
-        'not_in' => 'getNotIn'
+        '_id' => 'getId'
     );
 
     public static function getters()
@@ -142,10 +129,7 @@ class IDParameter implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['eq'] = isset($data['eq']) ? $data['eq'] : null;
-        $this->container['in'] = isset($data['in']) ? $data['in'] : null;
-        $this->container['neq'] = isset($data['neq']) ? $data['neq'] : null;
-        $this->container['not_in'] = isset($data['not_in']) ? $data['not_in'] : null;
+        $this->container['_id'] = isset($data['_id']) ? $data['_id'] : null;
     }
 
     /**
@@ -172,85 +156,22 @@ class IDParameter implements ArrayAccess
 
 
     /**
-     * Gets eq
-     * @return string
+     * Gets _id
+     * @return \Dcm\Model\IDParameter
      */
-    public function getEq()
+    public function getId()
     {
-        return $this->container['eq'];
+        return $this->container['_id'];
     }
 
     /**
-     * Sets eq
-     * @param string $eq Field is exactly value
+     * Sets _id
+     * @param \Dcm\Model\IDParameter $_id
      * @return $this
      */
-    public function setEq($eq)
+    public function setId($_id)
     {
-        $this->container['eq'] = $eq;
-
-        return $this;
-    }
-
-    /**
-     * Gets in
-     * @return string[]
-     */
-    public function getIn()
-    {
-        return $this->container['in'];
-    }
-
-    /**
-     * Sets in
-     * @param string[] $in Value is one of
-     * @return $this
-     */
-    public function setIn($in)
-    {
-        $this->container['in'] = $in;
-
-        return $this;
-    }
-
-    /**
-     * Gets neq
-     * @return string
-     */
-    public function getNeq()
-    {
-        return $this->container['neq'];
-    }
-
-    /**
-     * Sets neq
-     * @param string $neq Field is not value
-     * @return $this
-     */
-    public function setNeq($neq)
-    {
-        $this->container['neq'] = $neq;
-
-        return $this;
-    }
-
-    /**
-     * Gets not_in
-     * @return string[]
-     */
-    public function getNotIn()
-    {
-        return $this->container['not_in'];
-    }
-
-    /**
-     * Sets not_in
-     * @param string[] $not_in Value is none of
-     * @return $this
-     */
-    public function setNotIn($not_in)
-    {
-        $this->container['not_in'] = $not_in;
+        $this->container['_id'] = $_id;
 
         return $this;
     }
@@ -306,10 +227,10 @@ class IDParameter implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * UpdatableProduct
+ * CampaignQuery
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,35 +39,36 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * UpdatableProduct Class Doc Comment
+ * CampaignQuery Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class UpdatableProduct implements ArrayAccess
+class CampaignQuery implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UpdatableProduct';
+    protected static $swaggerModelName = 'CampaignQuery';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'target_margin' => 'double',
-        'target_roi' => 'double'
+        'campaign_type' => 'string',
+        'name' => '\Dcm\Model\TextParameter',
+        'publisher' => 'string'
     );
 
     public static function swaggerTypes()
@@ -80,8 +81,9 @@ class UpdatableProduct implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'target_margin' => 'target_margin',
-        'target_roi' => 'target_roi'
+        'campaign_type' => 'campaign_type',
+        'name' => 'name',
+        'publisher' => 'publisher'
     );
 
     public static function attributeMap()
@@ -94,8 +96,9 @@ class UpdatableProduct implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'target_margin' => 'setTargetMargin',
-        'target_roi' => 'setTargetRoi'
+        'campaign_type' => 'setCampaignType',
+        'name' => 'setName',
+        'publisher' => 'setPublisher'
     );
 
     public static function setters()
@@ -108,8 +111,9 @@ class UpdatableProduct implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'target_margin' => 'getTargetMargin',
-        'target_roi' => 'getTargetRoi'
+        'campaign_type' => 'getCampaignType',
+        'name' => 'getName',
+        'publisher' => 'getPublisher'
     );
 
     public static function getters()
@@ -117,8 +121,38 @@ class UpdatableProduct implements ArrayAccess
         return self::$getters;
     }
 
+    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
+    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
+    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const PUBLISHER_GOOGLE = 'GOOGLE';
+    const PUBLISHER_BING = 'BING';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCampaignTypeAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_TYPE_SEARCH,
+            self::CAMPAIGN_TYPE_DISPLAY,
+            self::CAMPAIGN_TYPE_SHOPPING,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getPublisherAllowableValues()
+    {
+        return [
+            self::PUBLISHER_GOOGLE,
+            self::PUBLISHER_BING,
+        ];
+    }
     
 
     /**
@@ -133,8 +167,9 @@ class UpdatableProduct implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['target_margin'] = isset($data['target_margin']) ? $data['target_margin'] : null;
-        $this->container['target_roi'] = isset($data['target_roi']) ? $data['target_roi'] : null;
+        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
     }
 
     /**
@@ -145,12 +180,14 @@ class UpdatableProduct implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['target_margin']) && ($this->container['target_margin'] < 0.01)) {
-            $invalid_properties[] = "invalid value for 'target_margin', must be bigger than or equal to 0.01.";
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
 
-        if (!is_null($this->container['target_roi']) && ($this->container['target_roi'] < 0.01)) {
-            $invalid_properties[] = "invalid value for 'target_roi', must be bigger than or equal to 0.01.";
+        $allowed_values = array("GOOGLE", "BING");
+        if (!in_array($this->container['publisher'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'publisher', must be one of #{allowed_values}.";
         }
 
         return $invalid_properties;
@@ -164,10 +201,12 @@ class UpdatableProduct implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['target_margin'] < 0.01) {
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }
-        if ($this->container['target_roi'] < 0.01) {
+        $allowed_values = array("GOOGLE", "BING");
+        if (!in_array($this->container['publisher'], $allowed_values)) {
             return false;
         }
         return true;
@@ -175,51 +214,72 @@ class UpdatableProduct implements ArrayAccess
 
 
     /**
-     * Gets target_margin
-     * @return double
+     * Gets campaign_type
+     * @return string
      */
-    public function getTargetMargin()
+    public function getCampaignType()
     {
-        return $this->container['target_margin'];
+        return $this->container['campaign_type'];
     }
 
     /**
-     * Sets target_margin
-     * @param double $target_margin Targeted margin for the product. This value is exclusive with target_roi. If given alone, any previous target roi on the product will be deleted. If given with a target roi, only the target margin will be kept.
+     * Sets campaign_type
+     * @param string $campaign_type Filter over the campaign type
      * @return $this
      */
-    public function setTargetMargin($target_margin)
+    public function setCampaignType($campaign_type)
     {
-
-        if ($target_margin < 0.01) {
-            throw new \InvalidArgumentException('invalid value for $target_margin when calling UpdatableProduct., must be bigger than or equal to 0.01.');
+        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
+        if (!in_array($campaign_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
         }
-        $this->container['target_margin'] = $target_margin;
+        $this->container['campaign_type'] = $campaign_type;
 
         return $this;
     }
 
     /**
-     * Gets target_roi
-     * @return double
+     * Gets name
+     * @return \Dcm\Model\TextParameter
      */
-    public function getTargetRoi()
+    public function getName()
     {
-        return $this->container['target_roi'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets target_roi
-     * @param double $target_roi Targeted ROI for the product. This value is exclusive with target_margin. If given alone, any previous target margin on the product will be deleted. If given with a target margin, only the target margin will be kept.
+     * Sets name
+     * @param \Dcm\Model\TextParameter $name
      * @return $this
      */
-    public function setTargetRoi($target_roi)
+    public function setName($name)
     {
+        $this->container['name'] = $name;
 
-        if ($target_roi < 0.01) {
-            throw new \InvalidArgumentException('invalid value for $target_roi when calling UpdatableProduct., must be bigger than or equal to 0.01.');
+        return $this;
+    }
+
+    /**
+     * Gets publisher
+     * @return string
+     */
+    public function getPublisher()
+    {
+        return $this->container['publisher'];
+    }
+
+    /**
+     * Sets publisher
+     * @param string $publisher Filter over the campaign publisher network
+     * @return $this
+     */
+    public function setPublisher($publisher)
+    {
+        $allowed_values = array('GOOGLE', 'BING');
+        if (!in_array($publisher, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'GOOGLE', 'BING'");
         }
-        $this->container['target_roi'] = $target_roi;
+        $this->container['publisher'] = $publisher;
 
         return $this;
     }
@@ -275,10 +335,10 @@ class UpdatableProduct implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

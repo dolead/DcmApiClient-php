@@ -1,4 +1,4 @@
-# DcmApiClient\RevenueTrackingApi
+# Dcm\RevenueTrackingApi
 
 All URIs are relative to *https://dcmapi.dolead.com/v1*
 
@@ -21,12 +21,12 @@ This service needs autotagging works for your site (https://support.google.com/a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\RevenueTrackingApi();
-$body = array(new AdwordsClickRevenue()); // \DcmModel\AdwordsClickRevenue[] | 
+$api_instance = new Dcm\Api\RevenueTrackingApi();
+$body = array(new AdwordsClickRevenue()); // \Dcm\Model\AdwordsClickRevenue[] | 
 
 try {
     $api_instance->controllersClickRevenueAdwordsUpsert($body);
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\DcmModel\AdwordsClickRevenue[]**](../Model/AdwordsClickRevenue.md)|  | [optional]
+ **body** | [**\Dcm\Model\AdwordsClickRevenue[]**](../Model/AdwordsClickRevenue.md)|  | [optional]
 
 ### Return type
 
@@ -70,12 +70,12 @@ This service use data given by the Bing URL Tracking service (http://help.bingad
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\RevenueTrackingApi();
-$body = array(new BingClickRevenue()); // \DcmModel\BingClickRevenue[] | 
+$api_instance = new Dcm\Api\RevenueTrackingApi();
+$body = array(new BingClickRevenue()); // \Dcm\Model\BingClickRevenue[] | 
 
 try {
     $api_instance->controllersClickRevenueBingUpsert($body);
@@ -89,7 +89,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\DcmModel\BingClickRevenue[]**](../Model/BingClickRevenue.md)|  | [optional]
+ **body** | [**\Dcm\Model\BingClickRevenue[]**](../Model/BingClickRevenue.md)|  | [optional]
 
 ### Return type
 

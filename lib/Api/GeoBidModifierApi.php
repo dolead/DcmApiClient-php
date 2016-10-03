@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace DcmApi;
+namespace Dcm\Api;
 
-use \DcmApiClient\Configuration;
-use \DcmApiClient\ApiClient;
-use \DcmApiClient\ApiException;
-use \DcmApiClient\ObjectSerializer;
+use \Dcm\Configuration;
+use \Dcm\ApiClient;
+use \Dcm\ApiException;
+use \Dcm\ObjectSerializer;
 
 /**
  * GeoBidModifierApi Class Doc Comment
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class GeoBidModifierApi
     /**
      * API Client
      *
-     * @var \DcmApiClient\ApiClient instance of the ApiClient
+     * @var \Dcm\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \DcmApiClient\ApiClient|null $apiClient The api client to use
+     * @param \Dcm\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\DcmApiClient\ApiClient $apiClient = null)
+    public function __construct(\Dcm\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class GeoBidModifierApi
     /**
      * Get API client
      *
-     * @return \DcmApiClient\ApiClient get the API client
+     * @return \Dcm\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class GeoBidModifierApi
     /**
      * Set the API client
      *
-     * @param \DcmApiClient\ApiClient $apiClient set the API client
+     * @param \Dcm\ApiClient $apiClient set the API client
      *
      * @return GeoBidModifierApi
      */
-    public function setApiClient(\DcmApiClient\ApiClient $apiClient)
+    public function setApiClient(\Dcm\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -109,8 +109,8 @@ class GeoBidModifierApi
      *
      * @param string $biddable_level Type of object (required)
      * @param string $biddable_id ID of object (required)
-     * @return \DcmModel\BidModifier
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return \Dcm\Model\BidModifier
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierList($biddable_level, $biddable_id)
     {
@@ -125,8 +125,8 @@ class GeoBidModifierApi
      *
      * @param string $biddable_level Type of object (required)
      * @param string $biddable_id ID of object (required)
-     * @return Array of \DcmModel\BidModifier, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierListWithHttpInfo($biddable_level, $biddable_id)
     {
@@ -189,15 +189,15 @@ class GeoBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\BidModifier',
+                '\Dcm\Model\BidModifier',
                 '/geo_bid_modifier/{biddable_level}/{biddable_id}/'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\BidModifier', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\BidModifier', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -214,9 +214,9 @@ class GeoBidModifierApi
      * @param string $biddable_level Type of the biddable object (required)
      * @param string $biddable_id ID of the biddable object (account, campaign, ad_group) (required)
      * @param string $replace replace&#x3D;false means all existing bid modifiers are replaced. (optional, default to true)
-     * @param \DcmModel\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
-     * @return \DcmModel\BidModifier
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
+     * @return \Dcm\Model\BidModifier
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace = null, $body = null)
     {
@@ -232,9 +232,9 @@ class GeoBidModifierApi
      * @param string $biddable_level Type of the biddable object (required)
      * @param string $biddable_id ID of the biddable object (account, campaign, ad_group) (required)
      * @param string $replace replace&#x3D;false means all existing bid modifiers are replaced. (optional, default to true)
-     * @param \DcmModel\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
-     * @return Array of \DcmModel\BidModifier, HTTP status code, HTTP response headers (array of strings)
-     * @throws \DcmApiClient\ApiException on non-2xx response
+     * @param \Dcm\Model\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
+     * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierUpdateManyWithHttpInfo($biddable_level, $biddable_id, $replace = null, $body = null)
     {
@@ -306,15 +306,15 @@ class GeoBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\DcmModel\BidModifier',
+                '\Dcm\Model\BidModifier',
                 '/geo_bid_modifier/{biddable_level}/{biddable_id}/'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\DcmModel\BidModifier', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DcmModel\BidModifier', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

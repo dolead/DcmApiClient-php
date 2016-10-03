@@ -1,4 +1,4 @@
-# DcmApiClient\CampaignApi
+# Dcm\CampaignApi
 
 All URIs are relative to *https://dcmapi.dolead.com/v1*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **controllersCampaignGet**
-> \DcmModel\Campaign controllersCampaignGet($campaign_id)
+> \Dcm\Model\Campaign controllersCampaignGet($campaign_id)
 
 Get campaign by its id
 
@@ -21,11 +21,11 @@ Get campaign by its id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignApi();
+$api_instance = new Dcm\Api\CampaignApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign
 
 try {
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DcmModel\Campaign**](../Model/Campaign.md)
+[**\Dcm\Model\Campaign**](../Model/Campaign.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersCampaignList**
-> \DcmModel\Campaign[] controllersCampaignList($body, $limit, $offset)
+> \Dcm\Model\Campaign[] controllersCampaignList($body, $limit, $offset)
 
 List campaigns matching given criteria
 
@@ -71,12 +71,12 @@ Each criterion may be an Enum or a TextParameter <br /> - An Enum parameter is a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignApi();
-$body = new \DcmModel\CampaignQuery(); // \DcmModel\CampaignQuery | 
+$api_instance = new Dcm\Api\CampaignApi();
+$body = new \Dcm\Model\CampaignQuery(); // \Dcm\Model\CampaignQuery | 
 $limit = 100; // int | Number of campaign returned. Used in pagination
 $offset = 0; // int | Pagination offset
 
@@ -93,13 +93,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\DcmModel\CampaignQuery**](../Model/\DcmModel\CampaignQuery.md)|  | [optional]
+ **body** | [**\Dcm\Model\CampaignQuery**](../Model/\Dcm\Model\CampaignQuery.md)|  | [optional]
  **limit** | **int**| Number of campaign returned. Used in pagination | [optional] [default to 100]
  **offset** | **int**| Pagination offset | [optional] [default to 0]
 
 ### Return type
 
-[**\DcmModel\Campaign[]**](../Model/Campaign.md)
+[**\Dcm\Model\Campaign[]**](../Model/Campaign.md)
 
 ### Authorization
 
@@ -125,12 +125,12 @@ Each criteria may be an Enum or a TextParameter <br /> - An Enum parameter is a 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignApi();
-$body = new \DcmModel\CampaignUpdate(); // \DcmModel\CampaignUpdate | 
+$api_instance = new Dcm\Api\CampaignApi();
+$body = new \Dcm\Model\CampaignUpdate(); // \Dcm\Model\CampaignUpdate | 
 
 try {
     $result = $api_instance->controllersCampaignUpdateMany($body);
@@ -145,7 +145,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\DcmModel\CampaignUpdate**](../Model/\DcmModel\CampaignUpdate.md)|  | [optional]
+ **body** | [**\Dcm\Model\CampaignUpdate**](../Model/\Dcm\Model\CampaignUpdate.md)|  | [optional]
 
 ### Return type
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersCampaignUpdateOne**
-> \DcmModel\Campaign controllersCampaignUpdateOne($campaign_id, $body)
+> \Dcm\Model\Campaign controllersCampaignUpdateOne($campaign_id, $body)
 
 Update campaign by its id
 
@@ -173,13 +173,13 @@ Update campaign by its id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignApi();
+$api_instance = new Dcm\Api\CampaignApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign to perform update on
-$body = new \DcmModel\UpdatableCampaign(); // \DcmModel\UpdatableCampaign | Update operation
+$body = new \Dcm\Model\UpdatableCampaign(); // \Dcm\Model\UpdatableCampaign | Update operation
 
 try {
     $result = $api_instance->controllersCampaignUpdateOne($campaign_id, $body);
@@ -195,11 +195,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **string**| ID of campaign to perform update on |
- **body** | [**\DcmModel\UpdatableCampaign**](../Model/\DcmModel\UpdatableCampaign.md)| Update operation |
+ **body** | [**\Dcm\Model\UpdatableCampaign**](../Model/\Dcm\Model\UpdatableCampaign.md)| Update operation |
 
 ### Return type
 
-[**\DcmModel\Campaign**](../Model/Campaign.md)
+[**\Dcm\Model\Campaign**](../Model/Campaign.md)
 
 ### Authorization
 

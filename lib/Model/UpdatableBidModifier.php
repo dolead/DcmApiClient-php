@@ -1,11 +1,11 @@
 <?php
 /**
- * ProductUpdate
+ * UpdatableBidModifier
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,35 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * ProductUpdate Class Doc Comment
+ * UpdatableBidModifier Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ProductUpdate implements ArrayAccess
+class UpdatableBidModifier implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ProductUpdate';
+    protected static $swaggerModelName = 'UpdatableBidModifier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'query' => '\DcmModel\ProductQuery',
-        'update' => '\DcmModel\UpdatableProduct'
+        'value' => 'float'
     );
 
     public static function swaggerTypes()
@@ -80,8 +79,7 @@ class ProductUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'query' => 'query',
-        'update' => 'update'
+        'value' => 'value'
     );
 
     public static function attributeMap()
@@ -94,8 +92,7 @@ class ProductUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'query' => 'setQuery',
-        'update' => 'setUpdate'
+        'value' => 'setValue'
     );
 
     public static function setters()
@@ -108,8 +105,7 @@ class ProductUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'query' => 'getQuery',
-        'update' => 'getUpdate'
+        'value' => 'getValue'
     );
 
     public static function getters()
@@ -133,8 +129,7 @@ class ProductUpdate implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -161,43 +156,22 @@ class ProductUpdate implements ArrayAccess
 
 
     /**
-     * Gets query
-     * @return \DcmModel\ProductQuery
+     * Gets value
+     * @return float
      */
-    public function getQuery()
+    public function getValue()
     {
-        return $this->container['query'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets query
-     * @param \DcmModel\ProductQuery $query
+     * Sets value
+     * @param float $value Value of the bid modifier in ratio (e.g. 1.2 → +20%)
      * @return $this
      */
-    public function setQuery($query)
+    public function setValue($value)
     {
-        $this->container['query'] = $query;
-
-        return $this;
-    }
-
-    /**
-     * Gets update
-     * @return \DcmModel\UpdatableProduct
-     */
-    public function getUpdate()
-    {
-        return $this->container['update'];
-    }
-
-    /**
-     * Sets update
-     * @param \DcmModel\UpdatableProduct $update
-     * @return $this
-     */
-    public function setUpdate($update)
-    {
-        $this->container['update'] = $update;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -253,10 +227,10 @@ class ProductUpdate implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

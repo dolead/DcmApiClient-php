@@ -1,11 +1,11 @@
 <?php
 /**
- * BidModifierUpdate
+ * AdwordsClickRevenue
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,35 +39,38 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * BidModifierUpdate Class Doc Comment
+ * AdwordsClickRevenue Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BidModifierUpdate implements ArrayAccess
+class AdwordsClickRevenue implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'BidModifierUpdate';
+    protected static $swaggerModelName = 'AdwordsClickRevenue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'query' => '\DcmModel\BidModifierQuery',
-        'update' => '\DcmModel\UpdatableBidModifier'
+        'conversions_many_per_click' => 'int',
+        'conversions_one_per_click' => 'int',
+        'gclid' => 'string',
+        'revenue' => 'float',
+        'transaction_id' => 'string'
     );
 
     public static function swaggerTypes()
@@ -80,8 +83,11 @@ class BidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'query' => 'query',
-        'update' => 'update'
+        'conversions_many_per_click' => 'conversions_many_per_click',
+        'conversions_one_per_click' => 'conversions_one_per_click',
+        'gclid' => 'gclid',
+        'revenue' => 'revenue',
+        'transaction_id' => 'transaction_id'
     );
 
     public static function attributeMap()
@@ -94,8 +100,11 @@ class BidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'query' => 'setQuery',
-        'update' => 'setUpdate'
+        'conversions_many_per_click' => 'setConversionsManyPerClick',
+        'conversions_one_per_click' => 'setConversionsOnePerClick',
+        'gclid' => 'setGclid',
+        'revenue' => 'setRevenue',
+        'transaction_id' => 'setTransactionId'
     );
 
     public static function setters()
@@ -108,8 +117,11 @@ class BidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'query' => 'getQuery',
-        'update' => 'getUpdate'
+        'conversions_many_per_click' => 'getConversionsManyPerClick',
+        'conversions_one_per_click' => 'getConversionsOnePerClick',
+        'gclid' => 'getGclid',
+        'revenue' => 'getRevenue',
+        'transaction_id' => 'getTransactionId'
     );
 
     public static function getters()
@@ -133,8 +145,11 @@ class BidModifierUpdate implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
-        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
+        $this->container['conversions_many_per_click'] = isset($data['conversions_many_per_click']) ? $data['conversions_many_per_click'] : null;
+        $this->container['conversions_one_per_click'] = isset($data['conversions_one_per_click']) ? $data['conversions_one_per_click'] : null;
+        $this->container['gclid'] = isset($data['gclid']) ? $data['gclid'] : null;
+        $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
+        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
     }
 
     /**
@@ -161,43 +176,106 @@ class BidModifierUpdate implements ArrayAccess
 
 
     /**
-     * Gets query
-     * @return \DcmModel\BidModifierQuery
+     * Gets conversions_many_per_click
+     * @return int
      */
-    public function getQuery()
+    public function getConversionsManyPerClick()
     {
-        return $this->container['query'];
+        return $this->container['conversions_many_per_click'];
     }
 
     /**
-     * Sets query
-     * @param \DcmModel\BidModifierQuery $query
+     * Sets conversions_many_per_click
+     * @param int $conversions_many_per_click Conversions (many per click) count, for current (gclid, transaction_id)
      * @return $this
      */
-    public function setQuery($query)
+    public function setConversionsManyPerClick($conversions_many_per_click)
     {
-        $this->container['query'] = $query;
+        $this->container['conversions_many_per_click'] = $conversions_many_per_click;
 
         return $this;
     }
 
     /**
-     * Gets update
-     * @return \DcmModel\UpdatableBidModifier
+     * Gets conversions_one_per_click
+     * @return int
      */
-    public function getUpdate()
+    public function getConversionsOnePerClick()
     {
-        return $this->container['update'];
+        return $this->container['conversions_one_per_click'];
     }
 
     /**
-     * Sets update
-     * @param \DcmModel\UpdatableBidModifier $update
+     * Sets conversions_one_per_click
+     * @param int $conversions_one_per_click Converted clicks (one per click conversions) count, for current (gclid, transaction_id).
      * @return $this
      */
-    public function setUpdate($update)
+    public function setConversionsOnePerClick($conversions_one_per_click)
     {
-        $this->container['update'] = $update;
+        $this->container['conversions_one_per_click'] = $conversions_one_per_click;
+
+        return $this;
+    }
+
+    /**
+     * Gets gclid
+     * @return string
+     */
+    public function getGclid()
+    {
+        return $this->container['gclid'];
+    }
+
+    /**
+     * Sets gclid
+     * @param string $gclid Google Click Id
+     * @return $this
+     */
+    public function setGclid($gclid)
+    {
+        $this->container['gclid'] = $gclid;
+
+        return $this;
+    }
+
+    /**
+     * Gets revenue
+     * @return float
+     */
+    public function getRevenue()
+    {
+        return $this->container['revenue'];
+    }
+
+    /**
+     * Sets revenue
+     * @param float $revenue Generated revenue (aggregated for current google click id, if multiple conversions for the same click)
+     * @return $this
+     */
+    public function setRevenue($revenue)
+    {
+        $this->container['revenue'] = $revenue;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_id
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return $this->container['transaction_id'];
+    }
+
+    /**
+     * Sets transaction_id
+     * @param string $transaction_id (Optional) a transaction ID (if a click can generate multiple conversions)
+     * @return $this
+     */
+    public function setTransactionId($transaction_id)
+    {
+        $this->container['transaction_id'] = $transaction_id;
 
         return $this;
     }
@@ -253,10 +331,10 @@ class BidModifierUpdate implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -1,4 +1,4 @@
-# DcmApiClient\CampaignBidModifierApi
+# Dcm\CampaignBidModifierApi
 
 All URIs are relative to *https://dcmapi.dolead.com/v1*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **controllersCampaignBidModifierGet**
-> \DcmModel\BidModifier controllersCampaignBidModifierGet($campaign_id, $bm_type, $bid_modifier_id)
+> \Dcm\Model\BidModifier controllersCampaignBidModifierGet($campaign_id, $bm_type, $bid_modifier_id)
 
 Get bid modifier by its id
 
@@ -21,11 +21,11 @@ Get bid modifier by its id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignBidModifierApi();
+$api_instance = new Dcm\Api\CampaignBidModifierApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign
 $bm_type = "bm_type_example"; // string | Filter over the bid modifier type
 $bid_modifier_id = "bid_modifier_id_example"; // string | ID of bid modifier
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DcmModel\BidModifier**](../Model/BidModifier.md)
+[**\Dcm\Model\BidModifier**](../Model/BidModifier.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersCampaignBidModifierList**
-> \DcmModel\BidModifier[] controllersCampaignBidModifierList($campaign_id, $bm_type, $body, $limit, $offset)
+> \Dcm\Model\BidModifier[] controllersCampaignBidModifierList($campaign_id, $bm_type, $body, $limit, $offset)
 
 List campaign bid modifiers matching given criteria
 
@@ -75,14 +75,14 @@ Each criterion may be an Enum or a TextParameter <br /> - An Enum parameter is a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignBidModifierApi();
+$api_instance = new Dcm\Api\CampaignBidModifierApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign
 $bm_type = "bm_type_example"; // string | Filter over the bid modifier type
-$body = new \DcmModel\BidModifierQuery(); // \DcmModel\BidModifierQuery | 
+$body = new \Dcm\Model\BidModifierQuery(); // \Dcm\Model\BidModifierQuery | 
 $limit = 100; // int | Number of campaign returned. Used in pagination
 $offset = 0; // int | Pagination offset
 
@@ -101,13 +101,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **string**| ID of campaign |
  **bm_type** | **string**| Filter over the bid modifier type |
- **body** | [**\DcmModel\BidModifierQuery**](../Model/\DcmModel\BidModifierQuery.md)|  | [optional]
+ **body** | [**\Dcm\Model\BidModifierQuery**](../Model/\Dcm\Model\BidModifierQuery.md)|  | [optional]
  **limit** | **int**| Number of campaign returned. Used in pagination | [optional] [default to 100]
  **offset** | **int**| Pagination offset | [optional] [default to 0]
 
 ### Return type
 
-[**\DcmModel\BidModifier[]**](../Model/BidModifier.md)
+[**\Dcm\Model\BidModifier[]**](../Model/BidModifier.md)
 
 ### Authorization
 
@@ -133,14 +133,14 @@ Each criteria may be an Enum or a TextParameter <br /> - An Enum parameter is a 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignBidModifierApi();
+$api_instance = new Dcm\Api\CampaignBidModifierApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign
 $bm_type = "bm_type_example"; // string | Filter over the bid modifier type
-$body = new \DcmModel\BidModifierUpdate(); // \DcmModel\BidModifierUpdate | 
+$body = new \Dcm\Model\BidModifierUpdate(); // \Dcm\Model\BidModifierUpdate | 
 
 try {
     $result = $api_instance->controllersCampaignBidModifierUpdateMany($campaign_id, $bm_type, $body);
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **string**| ID of campaign |
  **bm_type** | **string**| Filter over the bid modifier type |
- **body** | [**\DcmModel\BidModifierUpdate**](../Model/\DcmModel\BidModifierUpdate.md)|  | [optional]
+ **body** | [**\Dcm\Model\BidModifierUpdate**](../Model/\Dcm\Model\BidModifierUpdate.md)|  | [optional]
 
 ### Return type
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersCampaignBidModifierUpdateOne**
-> \DcmModel\BidModifier controllersCampaignBidModifierUpdateOne($campaign_id, $bm_type, $bid_modifier_id, $body)
+> \Dcm\Model\BidModifier controllersCampaignBidModifierUpdateOne($campaign_id, $bm_type, $bid_modifier_id, $body)
 
 Update bid_modifier by its id
 
@@ -185,15 +185,15 @@ Update bid_modifier by its id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\CampaignBidModifierApi();
+$api_instance = new Dcm\Api\CampaignBidModifierApi();
 $campaign_id = "campaign_id_example"; // string | ID of campaign
 $bm_type = "bm_type_example"; // string | Filter over the bid modifier type
 $bid_modifier_id = "bid_modifier_id_example"; // string | ID of bid_modifier to perform update on
-$body = new \DcmModel\UpdatableBidModifier(); // \DcmModel\UpdatableBidModifier | Update operation
+$body = new \Dcm\Model\UpdatableBidModifier(); // \Dcm\Model\UpdatableBidModifier | Update operation
 
 try {
     $result = $api_instance->controllersCampaignBidModifierUpdateOne($campaign_id, $bm_type, $bid_modifier_id, $body);
@@ -211,11 +211,11 @@ Name | Type | Description  | Notes
  **campaign_id** | **string**| ID of campaign |
  **bm_type** | **string**| Filter over the bid modifier type |
  **bid_modifier_id** | **string**| ID of bid_modifier to perform update on |
- **body** | [**\DcmModel\UpdatableBidModifier**](../Model/\DcmModel\UpdatableBidModifier.md)| Update operation |
+ **body** | [**\Dcm\Model\UpdatableBidModifier**](../Model/\Dcm\Model\UpdatableBidModifier.md)| Update operation |
 
 ### Return type
 
-[**\DcmModel\BidModifier**](../Model/BidModifier.md)
+[**\Dcm\Model\BidModifier**](../Model/BidModifier.md)
 
 ### Authorization
 

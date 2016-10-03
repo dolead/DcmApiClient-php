@@ -1,11 +1,11 @@
 <?php
 /**
- * GeoCriteria
+ * BidModifier
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,38 +39,37 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * GeoCriteria Class Doc Comment
+ * BidModifier Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GeoCriteria implements ArrayAccess
+class BidModifier implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeoCriteria';
+    protected static $swaggerModelName = 'BidModifier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'country_code' => 'string',
-        'iso_code' => 'string',
-        'name' => 'string',
+        'category' => 'string',
+        'id' => 'string',
         'publisher_id' => 'string',
-        'type' => 'string'
+        'value' => 'float'
     );
 
     public static function swaggerTypes()
@@ -83,11 +82,10 @@ class GeoCriteria implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'country_code' => 'country_code',
-        'iso_code' => 'iso_code',
-        'name' => 'name',
+        'category' => 'category',
+        'id' => 'id',
         'publisher_id' => 'publisher_id',
-        'type' => 'type'
+        'value' => 'value'
     );
 
     public static function attributeMap()
@@ -100,11 +98,10 @@ class GeoCriteria implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'country_code' => 'setCountryCode',
-        'iso_code' => 'setIsoCode',
-        'name' => 'setName',
+        'category' => 'setCategory',
+        'id' => 'setId',
         'publisher_id' => 'setPublisherId',
-        'type' => 'setType'
+        'value' => 'setValue'
     );
 
     public static function setters()
@@ -117,11 +114,10 @@ class GeoCriteria implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'country_code' => 'getCountryCode',
-        'iso_code' => 'getIsoCode',
-        'name' => 'getName',
+        'category' => 'getCategory',
+        'id' => 'getId',
         'publisher_id' => 'getPublisherId',
-        'type' => 'getType'
+        'value' => 'getValue'
     );
 
     public static function getters()
@@ -129,26 +125,8 @@ class GeoCriteria implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_COUNTRY = 'Country';
-    const TYPE_REGION = 'Region';
-    const TYPE_DEPARTMENT = 'Department';
-    const TYPE_CITY = 'City';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_COUNTRY,
-            self::TYPE_REGION,
-            self::TYPE_DEPARTMENT,
-            self::TYPE_CITY,
-        ];
-    }
     
 
     /**
@@ -163,11 +141,10 @@ class GeoCriteria implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
-        $this->container['iso_code'] = isset($data['iso_code']) ? $data['iso_code'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -178,11 +155,6 @@ class GeoCriteria implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("Country", "Region", "Department", "City");
-        if (!in_array($this->container['type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -194,73 +166,48 @@ class GeoCriteria implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("Country", "Region", "Department", "City");
-        if (!in_array($this->container['type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets country_code
+     * Gets category
      * @return string
      */
-    public function getCountryCode()
+    public function getCategory()
     {
-        return $this->container['country_code'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets country_code
-     * @param string $country_code The ISO country code of the criteria
+     * Sets category
+     * @param string $category Element modified
      * @return $this
      */
-    public function setCountryCode($country_code)
+    public function setCategory($category)
     {
-        $this->container['country_code'] = $country_code;
+        $this->container['category'] = $category;
 
         return $this;
     }
 
     /**
-     * Gets iso_code
+     * Gets id
      * @return string
      */
-    public function getIsoCode()
+    public function getId()
     {
-        return $this->container['iso_code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets iso_code
-     * @param string $iso_code The ISO code of the geo criteria
+     * Sets id
+     * @param string $id ID of the campaign in Dolead system.
      * @return $this
      */
-    public function setIsoCode($iso_code)
+    public function setId($id)
     {
-        $this->container['iso_code'] = $iso_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     * @param string $name The name of the geo criteria
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -276,7 +223,7 @@ class GeoCriteria implements ArrayAccess
 
     /**
      * Sets publisher_id
-     * @param string $publisher_id The Adwords or Bing ID for this GeoCriteria. When updating the bid modifiers, one must pass either: a) a publisher_id or b) country_code + level + iso_code. (and we'll infer the publisher_id) or c) country_code + level + name. (and we'll infer the publisher_id)
+     * @param string $publisher_id Publisher's (Bing, Adwords, Yahoo) ID
      * @return $this
      */
     public function setPublisherId($publisher_id)
@@ -287,26 +234,22 @@ class GeoCriteria implements ArrayAccess
     }
 
     /**
-     * Gets type
-     * @return string
+     * Gets value
+     * @return float
      */
-    public function getType()
+    public function getValue()
     {
-        return $this->container['type'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets type
-     * @param string $type The level for the geo criteria
+     * Sets value
+     * @param float $value Value of the bid modifier
      * @return $this
      */
-    public function setType($type)
+    public function setValue($value)
     {
-        $allowed_values = array('Country', 'Region', 'Department', 'City');
-        if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'Country', 'Region', 'Department', 'City'");
-        }
-        $this->container['type'] = $type;
+        $this->container['value'] = $value;
 
         return $this;
     }
@@ -362,10 +305,10 @@ class GeoCriteria implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

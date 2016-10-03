@@ -1,11 +1,11 @@
 <?php
 /**
- * Campaign
+ * UpdatableCampaign
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,39 +39,37 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * Campaign Class Doc Comment
+ * UpdatableCampaign Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Campaign implements ArrayAccess
+class UpdatableCampaign implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Campaign';
+    protected static $swaggerModelName = 'UpdatableCampaign';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'budget' => 'int',
-        'id' => 'string',
+        'daily_budget' => 'int',
         'name' => 'string',
         'negative_geo_criterions' => 'string[]',
         'positive_geo_criterions' => 'string[]',
-        'publisher_id' => 'string',
         'status' => 'string'
     );
 
@@ -85,12 +83,10 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'budget' => 'budget',
-        'id' => 'id',
+        'daily_budget' => 'daily_budget',
         'name' => 'name',
         'negative_geo_criterions' => 'negative_geo_criterions',
         'positive_geo_criterions' => 'positive_geo_criterions',
-        'publisher_id' => 'publisher_id',
         'status' => 'status'
     );
 
@@ -104,12 +100,10 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'budget' => 'setBudget',
-        'id' => 'setId',
+        'daily_budget' => 'setDailyBudget',
         'name' => 'setName',
         'negative_geo_criterions' => 'setNegativeGeoCriterions',
         'positive_geo_criterions' => 'setPositiveGeoCriterions',
-        'publisher_id' => 'setPublisherId',
         'status' => 'setStatus'
     );
 
@@ -123,12 +117,10 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'budget' => 'getBudget',
-        'id' => 'getId',
+        'daily_budget' => 'getDailyBudget',
         'name' => 'getName',
         'negative_geo_criterions' => 'getNegativeGeoCriterions',
         'positive_geo_criterions' => 'getPositiveGeoCriterions',
-        'publisher_id' => 'getPublisherId',
         'status' => 'getStatus'
     );
 
@@ -167,12 +159,10 @@ class Campaign implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['daily_budget'] = isset($data['daily_budget']) ? $data['daily_budget'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['negative_geo_criterions'] = isset($data['negative_geo_criterions']) ? $data['negative_geo_criterions'] : null;
         $this->container['positive_geo_criterions'] = isset($data['positive_geo_criterions']) ? $data['positive_geo_criterions'] : null;
-        $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -184,6 +174,10 @@ class Campaign implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) < 2)) {
+            $invalid_properties[] = "invalid value for 'name', the character length must be bigger than or equal to 2.";
+        }
+
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
@@ -200,6 +194,9 @@ class Campaign implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['name']) < 2) {
+            return false;
+        }
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
@@ -209,43 +206,22 @@ class Campaign implements ArrayAccess
 
 
     /**
-     * Gets budget
+     * Gets daily_budget
      * @return int
      */
-    public function getBudget()
+    public function getDailyBudget()
     {
-        return $this->container['budget'];
+        return $this->container['daily_budget'];
     }
 
     /**
-     * Sets budget
-     * @param int $budget Daily budget allowed for the campaign
+     * Sets daily_budget
+     * @param int $daily_budget Daily budget allowed for the campaign
      * @return $this
      */
-    public function setBudget($budget)
+    public function setDailyBudget($daily_budget)
     {
-        $this->container['budget'] = $budget;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param string $id ID of the campaign in Dolead system.
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['daily_budget'] = $daily_budget;
 
         return $this;
     }
@@ -266,6 +242,10 @@ class Campaign implements ArrayAccess
      */
     public function setName($name)
     {
+
+        if (strlen($name) < 2) {
+            throw new \InvalidArgumentException('invalid length for $name when calling UpdatableCampaign., must be bigger than or equal to 2.');
+        }
         $this->container['name'] = $name;
 
         return $this;
@@ -282,7 +262,7 @@ class Campaign implements ArrayAccess
 
     /**
      * Sets negative_geo_criterions
-     * @param string[] $negative_geo_criterions
+     * @param string[] $negative_geo_criterions Negative geolocations of the campaign (deactivate campaign for these locations)
      * @return $this
      */
     public function setNegativeGeoCriterions($negative_geo_criterions)
@@ -303,33 +283,12 @@ class Campaign implements ArrayAccess
 
     /**
      * Sets positive_geo_criterions
-     * @param string[] $positive_geo_criterions
+     * @param string[] $positive_geo_criterions Positive geolocations of the campaign
      * @return $this
      */
     public function setPositiveGeoCriterions($positive_geo_criterions)
     {
         $this->container['positive_geo_criterions'] = $positive_geo_criterions;
-
-        return $this;
-    }
-
-    /**
-     * Gets publisher_id
-     * @return string
-     */
-    public function getPublisherId()
-    {
-        return $this->container['publisher_id'];
-    }
-
-    /**
-     * Sets publisher_id
-     * @param string $publisher_id Publisher's (Bing, Adwords, Yahoo) ID
-     * @return $this
-     */
-    public function setPublisherId($publisher_id)
-    {
-        $this->container['publisher_id'] = $publisher_id;
 
         return $this;
     }
@@ -410,10 +369,10 @@ class Campaign implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

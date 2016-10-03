@@ -1,11 +1,11 @@
 <?php
 /**
- * BidModifierQuery
+ * UpdatableProduct
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,34 +39,35 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * BidModifierQuery Class Doc Comment
+ * UpdatableProduct Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BidModifierQuery implements ArrayAccess
+class UpdatableProduct implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'BidModifierQuery';
+    protected static $swaggerModelName = 'UpdatableProduct';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        '_id' => '\DcmModel\IDParameter'
+        'target_margin' => 'double',
+        'target_roi' => 'double'
     );
 
     public static function swaggerTypes()
@@ -79,7 +80,8 @@ class BidModifierQuery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        '_id' => '_id'
+        'target_margin' => 'target_margin',
+        'target_roi' => 'target_roi'
     );
 
     public static function attributeMap()
@@ -92,7 +94,8 @@ class BidModifierQuery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        '_id' => 'setId'
+        'target_margin' => 'setTargetMargin',
+        'target_roi' => 'setTargetRoi'
     );
 
     public static function setters()
@@ -105,7 +108,8 @@ class BidModifierQuery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        '_id' => 'getId'
+        'target_margin' => 'getTargetMargin',
+        'target_roi' => 'getTargetRoi'
     );
 
     public static function getters()
@@ -129,7 +133,8 @@ class BidModifierQuery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['_id'] = isset($data['_id']) ? $data['_id'] : null;
+        $this->container['target_margin'] = isset($data['target_margin']) ? $data['target_margin'] : null;
+        $this->container['target_roi'] = isset($data['target_roi']) ? $data['target_roi'] : null;
     }
 
     /**
@@ -140,6 +145,14 @@ class BidModifierQuery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['target_margin']) && ($this->container['target_margin'] < 0.01)) {
+            $invalid_properties[] = "invalid value for 'target_margin', must be bigger than or equal to 0.01.";
+        }
+
+        if (!is_null($this->container['target_roi']) && ($this->container['target_roi'] < 0.01)) {
+            $invalid_properties[] = "invalid value for 'target_roi', must be bigger than or equal to 0.01.";
+        }
+
         return $invalid_properties;
     }
 
@@ -151,27 +164,62 @@ class BidModifierQuery implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['target_margin'] < 0.01) {
+            return false;
+        }
+        if ($this->container['target_roi'] < 0.01) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets _id
-     * @return \DcmModel\IDParameter
+     * Gets target_margin
+     * @return double
      */
-    public function getId()
+    public function getTargetMargin()
     {
-        return $this->container['_id'];
+        return $this->container['target_margin'];
     }
 
     /**
-     * Sets _id
-     * @param \DcmModel\IDParameter $_id
+     * Sets target_margin
+     * @param double $target_margin Targeted margin for the product. This value is exclusive with target_roi. If given alone, any previous target roi on the product will be deleted. If given with a target roi, only the target margin will be kept.
      * @return $this
      */
-    public function setId($_id)
+    public function setTargetMargin($target_margin)
     {
-        $this->container['_id'] = $_id;
+
+        if ($target_margin < 0.01) {
+            throw new \InvalidArgumentException('invalid value for $target_margin when calling UpdatableProduct., must be bigger than or equal to 0.01.');
+        }
+        $this->container['target_margin'] = $target_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_roi
+     * @return double
+     */
+    public function getTargetRoi()
+    {
+        return $this->container['target_roi'];
+    }
+
+    /**
+     * Sets target_roi
+     * @param double $target_roi Targeted ROI for the product. This value is exclusive with target_margin. If given alone, any previous target margin on the product will be deleted. If given with a target margin, only the target margin will be kept.
+     * @return $this
+     */
+    public function setTargetRoi($target_roi)
+    {
+
+        if ($target_roi < 0.01) {
+            throw new \InvalidArgumentException('invalid value for $target_roi when calling UpdatableProduct., must be bigger than or equal to 0.01.');
+        }
+        $this->container['target_roi'] = $target_roi;
 
         return $this;
     }
@@ -227,10 +275,10 @@ class BidModifierQuery implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

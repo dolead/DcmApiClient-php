@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,8 +66,8 @@ class CampaignUpdate implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'query' => '\DcmModel\CampaignQuery',
-        'update' => '\DcmModel\UpdatableCampaign'
+        'query' => '\Dcm\Model\CampaignQuery',
+        'update' => '\Dcm\Model\UpdatableCampaign'
     );
 
     public static function swaggerTypes()
@@ -162,7 +162,7 @@ class CampaignUpdate implements ArrayAccess
 
     /**
      * Gets query
-     * @return \DcmModel\CampaignQuery
+     * @return \Dcm\Model\CampaignQuery
      */
     public function getQuery()
     {
@@ -171,7 +171,7 @@ class CampaignUpdate implements ArrayAccess
 
     /**
      * Sets query
-     * @param \DcmModel\CampaignQuery $query
+     * @param \Dcm\Model\CampaignQuery $query
      * @return $this
      */
     public function setQuery($query)
@@ -183,7 +183,7 @@ class CampaignUpdate implements ArrayAccess
 
     /**
      * Gets update
-     * @return \DcmModel\UpdatableCampaign
+     * @return \Dcm\Model\UpdatableCampaign
      */
     public function getUpdate()
     {
@@ -192,7 +192,7 @@ class CampaignUpdate implements ArrayAccess
 
     /**
      * Sets update
-     * @param \DcmModel\UpdatableCampaign $update
+     * @param \Dcm\Model\UpdatableCampaign $update
      * @return $this
      */
     public function setUpdate($update)
@@ -253,10 +253,10 @@ class CampaignUpdate implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -1,11 +1,11 @@
 <?php
 /**
- * UpdatableBidModifier
+ * GeoBidModifier
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,33 +39,34 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * UpdatableBidModifier Class Doc Comment
+ * GeoBidModifier Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class UpdatableBidModifier implements ArrayAccess
+class GeoBidModifier implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'UpdatableBidModifier';
+    protected static $swaggerModelName = 'GeoBidModifier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'geo_criteria' => '\Dcm\Model\GeoCriteria',
         'value' => 'float'
     );
 
@@ -79,6 +80,7 @@ class UpdatableBidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'geo_criteria' => 'geo_criteria',
         'value' => 'value'
     );
 
@@ -92,6 +94,7 @@ class UpdatableBidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'geo_criteria' => 'setGeoCriteria',
         'value' => 'setValue'
     );
 
@@ -105,6 +108,7 @@ class UpdatableBidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'geo_criteria' => 'getGeoCriteria',
         'value' => 'getValue'
     );
 
@@ -129,6 +133,7 @@ class UpdatableBidModifier implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['geo_criteria'] = isset($data['geo_criteria']) ? $data['geo_criteria'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -156,6 +161,27 @@ class UpdatableBidModifier implements ArrayAccess
 
 
     /**
+     * Gets geo_criteria
+     * @return \Dcm\Model\GeoCriteria
+     */
+    public function getGeoCriteria()
+    {
+        return $this->container['geo_criteria'];
+    }
+
+    /**
+     * Sets geo_criteria
+     * @param \Dcm\Model\GeoCriteria $geo_criteria
+     * @return $this
+     */
+    public function setGeoCriteria($geo_criteria)
+    {
+        $this->container['geo_criteria'] = $geo_criteria;
+
+        return $this;
+    }
+
+    /**
      * Gets value
      * @return float
      */
@@ -166,7 +192,7 @@ class UpdatableBidModifier implements ArrayAccess
 
     /**
      * Sets value
-     * @param float $value Value of the bid modifier in ratio (e.g. 1.2 → +20%)
+     * @param float $value The bid modifier value (in percentage) to apply. Between -100 (%) and +inf.
      * @return $this
      */
     public function setValue($value)
@@ -227,10 +253,10 @@ class UpdatableBidModifier implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

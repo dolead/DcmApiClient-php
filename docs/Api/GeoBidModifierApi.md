@@ -1,4 +1,4 @@
-# DcmApiClient\GeoBidModifierApi
+# Dcm\GeoBidModifierApi
 
 All URIs are relative to *https://dcmapi.dolead.com/v1*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **controllersGeoBidModifierList**
-> \DcmModel\BidModifier controllersGeoBidModifierList($biddable_level, $biddable_id)
+> \Dcm\Model\BidModifier controllersGeoBidModifierList($biddable_level, $biddable_id)
 
 Get bid modifier on an object (account, campaign, ad_group)
 
@@ -19,11 +19,11 @@ Get bid modifier on an object (account, campaign, ad_group)
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\GeoBidModifierApi();
+$api_instance = new Dcm\Api\GeoBidModifierApi();
 $biddable_level = "biddable_level_example"; // string | Type of object
 $biddable_id = "biddable_id_example"; // string | ID of object
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\DcmModel\BidModifier**](../Model/BidModifier.md)
+[**\Dcm\Model\BidModifier**](../Model/BidModifier.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersGeoBidModifierUpdateMany**
-> \DcmModel\BidModifier controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace, $body)
+> \Dcm\Model\BidModifier controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace, $body)
 
 Update multiple bid modifiers
 
@@ -69,15 +69,15 @@ Update multiple bid modifiers
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: api_key
-DcmApiClient\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
+Dcm\Configuration::getDefaultConfiguration()->setApiKey('DCM-API-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// DcmApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
+// Dcm\Configuration::getDefaultConfiguration()->setApiKeyPrefix('DCM-API-KEY', 'Bearer');
 
-$api_instance = new DcmApiClient\Api\GeoBidModifierApi();
+$api_instance = new Dcm\Api\GeoBidModifierApi();
 $biddable_level = "biddable_level_example"; // string | Type of the biddable object
 $biddable_id = "biddable_id_example"; // string | ID of the biddable object (account, campaign, ad_group)
 $replace = "true"; // string | replace=false means all existing bid modifiers are replaced.
-$body = array(new GeoBidModifier()); // \DcmModel\GeoBidModifier[] | List with the bid modifiers (criterias and values)
+$body = array(new GeoBidModifier()); // \Dcm\Model\GeoBidModifier[] | List with the bid modifiers (criterias and values)
 
 try {
     $result = $api_instance->controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace, $body);
@@ -95,11 +95,11 @@ Name | Type | Description  | Notes
  **biddable_level** | **string**| Type of the biddable object |
  **biddable_id** | **string**| ID of the biddable object (account, campaign, ad_group) |
  **replace** | **string**| replace&#x3D;false means all existing bid modifiers are replaced. | [optional] [default to true]
- **body** | [**\DcmModel\GeoBidModifier[]**](../Model/GeoBidModifier.md)| List with the bid modifiers (criterias and values) | [optional]
+ **body** | [**\Dcm\Model\GeoBidModifier[]**](../Model/GeoBidModifier.md)| List with the bid modifiers (criterias and values) | [optional]
 
 ### Return type
 
-[**\DcmModel\BidModifier**](../Model/BidModifier.md)
+[**\Dcm\Model\BidModifier**](../Model/BidModifier.md)
 
 ### Authorization
 

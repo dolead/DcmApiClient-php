@@ -1,11 +1,11 @@
 <?php
 /**
- * CampaignQuery
+ * IDParameter
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,36 +39,38 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * CampaignQuery Class Doc Comment
+ * IDParameter Class Doc Comment
  *
  * @category    Class */
+ // @description Describe a query over a text field. Query is defined as an object of operator -&gt; value. Multiple operators may be specified in the query, but only one of each kind (For example, a contains operator can be combined with a not_contains operator)
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQuery implements ArrayAccess
+class IDParameter implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CampaignQuery';
+    protected static $swaggerModelName = 'IDParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'campaign_type' => 'string',
-        'name' => '\DcmModel\TextParameter',
-        'publisher' => 'string'
+        'eq' => 'string',
+        'in' => 'string[]',
+        'neq' => 'string',
+        'not_in' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -81,9 +83,10 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'campaign_type' => 'campaign_type',
-        'name' => 'name',
-        'publisher' => 'publisher'
+        'eq' => 'eq',
+        'in' => 'in',
+        'neq' => 'neq',
+        'not_in' => 'not_in'
     );
 
     public static function attributeMap()
@@ -96,9 +99,10 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'campaign_type' => 'setCampaignType',
-        'name' => 'setName',
-        'publisher' => 'setPublisher'
+        'eq' => 'setEq',
+        'in' => 'setIn',
+        'neq' => 'setNeq',
+        'not_in' => 'setNotIn'
     );
 
     public static function setters()
@@ -111,9 +115,10 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'campaign_type' => 'getCampaignType',
-        'name' => 'getName',
-        'publisher' => 'getPublisher'
+        'eq' => 'getEq',
+        'in' => 'getIn',
+        'neq' => 'getNeq',
+        'not_in' => 'getNotIn'
     );
 
     public static function getters()
@@ -121,38 +126,8 @@ class CampaignQuery implements ArrayAccess
         return self::$getters;
     }
 
-    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
-    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
-    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
-    const PUBLISHER_GOOGLE = 'GOOGLE';
-    const PUBLISHER_BING = 'BING';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getCampaignTypeAllowableValues()
-    {
-        return [
-            self::CAMPAIGN_TYPE_SEARCH,
-            self::CAMPAIGN_TYPE_DISPLAY,
-            self::CAMPAIGN_TYPE_SHOPPING,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getPublisherAllowableValues()
-    {
-        return [
-            self::PUBLISHER_GOOGLE,
-            self::PUBLISHER_BING,
-        ];
-    }
     
 
     /**
@@ -167,9 +142,10 @@ class CampaignQuery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
+        $this->container['eq'] = isset($data['eq']) ? $data['eq'] : null;
+        $this->container['in'] = isset($data['in']) ? $data['in'] : null;
+        $this->container['neq'] = isset($data['neq']) ? $data['neq'] : null;
+        $this->container['not_in'] = isset($data['not_in']) ? $data['not_in'] : null;
     }
 
     /**
@@ -180,16 +156,6 @@ class CampaignQuery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
-        }
-
-        $allowed_values = array("GOOGLE", "BING");
-        if (!in_array($this->container['publisher'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'publisher', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -201,85 +167,90 @@ class CampaignQuery implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
-            return false;
-        }
-        $allowed_values = array("GOOGLE", "BING");
-        if (!in_array($this->container['publisher'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets campaign_type
+     * Gets eq
      * @return string
      */
-    public function getCampaignType()
+    public function getEq()
     {
-        return $this->container['campaign_type'];
+        return $this->container['eq'];
     }
 
     /**
-     * Sets campaign_type
-     * @param string $campaign_type Filter over the campaign type
+     * Sets eq
+     * @param string $eq Field is exactly value
      * @return $this
      */
-    public function setCampaignType($campaign_type)
+    public function setEq($eq)
     {
-        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
-        if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
-        }
-        $this->container['campaign_type'] = $campaign_type;
+        $this->container['eq'] = $eq;
 
         return $this;
     }
 
     /**
-     * Gets name
-     * @return \DcmModel\TextParameter
+     * Gets in
+     * @return string[]
      */
-    public function getName()
+    public function getIn()
     {
-        return $this->container['name'];
+        return $this->container['in'];
     }
 
     /**
-     * Sets name
-     * @param \DcmModel\TextParameter $name
+     * Sets in
+     * @param string[] $in Value is one of
      * @return $this
      */
-    public function setName($name)
+    public function setIn($in)
     {
-        $this->container['name'] = $name;
+        $this->container['in'] = $in;
 
         return $this;
     }
 
     /**
-     * Gets publisher
+     * Gets neq
      * @return string
      */
-    public function getPublisher()
+    public function getNeq()
     {
-        return $this->container['publisher'];
+        return $this->container['neq'];
     }
 
     /**
-     * Sets publisher
-     * @param string $publisher Filter over the campaign publisher network
+     * Sets neq
+     * @param string $neq Field is not value
      * @return $this
      */
-    public function setPublisher($publisher)
+    public function setNeq($neq)
     {
-        $allowed_values = array('GOOGLE', 'BING');
-        if (!in_array($publisher, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'GOOGLE', 'BING'");
-        }
-        $this->container['publisher'] = $publisher;
+        $this->container['neq'] = $neq;
+
+        return $this;
+    }
+
+    /**
+     * Gets not_in
+     * @return string[]
+     */
+    public function getNotIn()
+    {
+        return $this->container['not_in'];
+    }
+
+    /**
+     * Sets not_in
+     * @param string[] $not_in Value is none of
+     * @return $this
+     */
+    public function setNotIn($not_in)
+    {
+        $this->container['not_in'] = $not_in;
 
         return $this;
     }
@@ -335,10 +306,10 @@ class CampaignQuery implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

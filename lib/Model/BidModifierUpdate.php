@@ -1,11 +1,11 @@
 <?php
 /**
- * BidModifier
+ * BidModifierUpdate
  *
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,37 +39,35 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
 /**
- * BidModifier Class Doc Comment
+ * BidModifierUpdate Class Doc Comment
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BidModifier implements ArrayAccess
+class BidModifierUpdate implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'BidModifier';
+    protected static $swaggerModelName = 'BidModifierUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'category' => 'string',
-        'id' => 'string',
-        'publisher_id' => 'string',
-        'value' => 'float'
+        'query' => '\Dcm\Model\BidModifierQuery',
+        'update' => '\Dcm\Model\UpdatableBidModifier'
     );
 
     public static function swaggerTypes()
@@ -82,10 +80,8 @@ class BidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'category' => 'category',
-        'id' => 'id',
-        'publisher_id' => 'publisher_id',
-        'value' => 'value'
+        'query' => 'query',
+        'update' => 'update'
     );
 
     public static function attributeMap()
@@ -98,10 +94,8 @@ class BidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'category' => 'setCategory',
-        'id' => 'setId',
-        'publisher_id' => 'setPublisherId',
-        'value' => 'setValue'
+        'query' => 'setQuery',
+        'update' => 'setUpdate'
     );
 
     public static function setters()
@@ -114,10 +108,8 @@ class BidModifier implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'category' => 'getCategory',
-        'id' => 'getId',
-        'publisher_id' => 'getPublisherId',
-        'value' => 'getValue'
+        'query' => 'getQuery',
+        'update' => 'getUpdate'
     );
 
     public static function getters()
@@ -141,10 +133,8 @@ class BidModifier implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['query'] = isset($data['query']) ? $data['query'] : null;
+        $this->container['update'] = isset($data['update']) ? $data['update'] : null;
     }
 
     /**
@@ -171,85 +161,43 @@ class BidModifier implements ArrayAccess
 
 
     /**
-     * Gets category
-     * @return string
+     * Gets query
+     * @return \Dcm\Model\BidModifierQuery
      */
-    public function getCategory()
+    public function getQuery()
     {
-        return $this->container['category'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets category
-     * @param string $category Element modified
+     * Sets query
+     * @param \Dcm\Model\BidModifierQuery $query
      * @return $this
      */
-    public function setCategory($category)
+    public function setQuery($query)
     {
-        $this->container['category'] = $category;
+        $this->container['query'] = $query;
 
         return $this;
     }
 
     /**
-     * Gets id
-     * @return string
+     * Gets update
+     * @return \Dcm\Model\UpdatableBidModifier
      */
-    public function getId()
+    public function getUpdate()
     {
-        return $this->container['id'];
+        return $this->container['update'];
     }
 
     /**
-     * Sets id
-     * @param string $id ID of the campaign in Dolead system.
+     * Sets update
+     * @param \Dcm\Model\UpdatableBidModifier $update
      * @return $this
      */
-    public function setId($id)
+    public function setUpdate($update)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets publisher_id
-     * @return string
-     */
-    public function getPublisherId()
-    {
-        return $this->container['publisher_id'];
-    }
-
-    /**
-     * Sets publisher_id
-     * @param string $publisher_id Publisher's (Bing, Adwords, Yahoo) ID
-     * @return $this
-     */
-    public function setPublisherId($publisher_id)
-    {
-        $this->container['publisher_id'] = $publisher_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     * @return float
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     * @param float $value Value of the bid modifier
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['update'] = $update;
 
         return $this;
     }
@@ -305,10 +253,10 @@ class BidModifier implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

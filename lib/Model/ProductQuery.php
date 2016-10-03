@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  DcmApiClient
+ * @package  Dcm
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace DcmModel;
+namespace Dcm\Model;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     DcmApiClient
+ * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,31 +66,31 @@ class ProductQuery implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'account' => '\DcmModel\IDParameter',
-        'account_name' => '\DcmModel\TextParameter',
-        'account_publisher_id' => '\DcmModel\IDParameter',
-        'brand' => '\DcmModel\TextParameter',
-        'category_l1' => '\DcmModel\TextParameter',
-        'category_l2' => '\DcmModel\TextParameter',
-        'category_l3' => '\DcmModel\TextParameter',
-        'category_l4' => '\DcmModel\TextParameter',
-        'category_l5' => '\DcmModel\TextParameter',
+        'account' => '\Dcm\Model\IDParameter',
+        'account_name' => '\Dcm\Model\TextParameter',
+        'account_publisher_id' => '\Dcm\Model\IDParameter',
+        'brand' => '\Dcm\Model\TextParameter',
+        'category_l1' => '\Dcm\Model\TextParameter',
+        'category_l2' => '\Dcm\Model\TextParameter',
+        'category_l3' => '\Dcm\Model\TextParameter',
+        'category_l4' => '\Dcm\Model\TextParameter',
+        'category_l5' => '\Dcm\Model\TextParameter',
         'condition' => 'string',
-        'custom_attribute_0' => '\DcmModel\TextParameter',
-        'custom_attribute_1' => '\DcmModel\TextParameter',
-        'custom_attribute_2' => '\DcmModel\TextParameter',
-        'custom_attribute_3' => '\DcmModel\TextParameter',
-        'custom_attribute_4' => '\DcmModel\TextParameter',
-        'device' => '\DcmModel\TextParameter',
-        'id' => '\DcmModel\IDParameter',
-        'product_type_l1' => '\DcmModel\TextParameter',
-        'product_type_l2' => '\DcmModel\TextParameter',
-        'product_type_l3' => '\DcmModel\TextParameter',
-        'product_type_l4' => '\DcmModel\TextParameter',
-        'product_type_l5' => '\DcmModel\TextParameter',
+        'custom_attribute_0' => '\Dcm\Model\TextParameter',
+        'custom_attribute_1' => '\Dcm\Model\TextParameter',
+        'custom_attribute_2' => '\Dcm\Model\TextParameter',
+        'custom_attribute_3' => '\Dcm\Model\TextParameter',
+        'custom_attribute_4' => '\Dcm\Model\TextParameter',
+        'device' => '\Dcm\Model\TextParameter',
+        'id' => '\Dcm\Model\IDParameter',
+        'product_type_l1' => '\Dcm\Model\TextParameter',
+        'product_type_l2' => '\Dcm\Model\TextParameter',
+        'product_type_l3' => '\Dcm\Model\TextParameter',
+        'product_type_l4' => '\Dcm\Model\TextParameter',
+        'product_type_l5' => '\Dcm\Model\TextParameter',
         'publisher' => 'string',
-        'publisher_id' => '\DcmModel\IDParameter',
-        'title' => '\DcmModel\TextParameter'
+        'publisher_id' => '\Dcm\Model\IDParameter',
+        'title' => '\Dcm\Model\TextParameter'
     );
 
     public static function swaggerTypes()
@@ -329,7 +329,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets account
-     * @return \DcmModel\IDParameter
+     * @return \Dcm\Model\IDParameter
      */
     public function getAccount()
     {
@@ -338,7 +338,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets account
-     * @param \DcmModel\IDParameter $account
+     * @param \Dcm\Model\IDParameter $account
      * @return $this
      */
     public function setAccount($account)
@@ -350,7 +350,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets account_name
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getAccountName()
     {
@@ -359,7 +359,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets account_name
-     * @param \DcmModel\TextParameter $account_name
+     * @param \Dcm\Model\TextParameter $account_name
      * @return $this
      */
     public function setAccountName($account_name)
@@ -371,7 +371,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets account_publisher_id
-     * @return \DcmModel\IDParameter
+     * @return \Dcm\Model\IDParameter
      */
     public function getAccountPublisherId()
     {
@@ -380,7 +380,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets account_publisher_id
-     * @param \DcmModel\IDParameter $account_publisher_id
+     * @param \Dcm\Model\IDParameter $account_publisher_id
      * @return $this
      */
     public function setAccountPublisherId($account_publisher_id)
@@ -392,7 +392,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets brand
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getBrand()
     {
@@ -401,7 +401,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets brand
-     * @param \DcmModel\TextParameter $brand
+     * @param \Dcm\Model\TextParameter $brand
      * @return $this
      */
     public function setBrand($brand)
@@ -413,7 +413,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets category_l1
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCategoryL1()
     {
@@ -422,7 +422,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets category_l1
-     * @param \DcmModel\TextParameter $category_l1
+     * @param \Dcm\Model\TextParameter $category_l1
      * @return $this
      */
     public function setCategoryL1($category_l1)
@@ -434,7 +434,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets category_l2
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCategoryL2()
     {
@@ -443,7 +443,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets category_l2
-     * @param \DcmModel\TextParameter $category_l2
+     * @param \Dcm\Model\TextParameter $category_l2
      * @return $this
      */
     public function setCategoryL2($category_l2)
@@ -455,7 +455,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets category_l3
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCategoryL3()
     {
@@ -464,7 +464,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets category_l3
-     * @param \DcmModel\TextParameter $category_l3
+     * @param \Dcm\Model\TextParameter $category_l3
      * @return $this
      */
     public function setCategoryL3($category_l3)
@@ -476,7 +476,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets category_l4
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCategoryL4()
     {
@@ -485,7 +485,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets category_l4
-     * @param \DcmModel\TextParameter $category_l4
+     * @param \Dcm\Model\TextParameter $category_l4
      * @return $this
      */
     public function setCategoryL4($category_l4)
@@ -497,7 +497,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets category_l5
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCategoryL5()
     {
@@ -506,7 +506,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets category_l5
-     * @param \DcmModel\TextParameter $category_l5
+     * @param \Dcm\Model\TextParameter $category_l5
      * @return $this
      */
     public function setCategoryL5($category_l5)
@@ -543,7 +543,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets custom_attribute_0
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCustomAttribute0()
     {
@@ -552,7 +552,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets custom_attribute_0
-     * @param \DcmModel\TextParameter $custom_attribute_0
+     * @param \Dcm\Model\TextParameter $custom_attribute_0
      * @return $this
      */
     public function setCustomAttribute0($custom_attribute_0)
@@ -564,7 +564,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets custom_attribute_1
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCustomAttribute1()
     {
@@ -573,7 +573,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets custom_attribute_1
-     * @param \DcmModel\TextParameter $custom_attribute_1
+     * @param \Dcm\Model\TextParameter $custom_attribute_1
      * @return $this
      */
     public function setCustomAttribute1($custom_attribute_1)
@@ -585,7 +585,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets custom_attribute_2
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCustomAttribute2()
     {
@@ -594,7 +594,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets custom_attribute_2
-     * @param \DcmModel\TextParameter $custom_attribute_2
+     * @param \Dcm\Model\TextParameter $custom_attribute_2
      * @return $this
      */
     public function setCustomAttribute2($custom_attribute_2)
@@ -606,7 +606,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets custom_attribute_3
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCustomAttribute3()
     {
@@ -615,7 +615,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets custom_attribute_3
-     * @param \DcmModel\TextParameter $custom_attribute_3
+     * @param \Dcm\Model\TextParameter $custom_attribute_3
      * @return $this
      */
     public function setCustomAttribute3($custom_attribute_3)
@@ -627,7 +627,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets custom_attribute_4
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getCustomAttribute4()
     {
@@ -636,7 +636,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets custom_attribute_4
-     * @param \DcmModel\TextParameter $custom_attribute_4
+     * @param \Dcm\Model\TextParameter $custom_attribute_4
      * @return $this
      */
     public function setCustomAttribute4($custom_attribute_4)
@@ -648,7 +648,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets device
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getDevice()
     {
@@ -657,7 +657,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets device
-     * @param \DcmModel\TextParameter $device
+     * @param \Dcm\Model\TextParameter $device
      * @return $this
      */
     public function setDevice($device)
@@ -669,7 +669,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets id
-     * @return \DcmModel\IDParameter
+     * @return \Dcm\Model\IDParameter
      */
     public function getId()
     {
@@ -678,7 +678,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets id
-     * @param \DcmModel\IDParameter $id
+     * @param \Dcm\Model\IDParameter $id
      * @return $this
      */
     public function setId($id)
@@ -690,7 +690,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets product_type_l1
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getProductTypeL1()
     {
@@ -699,7 +699,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets product_type_l1
-     * @param \DcmModel\TextParameter $product_type_l1
+     * @param \Dcm\Model\TextParameter $product_type_l1
      * @return $this
      */
     public function setProductTypeL1($product_type_l1)
@@ -711,7 +711,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets product_type_l2
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getProductTypeL2()
     {
@@ -720,7 +720,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets product_type_l2
-     * @param \DcmModel\TextParameter $product_type_l2
+     * @param \Dcm\Model\TextParameter $product_type_l2
      * @return $this
      */
     public function setProductTypeL2($product_type_l2)
@@ -732,7 +732,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets product_type_l3
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getProductTypeL3()
     {
@@ -741,7 +741,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets product_type_l3
-     * @param \DcmModel\TextParameter $product_type_l3
+     * @param \Dcm\Model\TextParameter $product_type_l3
      * @return $this
      */
     public function setProductTypeL3($product_type_l3)
@@ -753,7 +753,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets product_type_l4
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getProductTypeL4()
     {
@@ -762,7 +762,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets product_type_l4
-     * @param \DcmModel\TextParameter $product_type_l4
+     * @param \Dcm\Model\TextParameter $product_type_l4
      * @return $this
      */
     public function setProductTypeL4($product_type_l4)
@@ -774,7 +774,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets product_type_l5
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getProductTypeL5()
     {
@@ -783,7 +783,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets product_type_l5
-     * @param \DcmModel\TextParameter $product_type_l5
+     * @param \Dcm\Model\TextParameter $product_type_l5
      * @return $this
      */
     public function setProductTypeL5($product_type_l5)
@@ -820,7 +820,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets publisher_id
-     * @return \DcmModel\IDParameter
+     * @return \Dcm\Model\IDParameter
      */
     public function getPublisherId()
     {
@@ -829,7 +829,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets publisher_id
-     * @param \DcmModel\IDParameter $publisher_id
+     * @param \Dcm\Model\IDParameter $publisher_id
      * @return $this
      */
     public function setPublisherId($publisher_id)
@@ -841,7 +841,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Gets title
-     * @return \DcmModel\TextParameter
+     * @return \Dcm\Model\TextParameter
      */
     public function getTitle()
     {
@@ -850,7 +850,7 @@ class ProductQuery implements ArrayAccess
 
     /**
      * Sets title
-     * @param \DcmModel\TextParameter $title
+     * @param \Dcm\Model\TextParameter $title
      * @return $this
      */
     public function setTitle($title)
@@ -911,10 +911,10 @@ class ProductQuery implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\DcmApiClient\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\Dcm\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 
