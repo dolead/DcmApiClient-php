@@ -1,5 +1,5 @@
 {
-    "name": "dolead/DcmApi-php",
+    "name": "dolead/DcmApiClient-php",
     "description": "Dolead Campaign Manager PHP API client",
     "keywords": [
         "swagger",
