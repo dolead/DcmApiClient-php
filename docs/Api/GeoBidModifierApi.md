@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **controllersGeoBidModifierUpdateMany**
-> \Dcm\Model\BidModifier controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace, $body)
+> \Dcm\Model\GeoBidModifierUpdateResponse controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace, $body)
 
 Update multiple bid modifiers
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Dcm\Model\BidModifier**](../Model/BidModifier.md)
+[**\Dcm\Model\GeoBidModifierUpdateResponse**](../Model/GeoBidModifierUpdateResponse.md)
 
 ### Authorization
 

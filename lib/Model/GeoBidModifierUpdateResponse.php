@@ -1,6 +1,6 @@
 <?php
 /**
- * GeoBidModifierUpdate
+ * GeoBidModifierUpdateResponse
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * GeoBidModifierUpdate Class Doc Comment
+ * GeoBidModifierUpdateResponse Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GeoBidModifierUpdate implements ArrayAccess
+class GeoBidModifierUpdateResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'GeoBidModifierUpdate';
+    protected static $swaggerModelName = 'GeoBidModifierUpdateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'geo_criteria' => '\Dcm\Model\GeoCriteria',
-        'value' => 'float'
+        'not_found' => '\Dcm\Model\GeoBidModifier[]',
+        'ok' => '\Dcm\Model\GeoBidModifier[]'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class GeoBidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'geo_criteria' => 'geo_criteria',
-        'value' => 'value'
+        'not_found' => 'not_found',
+        'ok' => 'ok'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class GeoBidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'geo_criteria' => 'setGeoCriteria',
-        'value' => 'setValue'
+        'not_found' => 'setNotFound',
+        'ok' => 'setOk'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class GeoBidModifierUpdate implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'geo_criteria' => 'getGeoCriteria',
-        'value' => 'getValue'
+        'not_found' => 'getNotFound',
+        'ok' => 'getOk'
     );
 
     public static function getters()
@@ -133,8 +133,8 @@ class GeoBidModifierUpdate implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['geo_criteria'] = isset($data['geo_criteria']) ? $data['geo_criteria'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['not_found'] = isset($data['not_found']) ? $data['not_found'] : null;
+        $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
     }
 
     /**
@@ -161,43 +161,43 @@ class GeoBidModifierUpdate implements ArrayAccess
 
 
     /**
-     * Gets geo_criteria
-     * @return \Dcm\Model\GeoCriteria
+     * Gets not_found
+     * @return \Dcm\Model\GeoBidModifier[]
      */
-    public function getGeoCriteria()
+    public function getNotFound()
     {
-        return $this->container['geo_criteria'];
+        return $this->container['not_found'];
     }
 
     /**
-     * Sets geo_criteria
-     * @param \Dcm\Model\GeoCriteria $geo_criteria
+     * Sets not_found
+     * @param \Dcm\Model\GeoBidModifier[] $not_found The bid modifier criterias that were recognized and applied
      * @return $this
      */
-    public function setGeoCriteria($geo_criteria)
+    public function setNotFound($not_found)
     {
-        $this->container['geo_criteria'] = $geo_criteria;
+        $this->container['not_found'] = $not_found;
 
         return $this;
     }
 
     /**
-     * Gets value
-     * @return float
+     * Gets ok
+     * @return \Dcm\Model\GeoBidModifier[]
      */
-    public function getValue()
+    public function getOk()
     {
-        return $this->container['value'];
+        return $this->container['ok'];
     }
 
     /**
-     * Sets value
-     * @param float $value The bid modifier value (in percentage) to apply. Between -100 (%) and +inf.
+     * Sets ok
+     * @param \Dcm\Model\GeoBidModifier[] $ok The bid modifier criterias that were recognized and applied
      * @return $this
      */
-    public function setValue($value)
+    public function setOk($ok)
     {
-        $this->container['value'] = $value;
+        $this->container['ok'] = $ok;
 
         return $this;
     }

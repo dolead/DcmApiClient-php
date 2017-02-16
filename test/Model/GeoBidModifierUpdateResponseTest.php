@@ -1,6 +1,6 @@
 <?php
 /**
- * GeoBidModifierUpdateTest
+ * GeoBidModifierUpdateResponseTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * GeoBidModifierUpdateTest Class Doc Comment
+ * GeoBidModifierUpdateResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description GeoBidModifierUpdate
+// * @description GeoBidModifierUpdateResponse
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class GeoBidModifierUpdateTest extends \PHPUnit_Framework_TestCase
+class GeoBidModifierUpdateResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,25 +88,25 @@ class GeoBidModifierUpdateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "GeoBidModifierUpdate"
+     * Test "GeoBidModifierUpdateResponse"
      */
-    public function testGeoBidModifierUpdate()
+    public function testGeoBidModifierUpdateResponse()
     {
 
     }
 
     /**
-     * Test attribute "geo_criteria"
+     * Test attribute "not_found"
      */
-    public function testPropertyGeoCriteria()
+    public function testPropertyNotFound()
     {
 
     }
 
     /**
-     * Test attribute "value"
+     * Test attribute "ok"
      */
-    public function testPropertyValue()
+    public function testPropertyOk()
     {
 
     }

@@ -73,6 +73,7 @@ class GeoBidModifierApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
+            $apiClient->getConfig()->setHost('https://dcmapi.dolead.com/v1');
         }
 
         $this->apiClient = $apiClient;
@@ -214,7 +215,7 @@ class GeoBidModifierApi
      * @param string $biddable_id ID of the biddable object (account, campaign, ad_group) (required)
      * @param string $replace replace&#x3D;false means all existing bid modifiers are replaced. (optional, default to true)
      * @param \Dcm\Model\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
-     * @return \Dcm\Model\BidModifier
+     * @return \Dcm\Model\GeoBidModifierUpdateResponse
      * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierUpdateMany($biddable_level, $biddable_id, $replace = null, $body = null)
@@ -232,7 +233,7 @@ class GeoBidModifierApi
      * @param string $biddable_id ID of the biddable object (account, campaign, ad_group) (required)
      * @param string $replace replace&#x3D;false means all existing bid modifiers are replaced. (optional, default to true)
      * @param \Dcm\Model\GeoBidModifier[] $body List with the bid modifiers (criterias and values) (optional)
-     * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Dcm\Model\GeoBidModifierUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersGeoBidModifierUpdateManyWithHttpInfo($biddable_level, $biddable_id, $replace = null, $body = null)
@@ -305,15 +306,15 @@ class GeoBidModifierApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Dcm\Model\BidModifier',
+                '\Dcm\Model\GeoBidModifierUpdateResponse',
                 '/geo_bid_modifier/{biddable_level}/{biddable_id}/'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\GeoBidModifierUpdateResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\GeoBidModifierUpdateResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
