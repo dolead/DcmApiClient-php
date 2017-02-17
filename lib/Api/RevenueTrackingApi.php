@@ -103,6 +103,92 @@ class RevenueTrackingApi
     }
 
     /**
+     * Operation controllersClickRevenueAdwordsContext
+     *
+     * Get the Dolead context of the click (Account, Campaign, Keyword, AdGroup, Ad)
+     *
+     * @param string $gclid  (required)
+     * @return \Dcm\Model\ClickContext
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersClickRevenueAdwordsContext($gclid)
+    {
+        list($response) = $this->controllersClickRevenueAdwordsContextWithHttpInfo($gclid);
+        return $response;
+    }
+
+    /**
+     * Operation controllersClickRevenueAdwordsContextWithHttpInfo
+     *
+     * Get the Dolead context of the click (Account, Campaign, Keyword, AdGroup, Ad)
+     *
+     * @param string $gclid  (required)
+     * @return Array of \Dcm\Model\ClickContext, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersClickRevenueAdwordsContextWithHttpInfo($gclid)
+    {
+        // verify the required parameter 'gclid' is set
+        if ($gclid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $gclid when calling controllersClickRevenueAdwordsContext');
+        }
+        // parse inputs
+        $resourcePath = "/adwords_click_revenue/context";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($gclid !== null) {
+            $queryParams['gclid'] = $this->apiClient->getSerializer()->toQueryValue($gclid);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\ClickContext',
+                '/adwords_click_revenue/context'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\ClickContext', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\ClickContext', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation controllersClickRevenueAdwordsUpsert
      *
      * Create or update a list of Adwords conversions / revenues, using gclid
@@ -175,6 +261,110 @@ class RevenueTrackingApi
             return array(null, $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation controllersClickRevenueBingContext
+     *
+     * Get the Dolead context from a Bing click context.
+     *
+     * @param string $campaign_id Bing CampaignId (see Bing URL tracking, Available parameters) (required)
+     * @param string $ad_group_id Bing AdGroupId (see Bing URL tracking, Available parameters) (optional)
+     * @param string $ad_id Bing AdId (see Bing URL tracking, Available parameters) (optional)
+     * @param string $order_item_id Bing OrderItemId, aka keyword ID (see Bing URL tracking, Available parameters) (optional)
+     * @return \Dcm\Model\ClickContext
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersClickRevenueBingContext($campaign_id, $ad_group_id = null, $ad_id = null, $order_item_id = null)
+    {
+        list($response) = $this->controllersClickRevenueBingContextWithHttpInfo($campaign_id, $ad_group_id, $ad_id, $order_item_id);
+        return $response;
+    }
+
+    /**
+     * Operation controllersClickRevenueBingContextWithHttpInfo
+     *
+     * Get the Dolead context from a Bing click context.
+     *
+     * @param string $campaign_id Bing CampaignId (see Bing URL tracking, Available parameters) (required)
+     * @param string $ad_group_id Bing AdGroupId (see Bing URL tracking, Available parameters) (optional)
+     * @param string $ad_id Bing AdId (see Bing URL tracking, Available parameters) (optional)
+     * @param string $order_item_id Bing OrderItemId, aka keyword ID (see Bing URL tracking, Available parameters) (optional)
+     * @return Array of \Dcm\Model\ClickContext, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersClickRevenueBingContextWithHttpInfo($campaign_id, $ad_group_id = null, $ad_id = null, $order_item_id = null)
+    {
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling controllersClickRevenueBingContext');
+        }
+        // parse inputs
+        $resourcePath = "/bing_click_revenue/context";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($campaign_id !== null) {
+            $queryParams['CampaignId'] = $this->apiClient->getSerializer()->toQueryValue($campaign_id);
+        }
+        // query params
+        if ($ad_group_id !== null) {
+            $queryParams['AdGroupId'] = $this->apiClient->getSerializer()->toQueryValue($ad_group_id);
+        }
+        // query params
+        if ($ad_id !== null) {
+            $queryParams['AdId'] = $this->apiClient->getSerializer()->toQueryValue($ad_id);
+        }
+        // query params
+        if ($order_item_id !== null) {
+            $queryParams['OrderItemId'] = $this->apiClient->getSerializer()->toQueryValue($order_item_id);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\ClickContext',
+                '/bing_click_revenue/context'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\ClickContext', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\ClickContext', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
             }
 
             throw $e;

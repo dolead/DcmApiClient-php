@@ -1,6 +1,6 @@
 <?php
 /**
- * GeoBidModifierApiTest
+ * StatisticApiTest
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \Dcm\ApiException;
 use \Dcm\ObjectSerializer;
 
 /**
- * GeoBidModifierApiTest Class Doc Comment
+ * StatisticApiTest Class Doc Comment
  *
  * @category Class
  * @package  Dcm
@@ -54,7 +54,7 @@ use \Dcm\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GeoBidModifierApiTest extends \PHPUnit_Framework_TestCase
+class StatisticApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -90,23 +90,12 @@ class GeoBidModifierApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for controllersGeoBidModifierBimoList
+     * Test case for controllersStatisticsGetCampaignStatistics
      *
-     * Get bid modifier on an object (account, campaign, ad_group).
-     *
-     */
-    public function testControllersGeoBidModifierBimoList()
-    {
-
-    }
-
-    /**
-     * Test case for controllersGeoBidModifierUpdateMany
-     *
-     * Update multiple bid modifiers.
+     * Get campaign stats for a given period..
      *
      */
-    public function testControllersGeoBidModifierUpdateMany()
+    public function testControllersStatisticsGetCampaignStatistics()
     {
 
     }

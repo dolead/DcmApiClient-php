@@ -171,7 +171,7 @@ class GeoBidModifierUpdateResponse implements ArrayAccess
 
     /**
      * Sets not_found
-     * @param \Dcm\Model\GeoBidModifier[] $not_found The bid modifier criterias that were recognized and applied
+     * @param \Dcm\Model\GeoBidModifier[] $not_found The bid modifier criteria that were recognized and applied
      * @return $this
      */
     public function setNotFound($not_found)
@@ -192,7 +192,7 @@ class GeoBidModifierUpdateResponse implements ArrayAccess
 
     /**
      * Sets ok
-     * @param \Dcm\Model\GeoBidModifier[] $ok The bid modifier criterias that were recognized and applied
+     * @param \Dcm\Model\GeoBidModifier[] $ok The bid modifier criteria that were recognized and applied
      * @return $this
      */
     public function setOk($ok)

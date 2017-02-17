@@ -1,6 +1,6 @@
 <?php
 /**
- * BingClickRevenue
+ * BingClickContext
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * BingClickRevenue Class Doc Comment
+ * BingClickContext Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,23 +53,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BingClickRevenue implements ArrayAccess
+class BingClickContext implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'BingClickRevenue';
+    protected static $swaggerModelName = 'BingClickContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'click_time' => '\DateTime',
-        'conversions' => 'int',
-        'revenue' => 'float',
-        'transaction_id' => 'string'
+        'ad_group_id' => 'string',
+        'ad_id' => 'string',
+        'campaign_id' => 'string',
+        'order_item_id' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,10 +82,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'click_time' => 'click_time',
-        'conversions' => 'conversions',
-        'revenue' => 'revenue',
-        'transaction_id' => 'transaction_id'
+        'ad_group_id' => 'AdGroupId',
+        'ad_id' => 'AdId',
+        'campaign_id' => 'CampaignId',
+        'order_item_id' => 'OrderItemId'
     );
 
     public static function attributeMap()
@@ -98,10 +98,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'click_time' => 'setClickTime',
-        'conversions' => 'setConversions',
-        'revenue' => 'setRevenue',
-        'transaction_id' => 'setTransactionId'
+        'ad_group_id' => 'setAdGroupId',
+        'ad_id' => 'setAdId',
+        'campaign_id' => 'setCampaignId',
+        'order_item_id' => 'setOrderItemId'
     );
 
     public static function setters()
@@ -114,10 +114,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'click_time' => 'getClickTime',
-        'conversions' => 'getConversions',
-        'revenue' => 'getRevenue',
-        'transaction_id' => 'getTransactionId'
+        'ad_group_id' => 'getAdGroupId',
+        'ad_id' => 'getAdId',
+        'campaign_id' => 'getCampaignId',
+        'order_item_id' => 'getOrderItemId'
     );
 
     public static function getters()
@@ -141,10 +141,10 @@ class BingClickRevenue implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['click_time'] = isset($data['click_time']) ? $data['click_time'] : null;
-        $this->container['conversions'] = isset($data['conversions']) ? $data['conversions'] : null;
-        $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
-        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
+        $this->container['ad_group_id'] = isset($data['ad_group_id']) ? $data['ad_group_id'] : null;
+        $this->container['ad_id'] = isset($data['ad_id']) ? $data['ad_id'] : null;
+        $this->container['campaign_id'] = isset($data['campaign_id']) ? $data['campaign_id'] : null;
+        $this->container['order_item_id'] = isset($data['order_item_id']) ? $data['order_item_id'] : null;
     }
 
     /**
@@ -171,85 +171,85 @@ class BingClickRevenue implements ArrayAccess
 
 
     /**
-     * Gets click_time
-     * @return \DateTime
-     */
-    public function getClickTime()
-    {
-        return $this->container['click_time'];
-    }
-
-    /**
-     * Sets click_time
-     * @param \DateTime $click_time The timestamp of the click (warning, it is different from the timestamp of the conversion)
-     * @return $this
-     */
-    public function setClickTime($click_time)
-    {
-        $this->container['click_time'] = $click_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversions
-     * @return int
-     */
-    public function getConversions()
-    {
-        return $this->container['conversions'];
-    }
-
-    /**
-     * Sets conversions
-     * @param int $conversions Conversions count, for current (gclid, transaction_id)
-     * @return $this
-     */
-    public function setConversions($conversions)
-    {
-        $this->container['conversions'] = $conversions;
-
-        return $this;
-    }
-
-    /**
-     * Gets revenue
-     * @return float
-     */
-    public function getRevenue()
-    {
-        return $this->container['revenue'];
-    }
-
-    /**
-     * Sets revenue
-     * @param float $revenue Generated revenue
-     * @return $this
-     */
-    public function setRevenue($revenue)
-    {
-        $this->container['revenue'] = $revenue;
-
-        return $this;
-    }
-
-    /**
-     * Gets transaction_id
+     * Gets ad_group_id
      * @return string
      */
-    public function getTransactionId()
+    public function getAdGroupId()
     {
-        return $this->container['transaction_id'];
+        return $this->container['ad_group_id'];
     }
 
     /**
-     * Sets transaction_id
-     * @param string $transaction_id (Optional) a transaction ID (if a click can generate multiple conversions)
+     * Sets ad_group_id
+     * @param string $ad_group_id Bing AdGroupId (see Bing URL tracking, Available parameters)
      * @return $this
      */
-    public function setTransactionId($transaction_id)
+    public function setAdGroupId($ad_group_id)
     {
-        $this->container['transaction_id'] = $transaction_id;
+        $this->container['ad_group_id'] = $ad_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ad_id
+     * @return string
+     */
+    public function getAdId()
+    {
+        return $this->container['ad_id'];
+    }
+
+    /**
+     * Sets ad_id
+     * @param string $ad_id Bing AdId (see Bing URL tracking, Available parameters)
+     * @return $this
+     */
+    public function setAdId($ad_id)
+    {
+        $this->container['ad_id'] = $ad_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_id
+     * @return string
+     */
+    public function getCampaignId()
+    {
+        return $this->container['campaign_id'];
+    }
+
+    /**
+     * Sets campaign_id
+     * @param string $campaign_id Bing CampaignId (see Bing URL tracking, Available parameters)
+     * @return $this
+     */
+    public function setCampaignId($campaign_id)
+    {
+        $this->container['campaign_id'] = $campaign_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_item_id
+     * @return string
+     */
+    public function getOrderItemId()
+    {
+        return $this->container['order_item_id'];
+    }
+
+    /**
+     * Sets order_item_id
+     * @param string $order_item_id Bing OrderItemId, aka keyword ID (see Bing URL tracking, Available parameters)
+     * @return $this
+     */
+    public function setOrderItemId($order_item_id)
+    {
+        $this->container['order_item_id'] = $order_item_id;
 
         return $this;
     }

@@ -90,23 +90,23 @@ class CampaignApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for controllersCampaignCampaignList
+     *
+     * List campaigns matching given criteria.
+     *
+     */
+    public function testControllersCampaignCampaignList()
+    {
+
+    }
+
+    /**
      * Test case for controllersCampaignGet
      *
      * Get campaign by its id.
      *
      */
     public function testControllersCampaignGet()
-    {
-
-    }
-
-    /**
-     * Test case for controllersCampaignList
-     *
-     * List campaigns matching given criteria.
-     *
-     */
-    public function testControllersCampaignList()
     {
 
     }

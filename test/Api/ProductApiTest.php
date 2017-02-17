@@ -101,12 +101,12 @@ class ProductApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for controllersProductList
+     * Test case for controllersProductProductList
      *
      * List product matching given criteria.
      *
      */
-    public function testControllersProductList()
+    public function testControllersProductProductList()
     {
 
     }

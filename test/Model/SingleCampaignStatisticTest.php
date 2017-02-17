@@ -1,6 +1,6 @@
 <?php
 /**
- * BingClickRevenueTest
+ * SingleCampaignStatisticTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * BingClickRevenueTest Class Doc Comment
+ * SingleCampaignStatisticTest Class Doc Comment
  *
  * @category    Class */
-// * @description BingClickRevenue
+// * @description SingleCampaignStatistic
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BingClickRevenueTest extends \PHPUnit_Framework_TestCase
+class SingleCampaignStatisticTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,25 +88,113 @@ class BingClickRevenueTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "BingClickRevenue"
+     * Test "SingleCampaignStatistic"
      */
-    public function testBingClickRevenue()
+    public function testSingleCampaignStatistic()
     {
 
     }
 
     /**
-     * Test attribute "click_time"
+     * Test attribute "click_assisted_conversions"
      */
-    public function testPropertyClickTime()
+    public function testPropertyClickAssistedConversions()
     {
 
     }
 
     /**
-     * Test attribute "conversions"
+     * Test attribute "click_assisted_revenue"
      */
-    public function testPropertyConversions()
+    public function testPropertyClickAssistedRevenue()
+    {
+
+    }
+
+    /**
+     * Test attribute "clicks"
+     */
+    public function testPropertyClicks()
+    {
+
+    }
+
+    /**
+     * Test attribute "conversion_rate_many_per_click"
+     */
+    public function testPropertyConversionRateManyPerClick()
+    {
+
+    }
+
+    /**
+     * Test attribute "conversion_rate_one_per_click"
+     */
+    public function testPropertyConversionRateOnePerClick()
+    {
+
+    }
+
+    /**
+     * Test attribute "conversions_many_per_click"
+     */
+    public function testPropertyConversionsManyPerClick()
+    {
+
+    }
+
+    /**
+     * Test attribute "conversions_one_per_click"
+     */
+    public function testPropertyConversionsOnePerClick()
+    {
+
+    }
+
+    /**
+     * Test attribute "cost"
+     */
+    public function testPropertyCost()
+    {
+
+    }
+
+    /**
+     * Test attribute "ctr"
+     */
+    public function testPropertyCtr()
+    {
+
+    }
+
+    /**
+     * Test attribute "hits"
+     */
+    public function testPropertyHits()
+    {
+
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+
+    }
+
+    /**
+     * Test attribute "margin_rate"
+     */
+    public function testPropertyMarginRate()
+    {
+
+    }
+
+    /**
+     * Test attribute "position"
+     */
+    public function testPropertyPosition()
     {
 
     }
@@ -120,9 +208,9 @@ class BingClickRevenueTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "transaction_id"
+     * Test attribute "roi"
      */
-    public function testPropertyTransactionId()
+    public function testPropertyRoi()
     {
 
     }

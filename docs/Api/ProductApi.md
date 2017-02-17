@@ -5,7 +5,7 @@ All URIs are relative to *https://dcmapi.dolead.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**controllersProductGet**](ProductApi.md#controllersProductGet) | **GET** /product/{product_id} | Get product by its Dolead id
-[**controllersProductList**](ProductApi.md#controllersProductList) | **GET** /product | List product matching given criteria
+[**controllersProductProductList**](ProductApi.md#controllersProductProductList) | **GET** /product | List product matching given criteria
 [**controllersProductUpdateMany**](ProductApi.md#controllersProductUpdateMany) | **PUT** /product | Update campaigns matching given criteria.
 [**controllersProductUpdateOne**](ProductApi.md#controllersProductUpdateOne) | **PUT** /product/{product_id} | Update product by its id
 
@@ -58,8 +58,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **controllersProductList**
-> \Dcm\Model\Product[] controllersProductList($body, $limit, $offset)
+# **controllersProductProductList**
+> \Dcm\Model\Product[] controllersProductProductList($body, $limit, $offset)
 
 List product matching given criteria
 
@@ -81,10 +81,10 @@ $limit = 100; // int | Number of product returned. Used in pagination
 $offset = 0; // int | Pagination offset
 
 try {
-    $result = $api_instance->controllersProductList($body, $limit, $offset);
+    $result = $api_instance->controllersProductProductList($body, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ProductApi->controllersProductList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ProductApi->controllersProductProductList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

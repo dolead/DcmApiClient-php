@@ -103,7 +103,7 @@ class GeoBidModifierApi
     }
 
     /**
-     * Operation controllersGeoBidModifierList
+     * Operation controllersGeoBidModifierBimoList
      *
      * Get bid modifier on an object (account, campaign, ad_group)
      *
@@ -112,14 +112,14 @@ class GeoBidModifierApi
      * @return \Dcm\Model\BidModifier
      * @throws \Dcm\ApiException on non-2xx response
      */
-    public function controllersGeoBidModifierList($biddable_level, $biddable_id)
+    public function controllersGeoBidModifierBimoList($biddable_level, $biddable_id)
     {
-        list($response) = $this->controllersGeoBidModifierListWithHttpInfo($biddable_level, $biddable_id);
+        list($response) = $this->controllersGeoBidModifierBimoListWithHttpInfo($biddable_level, $biddable_id);
         return $response;
     }
 
     /**
-     * Operation controllersGeoBidModifierListWithHttpInfo
+     * Operation controllersGeoBidModifierBimoListWithHttpInfo
      *
      * Get bid modifier on an object (account, campaign, ad_group)
      *
@@ -128,15 +128,15 @@ class GeoBidModifierApi
      * @return Array of \Dcm\Model\BidModifier, HTTP status code, HTTP response headers (array of strings)
      * @throws \Dcm\ApiException on non-2xx response
      */
-    public function controllersGeoBidModifierListWithHttpInfo($biddable_level, $biddable_id)
+    public function controllersGeoBidModifierBimoListWithHttpInfo($biddable_level, $biddable_id)
     {
         // verify the required parameter 'biddable_level' is set
         if ($biddable_level === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $biddable_level when calling controllersGeoBidModifierList');
+            throw new \InvalidArgumentException('Missing the required parameter $biddable_level when calling controllersGeoBidModifierBimoList');
         }
         // verify the required parameter 'biddable_id' is set
         if ($biddable_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $biddable_id when calling controllersGeoBidModifierList');
+            throw new \InvalidArgumentException('Missing the required parameter $biddable_id when calling controllersGeoBidModifierBimoList');
         }
         // parse inputs
         $resourcePath = "/geo_bid_modifier/{biddable_level}/{biddable_id}/";

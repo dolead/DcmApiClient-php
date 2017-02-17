@@ -103,6 +103,112 @@ class CampaignApi
     }
 
     /**
+     * Operation controllersCampaignCampaignList
+     *
+     * List campaigns matching given criteria
+     *
+     * @param \Dcm\Model\CampaignQuery $body  (optional)
+     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
+     * @param int $offset Pagination offset (optional, default to 0)
+     * @return \Dcm\Model\Campaign[]
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersCampaignCampaignList($body = null, $limit = null, $offset = null)
+    {
+        list($response) = $this->controllersCampaignCampaignListWithHttpInfo($body, $limit, $offset);
+        return $response;
+    }
+
+    /**
+     * Operation controllersCampaignCampaignListWithHttpInfo
+     *
+     * List campaigns matching given criteria
+     *
+     * @param \Dcm\Model\CampaignQuery $body  (optional)
+     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
+     * @param int $offset Pagination offset (optional, default to 0)
+     * @return Array of \Dcm\Model\Campaign[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersCampaignCampaignListWithHttpInfo($body = null, $limit = null, $offset = null)
+    {
+        if (!is_null($limit) && ($limit > 100.0)) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignApi.controllersCampaignCampaignList, must be smaller than or equal to 100.0.');
+        }
+        if (!is_null($limit) && ($limit < 1.0)) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignApi.controllersCampaignCampaignList, must be bigger than or equal to 1.0.');
+        }
+
+        if (!is_null($offset) && ($offset < 0.0)) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling CampaignApi.controllersCampaignCampaignList, must be bigger than or equal to 0.0.');
+        }
+
+        // parse inputs
+        $resourcePath = "/campaign";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\Campaign[]',
+                '/campaign'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation controllersCampaignGet
      *
      * Get campaign by its id
@@ -184,112 +290,6 @@ class CampaignApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation controllersCampaignList
-     *
-     * List campaigns matching given criteria
-     *
-     * @param \Dcm\Model\CampaignQuery $body  (optional)
-     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
-     * @param int $offset Pagination offset (optional, default to 0)
-     * @return \Dcm\Model\Campaign[]
-     * @throws \Dcm\ApiException on non-2xx response
-     */
-    public function controllersCampaignList($body = null, $limit = null, $offset = null)
-    {
-        list($response) = $this->controllersCampaignListWithHttpInfo($body, $limit, $offset);
-        return $response;
-    }
-
-    /**
-     * Operation controllersCampaignListWithHttpInfo
-     *
-     * List campaigns matching given criteria
-     *
-     * @param \Dcm\Model\CampaignQuery $body  (optional)
-     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
-     * @param int $offset Pagination offset (optional, default to 0)
-     * @return Array of \Dcm\Model\Campaign[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \Dcm\ApiException on non-2xx response
-     */
-    public function controllersCampaignListWithHttpInfo($body = null, $limit = null, $offset = null)
-    {
-        if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignApi.controllersCampaignList, must be smaller than or equal to 100.0.');
-        }
-        if (!is_null($limit) && ($limit < 1.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignApi.controllersCampaignList, must be bigger than or equal to 1.0.');
-        }
-
-        if (!is_null($offset) && ($offset < 0.0)) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling CampaignApi.controllersCampaignList, must be bigger than or equal to 0.0.');
-        }
-
-        // parse inputs
-        $resourcePath = "/campaign";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
-        }
-        // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['DCM-API-KEY'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Dcm\Model\Campaign[]',
-                '/campaign'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

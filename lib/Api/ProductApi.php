@@ -193,7 +193,7 @@ class ProductApi
     }
 
     /**
-     * Operation controllersProductList
+     * Operation controllersProductProductList
      *
      * List product matching given criteria
      *
@@ -203,14 +203,14 @@ class ProductApi
      * @return \Dcm\Model\Product[]
      * @throws \Dcm\ApiException on non-2xx response
      */
-    public function controllersProductList($body = null, $limit = null, $offset = null)
+    public function controllersProductProductList($body = null, $limit = null, $offset = null)
     {
-        list($response) = $this->controllersProductListWithHttpInfo($body, $limit, $offset);
+        list($response) = $this->controllersProductProductListWithHttpInfo($body, $limit, $offset);
         return $response;
     }
 
     /**
-     * Operation controllersProductListWithHttpInfo
+     * Operation controllersProductProductListWithHttpInfo
      *
      * List product matching given criteria
      *
@@ -220,17 +220,17 @@ class ProductApi
      * @return Array of \Dcm\Model\Product[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Dcm\ApiException on non-2xx response
      */
-    public function controllersProductListWithHttpInfo($body = null, $limit = null, $offset = null)
+    public function controllersProductProductListWithHttpInfo($body = null, $limit = null, $offset = null)
     {
         if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProductApi.controllersProductList, must be smaller than or equal to 100.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProductApi.controllersProductProductList, must be smaller than or equal to 100.0.');
         }
         if (!is_null($limit) && ($limit < 1.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProductApi.controllersProductList, must be bigger than or equal to 1.0.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling ProductApi.controllersProductProductList, must be bigger than or equal to 1.0.');
         }
 
         if (!is_null($offset) && ($offset < 0.0)) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling ProductApi.controllersProductList, must be bigger than or equal to 0.0.');
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling ProductApi.controllersProductProductList, must be bigger than or equal to 0.0.');
         }
 
         // parse inputs

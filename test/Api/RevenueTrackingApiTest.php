@@ -90,12 +90,34 @@ class RevenueTrackingApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for controllersClickRevenueAdwordsContext
+     *
+     * Get the Dolead context of the click (Account, Campaign, Keyword, AdGroup, Ad).
+     *
+     */
+    public function testControllersClickRevenueAdwordsContext()
+    {
+
+    }
+
+    /**
      * Test case for controllersClickRevenueAdwordsUpsert
      *
      * Create or update a list of Adwords conversions / revenues, using gclid.
      *
      */
     public function testControllersClickRevenueAdwordsUpsert()
+    {
+
+    }
+
+    /**
+     * Test case for controllersClickRevenueBingContext
+     *
+     * Get the Dolead context from a Bing click context..
+     *
+     */
+    public function testControllersClickRevenueBingContext()
     {
 
     }

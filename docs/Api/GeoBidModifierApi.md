@@ -4,12 +4,12 @@ All URIs are relative to *https://dcmapi.dolead.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**controllersGeoBidModifierList**](GeoBidModifierApi.md#controllersGeoBidModifierList) | **GET** /geo_bid_modifier/{biddable_level}/{biddable_id}/ | Get bid modifier on an object (account, campaign, ad_group)
+[**controllersGeoBidModifierBimoList**](GeoBidModifierApi.md#controllersGeoBidModifierBimoList) | **GET** /geo_bid_modifier/{biddable_level}/{biddable_id}/ | Get bid modifier on an object (account, campaign, ad_group)
 [**controllersGeoBidModifierUpdateMany**](GeoBidModifierApi.md#controllersGeoBidModifierUpdateMany) | **PUT** /geo_bid_modifier/{biddable_level}/{biddable_id}/ | Update multiple bid modifiers
 
 
-# **controllersGeoBidModifierList**
-> \Dcm\Model\BidModifier controllersGeoBidModifierList($biddable_level, $biddable_id)
+# **controllersGeoBidModifierBimoList**
+> \Dcm\Model\BidModifier controllersGeoBidModifierBimoList($biddable_level, $biddable_id)
 
 Get bid modifier on an object (account, campaign, ad_group)
 
@@ -28,10 +28,10 @@ $biddable_level = "biddable_level_example"; // string | Type of object
 $biddable_id = "biddable_id_example"; // string | ID of object
 
 try {
-    $result = $api_instance->controllersGeoBidModifierList($biddable_level, $biddable_id);
+    $result = $api_instance->controllersGeoBidModifierBimoList($biddable_level, $biddable_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GeoBidModifierApi->controllersGeoBidModifierList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GeoBidModifierApi->controllersGeoBidModifierBimoList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

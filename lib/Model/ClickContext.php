@@ -1,6 +1,6 @@
 <?php
 /**
- * BingClickRevenue
+ * ClickContext
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * BingClickRevenue Class Doc Comment
+ * ClickContext Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,23 +53,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BingClickRevenue implements ArrayAccess
+class ClickContext implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'BingClickRevenue';
+    protected static $swaggerModelName = 'ClickContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'click_time' => '\DateTime',
-        'conversions' => 'int',
-        'revenue' => 'float',
-        'transaction_id' => 'string'
+        'ad' => 'string',
+        'adgroup' => 'string',
+        'campaign' => 'string',
+        'keyword' => 'string'
     );
 
     public static function swaggerTypes()
@@ -82,10 +82,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'click_time' => 'click_time',
-        'conversions' => 'conversions',
-        'revenue' => 'revenue',
-        'transaction_id' => 'transaction_id'
+        'ad' => 'ad',
+        'adgroup' => 'adgroup',
+        'campaign' => 'campaign',
+        'keyword' => 'keyword'
     );
 
     public static function attributeMap()
@@ -98,10 +98,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'click_time' => 'setClickTime',
-        'conversions' => 'setConversions',
-        'revenue' => 'setRevenue',
-        'transaction_id' => 'setTransactionId'
+        'ad' => 'setAd',
+        'adgroup' => 'setAdgroup',
+        'campaign' => 'setCampaign',
+        'keyword' => 'setKeyword'
     );
 
     public static function setters()
@@ -114,10 +114,10 @@ class BingClickRevenue implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'click_time' => 'getClickTime',
-        'conversions' => 'getConversions',
-        'revenue' => 'getRevenue',
-        'transaction_id' => 'getTransactionId'
+        'ad' => 'getAd',
+        'adgroup' => 'getAdgroup',
+        'campaign' => 'getCampaign',
+        'keyword' => 'getKeyword'
     );
 
     public static function getters()
@@ -141,10 +141,10 @@ class BingClickRevenue implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['click_time'] = isset($data['click_time']) ? $data['click_time'] : null;
-        $this->container['conversions'] = isset($data['conversions']) ? $data['conversions'] : null;
-        $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
-        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
+        $this->container['ad'] = isset($data['ad']) ? $data['ad'] : null;
+        $this->container['adgroup'] = isset($data['adgroup']) ? $data['adgroup'] : null;
+        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
+        $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
     }
 
     /**
@@ -171,85 +171,85 @@ class BingClickRevenue implements ArrayAccess
 
 
     /**
-     * Gets click_time
-     * @return \DateTime
-     */
-    public function getClickTime()
-    {
-        return $this->container['click_time'];
-    }
-
-    /**
-     * Sets click_time
-     * @param \DateTime $click_time The timestamp of the click (warning, it is different from the timestamp of the conversion)
-     * @return $this
-     */
-    public function setClickTime($click_time)
-    {
-        $this->container['click_time'] = $click_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversions
-     * @return int
-     */
-    public function getConversions()
-    {
-        return $this->container['conversions'];
-    }
-
-    /**
-     * Sets conversions
-     * @param int $conversions Conversions count, for current (gclid, transaction_id)
-     * @return $this
-     */
-    public function setConversions($conversions)
-    {
-        $this->container['conversions'] = $conversions;
-
-        return $this;
-    }
-
-    /**
-     * Gets revenue
-     * @return float
-     */
-    public function getRevenue()
-    {
-        return $this->container['revenue'];
-    }
-
-    /**
-     * Sets revenue
-     * @param float $revenue Generated revenue
-     * @return $this
-     */
-    public function setRevenue($revenue)
-    {
-        $this->container['revenue'] = $revenue;
-
-        return $this;
-    }
-
-    /**
-     * Gets transaction_id
+     * Gets ad
      * @return string
      */
-    public function getTransactionId()
+    public function getAd()
     {
-        return $this->container['transaction_id'];
+        return $this->container['ad'];
     }
 
     /**
-     * Sets transaction_id
-     * @param string $transaction_id (Optional) a transaction ID (if a click can generate multiple conversions)
+     * Sets ad
+     * @param string $ad Dolead Ad ID
      * @return $this
      */
-    public function setTransactionId($transaction_id)
+    public function setAd($ad)
     {
-        $this->container['transaction_id'] = $transaction_id;
+        $this->container['ad'] = $ad;
+
+        return $this;
+    }
+
+    /**
+     * Gets adgroup
+     * @return string
+     */
+    public function getAdgroup()
+    {
+        return $this->container['adgroup'];
+    }
+
+    /**
+     * Sets adgroup
+     * @param string $adgroup Dolead AdGroup ID
+     * @return $this
+     */
+    public function setAdgroup($adgroup)
+    {
+        $this->container['adgroup'] = $adgroup;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign
+     * @return string
+     */
+    public function getCampaign()
+    {
+        return $this->container['campaign'];
+    }
+
+    /**
+     * Sets campaign
+     * @param string $campaign Dolead Campaign ID
+     * @return $this
+     */
+    public function setCampaign($campaign)
+    {
+        $this->container['campaign'] = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyword
+     * @return string
+     */
+    public function getKeyword()
+    {
+        return $this->container['keyword'];
+    }
+
+    /**
+     * Sets keyword
+     * @param string $keyword Dolead Keyword ID
+     * @return $this
+     */
+    public function setKeyword($keyword)
+    {
+        $this->container['keyword'] = $keyword;
 
         return $this;
     }

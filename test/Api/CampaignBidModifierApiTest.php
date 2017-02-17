@@ -90,23 +90,23 @@ class CampaignBidModifierApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for controllersCampaignBidModifierBimoList
+     *
+     * List campaign bid modifiers matching given criteria.
+     *
+     */
+    public function testControllersCampaignBidModifierBimoList()
+    {
+
+    }
+
+    /**
      * Test case for controllersCampaignBidModifierGet
      *
      * Get bid modifier by its id.
      *
      */
     public function testControllersCampaignBidModifierGet()
-    {
-
-    }
-
-    /**
-     * Test case for controllersCampaignBidModifierList
-     *
-     * List campaign bid modifiers matching given criteria.
-     *
-     */
-    public function testControllersCampaignBidModifierList()
     {
 
     }

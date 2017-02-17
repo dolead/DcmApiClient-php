@@ -103,6 +103,140 @@ class CampaignBidModifierApi
     }
 
     /**
+     * Operation controllersCampaignBidModifierBimoList
+     *
+     * List campaign bid modifiers matching given criteria
+     *
+     * @param string $campaign_id ID of campaign (required)
+     * @param string $bm_type Filter over the bid modifier type (required)
+     * @param \Dcm\Model\BidModifierQuery $body  (optional)
+     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
+     * @param int $offset Pagination offset (optional, default to 0)
+     * @return \Dcm\Model\BidModifier[]
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersCampaignBidModifierBimoList($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
+    {
+        list($response) = $this->controllersCampaignBidModifierBimoListWithHttpInfo($campaign_id, $bm_type, $body, $limit, $offset);
+        return $response;
+    }
+
+    /**
+     * Operation controllersCampaignBidModifierBimoListWithHttpInfo
+     *
+     * List campaign bid modifiers matching given criteria
+     *
+     * @param string $campaign_id ID of campaign (required)
+     * @param string $bm_type Filter over the bid modifier type (required)
+     * @param \Dcm\Model\BidModifierQuery $body  (optional)
+     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
+     * @param int $offset Pagination offset (optional, default to 0)
+     * @return Array of \Dcm\Model\BidModifier[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersCampaignBidModifierBimoListWithHttpInfo($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
+    {
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling controllersCampaignBidModifierBimoList');
+        }
+        // verify the required parameter 'bm_type' is set
+        if ($bm_type === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bm_type when calling controllersCampaignBidModifierBimoList');
+        }
+        if (!is_null($limit) && ($limit > 100.0)) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignBidModifierApi.controllersCampaignBidModifierBimoList, must be smaller than or equal to 100.0.');
+        }
+        if (!is_null($limit) && ($limit < 1.0)) {
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignBidModifierApi.controllersCampaignBidModifierBimoList, must be bigger than or equal to 1.0.');
+        }
+
+        if (!is_null($offset) && ($offset < 0.0)) {
+            throw new \InvalidArgumentException('invalid value for "$offset" when calling CampaignBidModifierApi.controllersCampaignBidModifierBimoList, must be bigger than or equal to 0.0.');
+        }
+
+        // parse inputs
+        $resourcePath = "/campaign/{campaign_id}/bid_modifier/{bm_type}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
+        }
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "campaign_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($bm_type !== null) {
+            $resourcePath = str_replace(
+                "{" . "bm_type" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bm_type),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\BidModifier[]',
+                '/campaign/{campaign_id}/bid_modifier/{bm_type}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation controllersCampaignBidModifierGet
      *
      * Get bid modifier by its id
@@ -212,140 +346,6 @@ class CampaignBidModifierApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation controllersCampaignBidModifierList
-     *
-     * List campaign bid modifiers matching given criteria
-     *
-     * @param string $campaign_id ID of campaign (required)
-     * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \Dcm\Model\BidModifierQuery $body  (optional)
-     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
-     * @param int $offset Pagination offset (optional, default to 0)
-     * @return \Dcm\Model\BidModifier[]
-     * @throws \Dcm\ApiException on non-2xx response
-     */
-    public function controllersCampaignBidModifierList($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
-    {
-        list($response) = $this->controllersCampaignBidModifierListWithHttpInfo($campaign_id, $bm_type, $body, $limit, $offset);
-        return $response;
-    }
-
-    /**
-     * Operation controllersCampaignBidModifierListWithHttpInfo
-     *
-     * List campaign bid modifiers matching given criteria
-     *
-     * @param string $campaign_id ID of campaign (required)
-     * @param string $bm_type Filter over the bid modifier type (required)
-     * @param \Dcm\Model\BidModifierQuery $body  (optional)
-     * @param int $limit Number of campaign returned. Used in pagination (optional, default to 100)
-     * @param int $offset Pagination offset (optional, default to 0)
-     * @return Array of \Dcm\Model\BidModifier[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \Dcm\ApiException on non-2xx response
-     */
-    public function controllersCampaignBidModifierListWithHttpInfo($campaign_id, $bm_type, $body = null, $limit = null, $offset = null)
-    {
-        // verify the required parameter 'campaign_id' is set
-        if ($campaign_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling controllersCampaignBidModifierList');
-        }
-        // verify the required parameter 'bm_type' is set
-        if ($bm_type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $bm_type when calling controllersCampaignBidModifierList');
-        }
-        if (!is_null($limit) && ($limit > 100.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignBidModifierApi.controllersCampaignBidModifierList, must be smaller than or equal to 100.0.');
-        }
-        if (!is_null($limit) && ($limit < 1.0)) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CampaignBidModifierApi.controllersCampaignBidModifierList, must be bigger than or equal to 1.0.');
-        }
-
-        if (!is_null($offset) && ($offset < 0.0)) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling CampaignBidModifierApi.controllersCampaignBidModifierList, must be bigger than or equal to 0.0.');
-        }
-
-        // parse inputs
-        $resourcePath = "/campaign/{campaign_id}/bid_modifier/{bm_type}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
-        }
-        // query params
-        if ($offset !== null) {
-            $queryParams['offset'] = $this->apiClient->getSerializer()->toQueryValue($offset);
-        }
-        // path params
-        if ($campaign_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "campaign_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($campaign_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($bm_type !== null) {
-            $resourcePath = str_replace(
-                "{" . "bm_type" . "}",
-                $this->apiClient->getSerializer()->toPathValue($bm_type),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['DCM-API-KEY'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Dcm\Model\BidModifier[]',
-                '/campaign/{campaign_id}/bid_modifier/{bm_type}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\BidModifier[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\BidModifier[]', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

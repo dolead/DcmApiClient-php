@@ -5,11 +5,7 @@
         "swagger",
         "php",
         "sdk",
-        "api",
-        "dolead",
-        "adwords",
-        "bing_ads",
-        "facebook_ads"
+        "api"
     ],
     "homepage": "http://swagger.io",
     "license": "Apache v2",
