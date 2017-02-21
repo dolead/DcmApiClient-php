@@ -104,7 +104,7 @@ class ClickContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "adgroup"
+     * Test attribute "ad_group"
      */
     public function testPropertyAdgroup()
     {

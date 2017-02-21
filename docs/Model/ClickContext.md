@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ad** | **string** | Dolead Ad ID | [optional] 
-**adgroup** | **string** | Dolead AdGroup ID | [optional] 
+**ad_group** | **string** | Dolead AdGroup ID | [optional] 
 **campaign** | **string** | Dolead Campaign ID | [optional] 
 **keyword** | **string** | Dolead Keyword ID | [optional] 
 

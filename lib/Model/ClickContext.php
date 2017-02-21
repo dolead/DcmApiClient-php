@@ -67,7 +67,7 @@ class ClickContext implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'ad' => 'string',
-        'adgroup' => 'string',
+        'ad_group' => 'string',
         'campaign' => 'string',
         'keyword' => 'string'
     );
@@ -83,7 +83,7 @@ class ClickContext implements ArrayAccess
      */
     protected static $attributeMap = array(
         'ad' => 'ad',
-        'adgroup' => 'adgroup',
+        'ad_group' => 'ad_group',
         'campaign' => 'campaign',
         'keyword' => 'keyword'
     );
@@ -99,7 +99,7 @@ class ClickContext implements ArrayAccess
      */
     protected static $setters = array(
         'ad' => 'setAd',
-        'adgroup' => 'setAdgroup',
+        'ad_group' => 'setAdGroup',
         'campaign' => 'setCampaign',
         'keyword' => 'setKeyword'
     );
@@ -115,7 +115,7 @@ class ClickContext implements ArrayAccess
      */
     protected static $getters = array(
         'ad' => 'getAd',
-        'adgroup' => 'getAdgroup',
+        'ad_group' => 'getAdGroup',
         'campaign' => 'getCampaign',
         'keyword' => 'getKeyword'
     );
@@ -142,7 +142,7 @@ class ClickContext implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ad'] = isset($data['ad']) ? $data['ad'] : null;
-        $this->container['adgroup'] = isset($data['adgroup']) ? $data['adgroup'] : null;
+        $this->container['ad_group'] = isset($data['ad_group']) ? $data['ad_group'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
         $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
     }
@@ -192,22 +192,22 @@ class ClickContext implements ArrayAccess
     }
 
     /**
-     * Gets adgroup
+     * Gets ad_group
      * @return string
      */
-    public function getAdgroup()
+    public function getAdGroup()
     {
-        return $this->container['adgroup'];
+        return $this->container['ad_group'];
     }
 
     /**
-     * Sets adgroup
-     * @param string $adgroup Dolead AdGroup ID
+     * Sets ad_group
+     * @param string $ad_group Dolead AdGroup ID
      * @return $this
      */
-    public function setAdgroup($adgroup)
+    public function setAdGroup($ad_group)
     {
-        $this->container['adgroup'] = $adgroup;
+        $this->container['ad_group'] = $ad_group;
 
         return $this;
     }
