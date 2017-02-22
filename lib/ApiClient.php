@@ -193,7 +193,11 @@ class ApiClient
             $url = ($url . '?' . http_build_query($queryParams));
         }
 
-        if ($method == self::$POST) {
+        // DO NOT CHANGE THIS LINE
+        if ($method == self::$GET && $postData) {
+            curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, 'GET' );
+            curl_setopt( $curl, CURLOPT_POSTFIELDS, $postData );
+        } elseif ($method == self::$POST) {
             curl_setopt($curl, CURLOPT_POST, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         } elseif ($method == self::$HEAD) {
