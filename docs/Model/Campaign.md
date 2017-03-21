@@ -3,7 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**account** | **string** | ID of the account | [optional]
 **budget** | **int** | Daily budget allowed for the campaign | [optional] 
+**campaign_type** | **string** | The type of the campaign | [optional]
 **id** | **string** | ID of the campaign in Dolead system. | [optional] 
 **name** | **string** | The campaign name | [optional] 
 **negative_geo_criterions** | **string[]** |  | [optional] 

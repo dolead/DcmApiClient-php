@@ -85,6 +85,8 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'account' => 'account',
+        'campaign_type' => 'campaign_type',
         'budget' => 'budget',
         'id' => 'id',
         'name' => 'name',
@@ -104,6 +106,8 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'account' => 'setAccount',
+        'campaign_type' => 'setCampaignType',
         'budget' => 'setBudget',
         'id' => 'setId',
         'name' => 'setName',
@@ -123,6 +127,8 @@ class Campaign implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'account' => 'getAccount',
+        'campaign_type' => 'getCampaignType',
         'budget' => 'getBudget',
         'id' => 'getId',
         'name' => 'getName',
@@ -167,6 +173,8 @@ class Campaign implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -207,6 +215,49 @@ class Campaign implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets account
+     * @return string
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     * @param string $account
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets campaign_type
+     * @return string
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaign_type'];
+    }
+
+    /**
+     * Sets campaign_type
+     * @param string $campaign_type
+     * @return $this
+     */
+    public function setCampaignType($campaign_type)
+    {
+        $this->container['campaign_type'] = $campaign_type;
+
+        return $this;
+    }
 
     /**
      * Gets budget
