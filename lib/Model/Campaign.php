@@ -66,6 +66,8 @@ class Campaign implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'account' => 'string',
+        'campaign_type' => 'string',
         'budget' => 'int',
         'id' => 'string',
         'name' => 'string',
