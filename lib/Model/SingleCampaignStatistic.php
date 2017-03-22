@@ -75,6 +75,7 @@ class SingleCampaignStatistic implements ArrayAccess
         'conversions_one_per_click' => 'int',
         'cost' => 'double',
         'ctr' => 'double',
+        'date' => 'string',
         'hits' => 'int',
         'id' => 'string',
         'margin_rate' => 'double',
@@ -102,6 +103,7 @@ class SingleCampaignStatistic implements ArrayAccess
         'conversions_one_per_click' => 'conversions_one_per_click',
         'cost' => 'cost',
         'ctr' => 'ctr',
+        'date' => 'date',
         'hits' => 'hits',
         'id' => 'id',
         'margin_rate' => 'margin_rate',
@@ -129,6 +131,7 @@ class SingleCampaignStatistic implements ArrayAccess
         'conversions_one_per_click' => 'setConversionsOnePerClick',
         'cost' => 'setCost',
         'ctr' => 'setCtr',
+        'date' => 'setDate',
         'hits' => 'setHits',
         'id' => 'setId',
         'margin_rate' => 'setMarginRate',
@@ -156,6 +159,7 @@ class SingleCampaignStatistic implements ArrayAccess
         'conversions_one_per_click' => 'getConversionsOnePerClick',
         'cost' => 'getCost',
         'ctr' => 'getCtr',
+        'date' => 'getDate',
         'hits' => 'getHits',
         'id' => 'getId',
         'margin_rate' => 'getMarginRate',
@@ -194,6 +198,7 @@ class SingleCampaignStatistic implements ArrayAccess
         $this->container['conversions_one_per_click'] = isset($data['conversions_one_per_click']) ? $data['conversions_one_per_click'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
         $this->container['ctr'] = isset($data['ctr']) ? $data['ctr'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
         $this->container['hits'] = isset($data['hits']) ? $data['hits'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['margin_rate'] = isset($data['margin_rate']) ? $data['margin_rate'] : null;
@@ -410,6 +415,27 @@ class SingleCampaignStatistic implements ArrayAccess
     public function setCtr($ctr)
     {
         $this->container['ctr'] = $ctr;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     * @return string
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     * @param string $date Date of the statistic. Format is 'YYYY-MM-DD'
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
 
         return $this;
     }

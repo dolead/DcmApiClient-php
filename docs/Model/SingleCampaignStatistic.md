@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **conversions_one_per_click** | **int** | Number of converted clicks registered on the campaign. Deprecated for AdWords. | [optional] 
 **cost** | **double** | Total cost of the campaign | [optional] 
 **ctr** | **double** | Click-Through-Rate of the Campaign. | [optional] 
+**date** | **string** | Date of the statistic. Format is &#39;YYYY-MM-DD&#39; | [optional] 
 **hits** | **int** | Total hits of the campaign | [optional] 
 **id** | **string** | ID of the campaign | [optional] 
 **margin_rate** | **double** | Margin rate for the campaign. | [optional] 

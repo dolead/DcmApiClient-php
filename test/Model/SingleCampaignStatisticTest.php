@@ -168,6 +168,14 @@ class SingleCampaignStatisticTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "date"
+     */
+    public function testPropertyDate()
+    {
+
+    }
+
+    /**
      * Test attribute "hits"
      */
     public function testPropertyHits()

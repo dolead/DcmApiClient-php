@@ -96,9 +96,25 @@ class CampaignTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "account"
+     */
+    public function testPropertyAccount()
+    {
+
+    }
+
+    /**
      * Test attribute "budget"
      */
     public function testPropertyBudget()
+    {
+
+    }
+
+    /**
+     * Test attribute "campaign_type"
+     */
+    public function testPropertyCampaignType()
     {
 
     }

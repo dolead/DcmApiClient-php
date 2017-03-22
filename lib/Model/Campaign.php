@@ -67,8 +67,8 @@ class Campaign implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'account' => 'string',
-        'campaign_type' => 'string',
         'budget' => 'int',
+        'campaign_type' => 'string',
         'id' => 'string',
         'name' => 'string',
         'negative_geo_criterions' => 'string[]',
@@ -88,8 +88,8 @@ class Campaign implements ArrayAccess
      */
     protected static $attributeMap = array(
         'account' => 'account',
-        'campaign_type' => 'campaign_type',
         'budget' => 'budget',
+        'campaign_type' => 'campaign_type',
         'id' => 'id',
         'name' => 'name',
         'negative_geo_criterions' => 'negative_geo_criterions',
@@ -109,8 +109,8 @@ class Campaign implements ArrayAccess
      */
     protected static $setters = array(
         'account' => 'setAccount',
-        'campaign_type' => 'setCampaignType',
         'budget' => 'setBudget',
+        'campaign_type' => 'setCampaignType',
         'id' => 'setId',
         'name' => 'setName',
         'negative_geo_criterions' => 'setNegativeGeoCriterions',
@@ -130,8 +130,8 @@ class Campaign implements ArrayAccess
      */
     protected static $getters = array(
         'account' => 'getAccount',
-        'campaign_type' => 'getCampaignType',
         'budget' => 'getBudget',
+        'campaign_type' => 'getCampaignType',
         'id' => 'getId',
         'name' => 'getName',
         'negative_geo_criterions' => 'getNegativeGeoCriterions',
@@ -145,10 +145,26 @@ class Campaign implements ArrayAccess
         return self::$getters;
     }
 
+    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
+    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
+    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCampaignTypeAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_TYPE_SEARCH,
+            self::CAMPAIGN_TYPE_DISPLAY,
+            self::CAMPAIGN_TYPE_SHOPPING,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -176,8 +192,8 @@ class Campaign implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
+        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['negative_geo_criterions'] = isset($data['negative_geo_criterions']) ? $data['negative_geo_criterions'] : null;
@@ -194,6 +210,11 @@ class Campaign implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
+        }
+
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
@@ -210,6 +231,10 @@ class Campaign implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            return false;
+        }
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
@@ -229,34 +254,12 @@ class Campaign implements ArrayAccess
 
     /**
      * Sets account
-     * @param string $account
+     * @param string $account ID of the account in Dolead system.
      * @return $this
      */
     public function setAccount($account)
     {
         $this->container['account'] = $account;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets campaign_type
-     * @return string
-     */
-    public function getCampaignType()
-    {
-        return $this->container['campaign_type'];
-    }
-
-    /**
-     * Sets campaign_type
-     * @param string $campaign_type
-     * @return $this
-     */
-    public function setCampaignType($campaign_type)
-    {
-        $this->container['campaign_type'] = $campaign_type;
 
         return $this;
     }
@@ -278,6 +281,31 @@ class Campaign implements ArrayAccess
     public function setBudget($budget)
     {
         $this->container['budget'] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_type
+     * @return string
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaign_type'];
+    }
+
+    /**
+     * Sets campaign_type
+     * @param string $campaign_type Filter over the campaign type
+     * @return $this
+     */
+    public function setCampaignType($campaign_type)
+    {
+        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
+        if (!in_array($campaign_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
+        }
+        $this->container['campaign_type'] = $campaign_type;
 
         return $this;
     }

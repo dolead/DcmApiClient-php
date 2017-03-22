@@ -96,6 +96,14 @@ class ClickContextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "account"
+     */
+    public function testPropertyAccount()
+    {
+
+    }
+
+    /**
      * Test attribute "ad"
      */
     public function testPropertyAd()
@@ -106,7 +114,7 @@ class ClickContextTest extends \PHPUnit_Framework_TestCase
     /**
      * Test attribute "ad_group"
      */
-    public function testPropertyAdgroup()
+    public function testPropertyAdGroup()
     {
 
     }
@@ -115,6 +123,14 @@ class ClickContextTest extends \PHPUnit_Framework_TestCase
      * Test attribute "campaign"
      */
     public function testPropertyCampaign()
+    {
+
+    }
+
+    /**
+     * Test attribute "campaign_type"
+     */
+    public function testPropertyCampaignType()
     {
 
     }

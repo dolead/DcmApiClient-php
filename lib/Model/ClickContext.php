@@ -66,9 +66,11 @@ class ClickContext implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'account' => 'string',
         'ad' => 'string',
         'ad_group' => 'string',
         'campaign' => 'string',
+        'campaign_type' => 'string',
         'keyword' => 'string'
     );
 
@@ -82,9 +84,11 @@ class ClickContext implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'account' => 'account',
         'ad' => 'ad',
         'ad_group' => 'ad_group',
         'campaign' => 'campaign',
+        'campaign_type' => 'campaign_type',
         'keyword' => 'keyword'
     );
 
@@ -98,9 +102,11 @@ class ClickContext implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'account' => 'setAccount',
         'ad' => 'setAd',
         'ad_group' => 'setAdGroup',
         'campaign' => 'setCampaign',
+        'campaign_type' => 'setCampaignType',
         'keyword' => 'setKeyword'
     );
 
@@ -114,9 +120,11 @@ class ClickContext implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'account' => 'getAccount',
         'ad' => 'getAd',
         'ad_group' => 'getAdGroup',
         'campaign' => 'getCampaign',
+        'campaign_type' => 'getCampaignType',
         'keyword' => 'getKeyword'
     );
 
@@ -125,8 +133,24 @@ class ClickContext implements ArrayAccess
         return self::$getters;
     }
 
+    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
+    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCampaignTypeAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_TYPE_SEARCH,
+            self::CAMPAIGN_TYPE_SHOPPING,
+            self::CAMPAIGN_TYPE_DISPLAY,
+        ];
+    }
     
 
     /**
@@ -141,9 +165,11 @@ class ClickContext implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['ad'] = isset($data['ad']) ? $data['ad'] : null;
         $this->container['ad_group'] = isset($data['ad_group']) ? $data['ad_group'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
+        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['keyword'] = isset($data['keyword']) ? $data['keyword'] : null;
     }
 
@@ -155,6 +181,11 @@ class ClickContext implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -166,9 +197,34 @@ class ClickContext implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets account
+     * @return string
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     * @param string $account Dolead Account ID
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
 
     /**
      * Gets ad
@@ -229,6 +285,31 @@ class ClickContext implements ArrayAccess
     public function setCampaign($campaign)
     {
         $this->container['campaign'] = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_type
+     * @return string
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaign_type'];
+    }
+
+    /**
+     * Sets campaign_type
+     * @param string $campaign_type SEA Campaign type
+     * @return $this
+     */
+    public function setCampaignType($campaign_type)
+    {
+        $allowed_values = array('SEARCH', 'SHOPPING', 'DISPLAY');
+        if (!in_array($campaign_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'SHOPPING', 'DISPLAY'");
+        }
+        $this->container['campaign_type'] = $campaign_type;
 
         return $this;
     }
