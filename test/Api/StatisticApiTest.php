@@ -90,6 +90,17 @@ class StatisticApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for controllersStatisticsGetCampaignSegmentedStatistics
+     *
+     * Get campaign stats for a given period, segmented by day..
+     *
+     */
+    public function testControllersStatisticsGetCampaignSegmentedStatistics()
+    {
+
+    }
+
+    /**
      * Test case for controllersStatisticsGetCampaignStatistics
      *
      * Get campaign stats for a given period..

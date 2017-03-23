@@ -103,6 +103,124 @@ class StatisticApi
     }
 
     /**
+     * Operation controllersStatisticsGetCampaignSegmentedStatistics
+     *
+     * Get campaign stats for a given period, segmented by day.
+     *
+     * @param string $campaign_id ID of campaign (required)
+     * @param \DateTime $period_start ID of campaign (required)
+     * @param \DateTime $period_end ID of campaign (required)
+     * @return \Dcm\Model\SingleCampaignStatistic[]
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersStatisticsGetCampaignSegmentedStatistics($campaign_id, $period_start, $period_end)
+    {
+        list($response) = $this->controllersStatisticsGetCampaignSegmentedStatisticsWithHttpInfo($campaign_id, $period_start, $period_end);
+        return $response;
+    }
+
+    /**
+     * Operation controllersStatisticsGetCampaignSegmentedStatisticsWithHttpInfo
+     *
+     * Get campaign stats for a given period, segmented by day.
+     *
+     * @param string $campaign_id ID of campaign (required)
+     * @param \DateTime $period_start ID of campaign (required)
+     * @param \DateTime $period_end ID of campaign (required)
+     * @return Array of \Dcm\Model\SingleCampaignStatistic[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersStatisticsGetCampaignSegmentedStatisticsWithHttpInfo($campaign_id, $period_start, $period_end)
+    {
+        // verify the required parameter 'campaign_id' is set
+        if ($campaign_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $campaign_id when calling controllersStatisticsGetCampaignSegmentedStatistics');
+        }
+        // verify the required parameter 'period_start' is set
+        if ($period_start === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $period_start when calling controllersStatisticsGetCampaignSegmentedStatistics');
+        }
+        // verify the required parameter 'period_end' is set
+        if ($period_end === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $period_end when calling controllersStatisticsGetCampaignSegmentedStatistics');
+        }
+        // parse inputs
+        $resourcePath = "/campaign/segmented_statistics/{campaign_id}/{period_start}/{period_end}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($campaign_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "campaign_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($campaign_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($period_start !== null) {
+            $resourcePath = str_replace(
+                "{" . "period_start" . "}",
+                $this->apiClient->getSerializer()->toPathValue($period_start),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($period_end !== null) {
+            $resourcePath = str_replace(
+                "{" . "period_end" . "}",
+                $this->apiClient->getSerializer()->toPathValue($period_end),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\SingleCampaignStatistic[]',
+                '/campaign/segmented_statistics/{campaign_id}/{period_start}/{period_end}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\SingleCampaignStatistic[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\SingleCampaignStatistic[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation controllersStatisticsGetCampaignStatistics
      *
      * Get campaign stats for a given period.
