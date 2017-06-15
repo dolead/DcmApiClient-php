@@ -66,6 +66,9 @@ class CampaignQuery implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
+        'account' => 'string',
+        'advertiser' => 'string',
+        'base_campaign' => 'string',
         'campaign_type' => 'string',
         'name' => '\Dcm\Model\TextParameter',
         'publisher' => 'string'
@@ -81,6 +84,9 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
+        'account' => 'account',
+        'advertiser' => 'advertiser',
+        'base_campaign' => 'base_campaign',
         'campaign_type' => 'campaign_type',
         'name' => 'name',
         'publisher' => 'publisher'
@@ -96,6 +102,9 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
+        'account' => 'setAccount',
+        'advertiser' => 'setAdvertiser',
+        'base_campaign' => 'setBaseCampaign',
         'campaign_type' => 'setCampaignType',
         'name' => 'setName',
         'publisher' => 'setPublisher'
@@ -111,6 +120,9 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
+        'account' => 'getAccount',
+        'advertiser' => 'getAdvertiser',
+        'base_campaign' => 'getBaseCampaign',
         'campaign_type' => 'getCampaignType',
         'name' => 'getName',
         'publisher' => 'getPublisher'
@@ -167,6 +179,9 @@ class CampaignQuery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
+        $this->container['base_campaign'] = isset($data['base_campaign']) ? $data['base_campaign'] : null;
         $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
@@ -212,6 +227,69 @@ class CampaignQuery implements ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets account
+     * @return string
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     * @param string $account ID of the account in Dolead system.
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets advertiser
+     * @return string
+     */
+    public function getAdvertiser()
+    {
+        return $this->container['advertiser'];
+    }
+
+    /**
+     * Sets advertiser
+     * @param string $advertiser ID of the advertiser in Dolead system.
+     * @return $this
+     */
+    public function setAdvertiser($advertiser)
+    {
+        $this->container['advertiser'] = $advertiser;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_campaign
+     * @return string
+     */
+    public function getBaseCampaign()
+    {
+        return $this->container['base_campaign'];
+    }
+
+    /**
+     * Sets base_campaign
+     * @param string $base_campaign A trial campaign's link to the base campaign.
+     * @return $this
+     */
+    public function setBaseCampaign($base_campaign)
+    {
+        $this->container['base_campaign'] = $base_campaign;
+
+        return $this;
+    }
 
     /**
      * Gets campaign_type

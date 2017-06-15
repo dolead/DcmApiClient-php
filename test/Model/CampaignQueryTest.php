@@ -96,6 +96,30 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "account"
+     */
+    public function testPropertyAccount()
+    {
+
+    }
+
+    /**
+     * Test attribute "advertiser"
+     */
+    public function testPropertyAdvertiser()
+    {
+
+    }
+
+    /**
+     * Test attribute "base_campaign"
+     */
+    public function testPropertyBaseCampaign()
+    {
+
+    }
+
+    /**
      * Test attribute "campaign_type"
      */
     public function testPropertyCampaignType()

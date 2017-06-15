@@ -67,6 +67,8 @@ class Campaign implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'account' => 'string',
+        'advertiser' => 'string',
+        'base_campaign' => 'string',
         'budget' => 'int',
         'campaign_type' => 'string',
         'id' => 'string',
@@ -88,6 +90,8 @@ class Campaign implements ArrayAccess
      */
     protected static $attributeMap = array(
         'account' => 'account',
+        'advertiser' => 'advertiser',
+        'base_campaign' => 'base_campaign',
         'budget' => 'budget',
         'campaign_type' => 'campaign_type',
         'id' => 'id',
@@ -109,6 +113,8 @@ class Campaign implements ArrayAccess
      */
     protected static $setters = array(
         'account' => 'setAccount',
+        'advertiser' => 'setAdvertiser',
+        'base_campaign' => 'setBaseCampaign',
         'budget' => 'setBudget',
         'campaign_type' => 'setCampaignType',
         'id' => 'setId',
@@ -130,6 +136,8 @@ class Campaign implements ArrayAccess
      */
     protected static $getters = array(
         'account' => 'getAccount',
+        'advertiser' => 'getAdvertiser',
+        'base_campaign' => 'getBaseCampaign',
         'budget' => 'getBudget',
         'campaign_type' => 'getCampaignType',
         'id' => 'getId',
@@ -192,6 +200,8 @@ class Campaign implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
+        $this->container['base_campaign'] = isset($data['base_campaign']) ? $data['base_campaign'] : null;
         $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
         $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -260,6 +270,48 @@ class Campaign implements ArrayAccess
     public function setAccount($account)
     {
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets advertiser
+     * @return string
+     */
+    public function getAdvertiser()
+    {
+        return $this->container['advertiser'];
+    }
+
+    /**
+     * Sets advertiser
+     * @param string $advertiser ID of the advertiser in Dolead system.
+     * @return $this
+     */
+    public function setAdvertiser($advertiser)
+    {
+        $this->container['advertiser'] = $advertiser;
+
+        return $this;
+    }
+
+    /**
+     * Gets base_campaign
+     * @return string
+     */
+    public function getBaseCampaign()
+    {
+        return $this->container['base_campaign'];
+    }
+
+    /**
+     * Sets base_campaign
+     * @param string $base_campaign A trial campaign's link to the base campaign
+     * @return $this
+     */
+    public function setBaseCampaign($base_campaign)
+    {
+        $this->container['base_campaign'] = $base_campaign;
 
         return $this;
     }
