@@ -73,7 +73,6 @@ class StatisticApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://dcmapi.dolead.com/v1');
         }
 
         $this->apiClient = $apiClient;
