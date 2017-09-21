@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQueryTest
+ * CallsStatisticTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * CampaignQueryTest Class Doc Comment
+ * CallsStatisticTest Class Doc Comment
  *
  * @category    Class */
-// * @description CampaignQuery
+// * @description CallsStatistic
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQueryTest extends \PHPUnit_Framework_TestCase
+class CallsStatisticTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,25 +88,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CampaignQuery"
+     * Test "CallsStatistic"
      */
-    public function testCampaignQuery()
-    {
-
-    }
-
-    /**
-     * Test attribute "account"
-     */
-    public function testPropertyAccount()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_name"
-     */
-    public function testPropertyAccountName()
+    public function testCallsStatistic()
     {
 
     }
@@ -120,41 +104,41 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "advertiser"
+     * Test attribute "calls"
      */
-    public function testPropertyAdvertiser()
+    public function testPropertyCalls()
     {
 
     }
 
     /**
-     * Test attribute "base_campaign"
+     * Test attribute "calls_cost"
      */
-    public function testPropertyBaseCampaign()
+    public function testPropertyCallsCost()
     {
 
     }
 
     /**
-     * Test attribute "campaign_type"
+     * Test attribute "calls_duration"
      */
-    public function testPropertyCampaignType()
+    public function testPropertyCallsDuration()
     {
 
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "campaign_publisher_id"
      */
-    public function testPropertyName()
+    public function testPropertyCampaignPublisherId()
     {
 
     }
 
     /**
-     * Test attribute "publisher"
+     * Test attribute "date"
      */
-    public function testPropertyPublisher()
+    public function testPropertyDate()
     {
 
     }

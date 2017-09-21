@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQueryTest
+ * AdGroupTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * CampaignQueryTest Class Doc Comment
+ * AdGroupTest Class Doc Comment
  *
  * @category    Class */
-// * @description CampaignQuery
+// * @description AdGroup
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQueryTest extends \PHPUnit_Framework_TestCase
+class AdGroupTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CampaignQuery"
+     * Test "AdGroup"
      */
-    public function testCampaignQuery()
+    public function testAdGroup()
     {
 
     }
@@ -104,17 +104,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "account_name"
+     * Test attribute "adg_type"
      */
-    public function testPropertyAccountName()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_publisher_id"
-     */
-    public function testPropertyAccountPublisherId()
+    public function testPropertyAdgType()
     {
 
     }
@@ -128,17 +120,17 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "base_campaign"
+     * Test attribute "campaign"
      */
-    public function testPropertyBaseCampaign()
+    public function testPropertyCampaign()
     {
 
     }
 
     /**
-     * Test attribute "campaign_type"
+     * Test attribute "id"
      */
-    public function testPropertyCampaignType()
+    public function testPropertyId()
     {
 
     }
@@ -152,9 +144,17 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "publisher"
+     * Test attribute "publisher_id"
      */
-    public function testPropertyPublisher()
+    public function testPropertyPublisherId()
+    {
+
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
     {
 
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQuery
+ * AdGroup
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * CampaignQuery Class Doc Comment
+ * AdGroup Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,13 +53,13 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQuery implements ArrayAccess
+class AdGroup implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CampaignQuery';
+    protected static $swaggerModelName = 'AdGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,13 +67,13 @@ class CampaignQuery implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'account' => 'string',
-        'account_name' => 'string',
-        'account_publisher_id' => 'string',
+        'adg_type' => 'string',
         'advertiser' => 'string',
-        'base_campaign' => 'string',
-        'campaign_type' => 'string',
-        'name' => '\Dcm\Model\TextParameter',
-        'publisher' => 'string'
+        'campaign' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'publisher_id' => 'string',
+        'status' => 'string'
     );
 
     public static function swaggerTypes()
@@ -87,13 +87,13 @@ class CampaignQuery implements ArrayAccess
      */
     protected static $attributeMap = array(
         'account' => 'account',
-        'account_name' => 'account_name',
-        'account_publisher_id' => 'account_publisher_id',
+        'adg_type' => 'adg_type',
         'advertiser' => 'advertiser',
-        'base_campaign' => 'base_campaign',
-        'campaign_type' => 'campaign_type',
+        'campaign' => 'campaign',
+        'id' => 'id',
         'name' => 'name',
-        'publisher' => 'publisher'
+        'publisher_id' => 'publisher_id',
+        'status' => 'status'
     );
 
     public static function attributeMap()
@@ -107,13 +107,13 @@ class CampaignQuery implements ArrayAccess
      */
     protected static $setters = array(
         'account' => 'setAccount',
-        'account_name' => 'setAccountName',
-        'account_publisher_id' => 'setAccountPublisherId',
+        'adg_type' => 'setAdgType',
         'advertiser' => 'setAdvertiser',
-        'base_campaign' => 'setBaseCampaign',
-        'campaign_type' => 'setCampaignType',
+        'campaign' => 'setCampaign',
+        'id' => 'setId',
         'name' => 'setName',
-        'publisher' => 'setPublisher'
+        'publisher_id' => 'setPublisherId',
+        'status' => 'setStatus'
     );
 
     public static function setters()
@@ -127,13 +127,13 @@ class CampaignQuery implements ArrayAccess
      */
     protected static $getters = array(
         'account' => 'getAccount',
-        'account_name' => 'getAccountName',
-        'account_publisher_id' => 'getAccountPublisherId',
+        'adg_type' => 'getAdgType',
         'advertiser' => 'getAdvertiser',
-        'base_campaign' => 'getBaseCampaign',
-        'campaign_type' => 'getCampaignType',
+        'campaign' => 'getCampaign',
+        'id' => 'getId',
         'name' => 'getName',
-        'publisher' => 'getPublisher'
+        'publisher_id' => 'getPublisherId',
+        'status' => 'getStatus'
     );
 
     public static function getters()
@@ -141,11 +141,14 @@ class CampaignQuery implements ArrayAccess
         return self::$getters;
     }
 
-    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
-    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
-    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
-    const PUBLISHER_GOOGLE = 'GOOGLE';
-    const PUBLISHER_BING = 'BING';
+    const ADG_TYPE_UNKNOWN = 'UNKNOWN';
+    const ADG_TYPE_SEARCH_STANDARD = 'SEARCH_STANDARD';
+    const ADG_TYPE_SEARCH_DYNAMIC_ADS = 'SEARCH_DYNAMIC_ADS';
+    const ADG_TYPE_DISPLAY_STANDARD = 'DISPLAY_STANDARD';
+    const ADG_TYPE_SHOPPING_PRODUCT_ADS = 'SHOPPING_PRODUCT_ADS';
+    const ADG_TYPE_SHOPPING_SHOWCASE_ADS = 'SHOPPING_SHOWCASE_ADS';
+    const STATUS_ACTIVE = 'ACTIVE';
+    const STATUS_PAUSED = 'PAUSED';
     
 
     
@@ -153,12 +156,15 @@ class CampaignQuery implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getCampaignTypeAllowableValues()
+    public function getAdgTypeAllowableValues()
     {
         return [
-            self::CAMPAIGN_TYPE_SEARCH,
-            self::CAMPAIGN_TYPE_DISPLAY,
-            self::CAMPAIGN_TYPE_SHOPPING,
+            self::ADG_TYPE_UNKNOWN,
+            self::ADG_TYPE_SEARCH_STANDARD,
+            self::ADG_TYPE_SEARCH_DYNAMIC_ADS,
+            self::ADG_TYPE_DISPLAY_STANDARD,
+            self::ADG_TYPE_SHOPPING_PRODUCT_ADS,
+            self::ADG_TYPE_SHOPPING_SHOWCASE_ADS,
         ];
     }
     
@@ -166,11 +172,11 @@ class CampaignQuery implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getPublisherAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::PUBLISHER_GOOGLE,
-            self::PUBLISHER_BING,
+            self::STATUS_ACTIVE,
+            self::STATUS_PAUSED,
         ];
     }
     
@@ -188,13 +194,13 @@ class CampaignQuery implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
-        $this->container['account_publisher_id'] = isset($data['account_publisher_id']) ? $data['account_publisher_id'] : null;
+        $this->container['adg_type'] = isset($data['adg_type']) ? $data['adg_type'] : null;
         $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
-        $this->container['base_campaign'] = isset($data['base_campaign']) ? $data['base_campaign'] : null;
-        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
+        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
+        $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -205,14 +211,14 @@ class CampaignQuery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
+        $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
+        if (!in_array($this->container['adg_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'adg_type', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("GOOGLE", "BING");
-        if (!in_array($this->container['publisher'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'publisher', must be one of #{allowed_values}.";
+        $allowed_values = array("ACTIVE", "PAUSED");
+        if (!in_array($this->container['status'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
 
         return $invalid_properties;
@@ -226,12 +232,12 @@ class CampaignQuery implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+        $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
+        if (!in_array($this->container['adg_type'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("GOOGLE", "BING");
-        if (!in_array($this->container['publisher'], $allowed_values)) {
+        $allowed_values = array("ACTIVE", "PAUSED");
+        if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
         return true;
@@ -260,43 +266,26 @@ class CampaignQuery implements ArrayAccess
     }
 
     /**
-     * Gets account_name
+     * Gets adg_type
      * @return string
      */
-    public function getAccountName()
+    public function getAdgType()
     {
-        return $this->container['account_name'];
+        return $this->container['adg_type'];
     }
 
     /**
-     * Sets account_name
-     * @param string $account_name Name account in Dolead system.
+     * Sets adg_type
+     * @param string $adg_type The type of adgroup
      * @return $this
      */
-    public function setAccountName($account_name)
+    public function setAdgType($adg_type)
     {
-        $this->container['account_name'] = $account_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_publisher_id
-     * @return string
-     */
-    public function getAccountPublisherId()
-    {
-        return $this->container['account_publisher_id'];
-    }
-
-    /**
-     * Sets account_publisher_id
-     * @param string $account_publisher_id ID of the account in Publisher network.
-     * @return $this
-     */
-    public function setAccountPublisherId($account_publisher_id)
-    {
-        $this->container['account_publisher_id'] = $account_publisher_id;
+        $allowed_values = array('UNKNOWN', 'SEARCH_STANDARD', 'SEARCH_DYNAMIC_ADS', 'DISPLAY_STANDARD', 'SHOPPING_PRODUCT_ADS', 'SHOPPING_SHOWCASE_ADS');
+        if (!in_array($adg_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'adg_type', must be one of 'UNKNOWN', 'SEARCH_STANDARD', 'SEARCH_DYNAMIC_ADS', 'DISPLAY_STANDARD', 'SHOPPING_PRODUCT_ADS', 'SHOPPING_SHOWCASE_ADS'");
+        }
+        $this->container['adg_type'] = $adg_type;
 
         return $this;
     }
@@ -323,54 +312,50 @@ class CampaignQuery implements ArrayAccess
     }
 
     /**
-     * Gets base_campaign
+     * Gets campaign
      * @return string
      */
-    public function getBaseCampaign()
+    public function getCampaign()
     {
-        return $this->container['base_campaign'];
+        return $this->container['campaign'];
     }
 
     /**
-     * Sets base_campaign
-     * @param string $base_campaign A trial campaign's link to the base campaign.
+     * Sets campaign
+     * @param string $campaign ID of the campaign in Dolead system.
      * @return $this
      */
-    public function setBaseCampaign($base_campaign)
+    public function setCampaign($campaign)
     {
-        $this->container['base_campaign'] = $base_campaign;
+        $this->container['campaign'] = $campaign;
 
         return $this;
     }
 
     /**
-     * Gets campaign_type
+     * Gets id
      * @return string
      */
-    public function getCampaignType()
+    public function getId()
     {
-        return $this->container['campaign_type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets campaign_type
-     * @param string $campaign_type Filter over the campaign type
+     * Sets id
+     * @param string $id ID of the adgroup in Dolead system.
      * @return $this
      */
-    public function setCampaignType($campaign_type)
+    public function setId($id)
     {
-        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
-        if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
-        }
-        $this->container['campaign_type'] = $campaign_type;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
      * Gets name
-     * @return \Dcm\Model\TextParameter
+     * @return string
      */
     public function getName()
     {
@@ -379,7 +364,7 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Dcm\Model\TextParameter $name
+     * @param string $name The adgroup name
      * @return $this
      */
     public function setName($name)
@@ -390,26 +375,47 @@ class CampaignQuery implements ArrayAccess
     }
 
     /**
-     * Gets publisher
+     * Gets publisher_id
      * @return string
      */
-    public function getPublisher()
+    public function getPublisherId()
     {
-        return $this->container['publisher'];
+        return $this->container['publisher_id'];
     }
 
     /**
-     * Sets publisher
-     * @param string $publisher Filter over the campaign publisher network
+     * Sets publisher_id
+     * @param string $publisher_id Publisher's (Bing, Adwords, Yahoo) ID
      * @return $this
      */
-    public function setPublisher($publisher)
+    public function setPublisherId($publisher_id)
     {
-        $allowed_values = array('GOOGLE', 'BING');
-        if (!in_array($publisher, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'GOOGLE', 'BING'");
+        $this->container['publisher_id'] = $publisher_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     * @param string $status Status of the campaign
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowed_values = array('ACTIVE', 'PAUSED');
+        if (!in_array($status, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
         }
-        $this->container['publisher'] = $publisher;
+        $this->container['status'] = $status;
 
         return $this;
     }

@@ -73,6 +73,7 @@ class RevenueTrackingApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
+
         }
 
         $this->apiClient = $apiClient;

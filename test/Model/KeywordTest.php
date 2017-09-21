@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQueryTest
+ * KeywordTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * CampaignQueryTest Class Doc Comment
+ * KeywordTest Class Doc Comment
  *
  * @category    Class */
-// * @description CampaignQuery
+// * @description Keyword
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQueryTest extends \PHPUnit_Framework_TestCase
+class KeywordTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CampaignQuery"
+     * Test "Keyword"
      */
-    public function testCampaignQuery()
+    public function testKeyword()
     {
 
     }
@@ -104,17 +104,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "account_name"
+     * Test attribute "ad_group"
      */
-    public function testPropertyAccountName()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_publisher_id"
-     */
-    public function testPropertyAccountPublisherId()
+    public function testPropertyAdGroup()
     {
 
     }
@@ -128,33 +120,81 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "base_campaign"
+     * Test attribute "campaign"
      */
-    public function testPropertyBaseCampaign()
+    public function testPropertyCampaign()
     {
 
     }
 
     /**
-     * Test attribute "campaign_type"
+     * Test attribute "destination_url"
      */
-    public function testPropertyCampaignType()
+    public function testPropertyDestinationUrl()
     {
 
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "final_app_urls"
      */
-    public function testPropertyName()
+    public function testPropertyFinalAppUrls()
     {
 
     }
 
     /**
-     * Test attribute "publisher"
+     * Test attribute "final_mobile_urls"
      */
-    public function testPropertyPublisher()
+    public function testPropertyFinalMobileUrls()
+    {
+
+    }
+
+    /**
+     * Test attribute "final_urls"
+     */
+    public function testPropertyFinalUrls()
+    {
+
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+
+    }
+
+    /**
+     * Test attribute "publisher_id"
+     */
+    public function testPropertyPublisherId()
+    {
+
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+
+    }
+
+    /**
+     * Test attribute "target"
+     */
+    public function testPropertyTarget()
+    {
+
+    }
+
+    /**
+     * Test attribute "text"
+     */
+    public function testPropertyText()
     {
 
     }

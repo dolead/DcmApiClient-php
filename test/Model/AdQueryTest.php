@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQueryTest
+ * AdQueryTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * CampaignQueryTest Class Doc Comment
+ * AdQueryTest Class Doc Comment
  *
  * @category    Class */
-// * @description CampaignQuery
+// * @description AdQuery
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQueryTest extends \PHPUnit_Framework_TestCase
+class AdQueryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,9 +88,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CampaignQuery"
+     * Test "AdQuery"
      */
-    public function testCampaignQuery()
+    public function testAdQuery()
     {
 
     }
@@ -104,17 +104,17 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "account_name"
+     * Test attribute "ad_group"
      */
-    public function testPropertyAccountName()
+    public function testPropertyAdGroup()
     {
 
     }
 
     /**
-     * Test attribute "account_publisher_id"
+     * Test attribute "ad_type"
      */
-    public function testPropertyAccountPublisherId()
+    public function testPropertyAdType()
     {
 
     }
@@ -128,33 +128,113 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "base_campaign"
+     * Test attribute "campaign"
      */
-    public function testPropertyBaseCampaign()
+    public function testPropertyCampaign()
     {
 
     }
 
     /**
-     * Test attribute "campaign_type"
+     * Test attribute "description"
      */
-    public function testPropertyCampaignType()
+    public function testPropertyDescription()
     {
 
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "display_url"
      */
-    public function testPropertyName()
+    public function testPropertyDisplayUrl()
     {
 
     }
 
     /**
-     * Test attribute "publisher"
+     * Test attribute "final_app_urls"
      */
-    public function testPropertyPublisher()
+    public function testPropertyFinalAppUrls()
+    {
+
+    }
+
+    /**
+     * Test attribute "final_mobile_urls"
+     */
+    public function testPropertyFinalMobileUrls()
+    {
+
+    }
+
+    /**
+     * Test attribute "final_urls"
+     */
+    public function testPropertyFinalUrls()
+    {
+
+    }
+
+    /**
+     * Test attribute "headline1"
+     */
+    public function testPropertyHeadline1()
+    {
+
+    }
+
+    /**
+     * Test attribute "headline2"
+     */
+    public function testPropertyHeadline2()
+    {
+
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+
+    }
+
+    /**
+     * Test attribute "path1"
+     */
+    public function testPropertyPath1()
+    {
+
+    }
+
+    /**
+     * Test attribute "path2"
+     */
+    public function testPropertyPath2()
+    {
+
+    }
+
+    /**
+     * Test attribute "publisher_id"
+     */
+    public function testPropertyPublisherId()
+    {
+
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+
+    }
+
+    /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
     {
 
     }
