@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **advertiser** | **string** | ID of the advertiser in Dolead system. | [optional] 
 **base_campaign** | **string** | A trial campaign&#39;s link to the base campaign. | [optional] 
 **campaign_type** | **string** | Filter over the campaign type | [optional] 
+**id** | [**\Dcm\Model\TextParameter**](TextParameter.md) |  | [optional] 
 **name** | [**\Dcm\Model\TextParameter**](TextParameter.md) |  | [optional] 
 **publisher** | **string** | Filter over the campaign publisher network | [optional] 
 

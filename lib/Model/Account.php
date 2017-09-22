@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQuery
+ * Account
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * CampaignQuery Class Doc Comment
+ * Account Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,28 +53,27 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQuery implements ArrayAccess
+class Account implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CampaignQuery';
+    protected static $swaggerModelName = 'Account';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'account' => 'string',
-        'account_name' => 'string',
-        'account_publisher_id' => 'string',
         'advertiser' => 'string',
-        'base_campaign' => 'string',
-        'campaign_type' => 'string',
-        'id' => '\Dcm\Model\TextParameter',
-        'name' => '\Dcm\Model\TextParameter',
-        'publisher' => 'string'
+        'adwords_auto_tagging' => 'bool',
+        'conversion_service' => 'string',
+        'id' => 'string',
+        'name' => 'string',
+        'publisher' => 'string',
+        'publisher_id' => 'string',
+        'rl_sea_account' => 'string'
     );
 
     public static function swaggerTypes()
@@ -87,15 +86,14 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'account' => 'account',
-        'account_name' => 'account_name',
-        'account_publisher_id' => 'account_publisher_id',
         'advertiser' => 'advertiser',
-        'base_campaign' => 'base_campaign',
-        'campaign_type' => 'campaign_type',
+        'adwords_auto_tagging' => 'adwords_auto_tagging',
+        'conversion_service' => 'conversion_service',
         'id' => 'id',
         'name' => 'name',
-        'publisher' => 'publisher'
+        'publisher' => 'publisher',
+        'publisher_id' => 'publisher_id',
+        'rl_sea_account' => 'rl_sea_account'
     );
 
     public static function attributeMap()
@@ -108,15 +106,14 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'account' => 'setAccount',
-        'account_name' => 'setAccountName',
-        'account_publisher_id' => 'setAccountPublisherId',
         'advertiser' => 'setAdvertiser',
-        'base_campaign' => 'setBaseCampaign',
-        'campaign_type' => 'setCampaignType',
+        'adwords_auto_tagging' => 'setAdwordsAutoTagging',
+        'conversion_service' => 'setConversionService',
         'id' => 'setId',
         'name' => 'setName',
-        'publisher' => 'setPublisher'
+        'publisher' => 'setPublisher',
+        'publisher_id' => 'setPublisherId',
+        'rl_sea_account' => 'setRlSeaAccount'
     );
 
     public static function setters()
@@ -129,15 +126,14 @@ class CampaignQuery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'account' => 'getAccount',
-        'account_name' => 'getAccountName',
-        'account_publisher_id' => 'getAccountPublisherId',
         'advertiser' => 'getAdvertiser',
-        'base_campaign' => 'getBaseCampaign',
-        'campaign_type' => 'getCampaignType',
+        'adwords_auto_tagging' => 'getAdwordsAutoTagging',
+        'conversion_service' => 'getConversionService',
         'id' => 'getId',
         'name' => 'getName',
-        'publisher' => 'getPublisher'
+        'publisher' => 'getPublisher',
+        'publisher_id' => 'getPublisherId',
+        'rl_sea_account' => 'getRlSeaAccount'
     );
 
     public static function getters()
@@ -145,11 +141,16 @@ class CampaignQuery implements ArrayAccess
         return self::$getters;
     }
 
-    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
-    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
-    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const CONVERSION_SERVICE_AUTO = 'AUTO';
+    const CONVERSION_SERVICE_CUSTOM_CONVERSION = 'CUSTOM_CONVERSION';
+    const CONVERSION_SERVICE_CUSTOM_REVENUE = 'CUSTOM_REVENUE';
+    const PUBLISHER_FB_ADS = 'FB_ADS';
     const PUBLISHER_GOOGLE = 'GOOGLE';
+    const PUBLISHER_GMC = 'GMC';
+    const PUBLISHER_BMC = 'BMC';
     const PUBLISHER_BING = 'BING';
+    const PUBLISHER_YAHOO = 'YAHOO';
+    const PUBLISHER_DOLEAD_PERF = 'DOLEAD_PERF';
     
 
     
@@ -157,12 +158,12 @@ class CampaignQuery implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getCampaignTypeAllowableValues()
+    public function getConversionServiceAllowableValues()
     {
         return [
-            self::CAMPAIGN_TYPE_SEARCH,
-            self::CAMPAIGN_TYPE_DISPLAY,
-            self::CAMPAIGN_TYPE_SHOPPING,
+            self::CONVERSION_SERVICE_AUTO,
+            self::CONVERSION_SERVICE_CUSTOM_CONVERSION,
+            self::CONVERSION_SERVICE_CUSTOM_REVENUE,
         ];
     }
     
@@ -173,8 +174,13 @@ class CampaignQuery implements ArrayAccess
     public function getPublisherAllowableValues()
     {
         return [
+            self::PUBLISHER_FB_ADS,
             self::PUBLISHER_GOOGLE,
+            self::PUBLISHER_GMC,
+            self::PUBLISHER_BMC,
             self::PUBLISHER_BING,
+            self::PUBLISHER_YAHOO,
+            self::PUBLISHER_DOLEAD_PERF,
         ];
     }
     
@@ -191,15 +197,14 @@ class CampaignQuery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['account_name'] = isset($data['account_name']) ? $data['account_name'] : null;
-        $this->container['account_publisher_id'] = isset($data['account_publisher_id']) ? $data['account_publisher_id'] : null;
         $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
-        $this->container['base_campaign'] = isset($data['base_campaign']) ? $data['base_campaign'] : null;
-        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
+        $this->container['adwords_auto_tagging'] = isset($data['adwords_auto_tagging']) ? $data['adwords_auto_tagging'] : null;
+        $this->container['conversion_service'] = isset($data['conversion_service']) ? $data['conversion_service'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
+        $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
+        $this->container['rl_sea_account'] = isset($data['rl_sea_account']) ? $data['rl_sea_account'] : null;
     }
 
     /**
@@ -210,12 +215,12 @@ class CampaignQuery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
+        $allowed_values = array("AUTO", "CUSTOM_CONVERSION", "CUSTOM_REVENUE");
+        if (!in_array($this->container['conversion_service'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'conversion_service', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("GOOGLE", "BING");
+        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF");
         if (!in_array($this->container['publisher'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'publisher', must be one of #{allowed_values}.";
         }
@@ -231,80 +236,17 @@ class CampaignQuery implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
-        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+        $allowed_values = array("AUTO", "CUSTOM_CONVERSION", "CUSTOM_REVENUE");
+        if (!in_array($this->container['conversion_service'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("GOOGLE", "BING");
+        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF");
         if (!in_array($this->container['publisher'], $allowed_values)) {
             return false;
         }
         return true;
     }
 
-
-    /**
-     * Gets account
-     * @return string
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     * @param string $account ID of the account in Dolead system.
-     * @return $this
-     */
-    public function setAccount($account)
-    {
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_name
-     * @return string
-     */
-    public function getAccountName()
-    {
-        return $this->container['account_name'];
-    }
-
-    /**
-     * Sets account_name
-     * @param string $account_name Name account in Dolead system.
-     * @return $this
-     */
-    public function setAccountName($account_name)
-    {
-        $this->container['account_name'] = $account_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets account_publisher_id
-     * @return string
-     */
-    public function getAccountPublisherId()
-    {
-        return $this->container['account_publisher_id'];
-    }
-
-    /**
-     * Sets account_publisher_id
-     * @param string $account_publisher_id ID of the account in Publisher network.
-     * @return $this
-     */
-    public function setAccountPublisherId($account_publisher_id)
-    {
-        $this->container['account_publisher_id'] = $account_publisher_id;
-
-        return $this;
-    }
 
     /**
      * Gets advertiser
@@ -317,7 +259,7 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Sets advertiser
-     * @param string $advertiser ID of the advertiser in Dolead system.
+     * @param string $advertiser The ID of the advertiser in Dolead system.
      * @return $this
      */
     public function setAdvertiser($advertiser)
@@ -328,54 +270,54 @@ class CampaignQuery implements ArrayAccess
     }
 
     /**
-     * Gets base_campaign
-     * @return string
+     * Gets adwords_auto_tagging
+     * @return bool
      */
-    public function getBaseCampaign()
+    public function getAdwordsAutoTagging()
     {
-        return $this->container['base_campaign'];
+        return $this->container['adwords_auto_tagging'];
     }
 
     /**
-     * Sets base_campaign
-     * @param string $base_campaign A trial campaign's link to the base campaign.
+     * Sets adwords_auto_tagging
+     * @param bool $adwords_auto_tagging Autotagging active or not
      * @return $this
      */
-    public function setBaseCampaign($base_campaign)
+    public function setAdwordsAutoTagging($adwords_auto_tagging)
     {
-        $this->container['base_campaign'] = $base_campaign;
+        $this->container['adwords_auto_tagging'] = $adwords_auto_tagging;
 
         return $this;
     }
 
     /**
-     * Gets campaign_type
+     * Gets conversion_service
      * @return string
      */
-    public function getCampaignType()
+    public function getConversionService()
     {
-        return $this->container['campaign_type'];
+        return $this->container['conversion_service'];
     }
 
     /**
-     * Sets campaign_type
-     * @param string $campaign_type Filter over the campaign type
+     * Sets conversion_service
+     * @param string $conversion_service Type of DCM conversion service
      * @return $this
      */
-    public function setCampaignType($campaign_type)
+    public function setConversionService($conversion_service)
     {
-        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
-        if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
+        $allowed_values = array('AUTO', 'CUSTOM_CONVERSION', 'CUSTOM_REVENUE');
+        if (!in_array($conversion_service, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'conversion_service', must be one of 'AUTO', 'CUSTOM_CONVERSION', 'CUSTOM_REVENUE'");
         }
-        $this->container['campaign_type'] = $campaign_type;
+        $this->container['conversion_service'] = $conversion_service;
 
         return $this;
     }
 
     /**
      * Gets id
-     * @return \Dcm\Model\TextParameter
+     * @return string
      */
     public function getId()
     {
@@ -384,7 +326,7 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Sets id
-     * @param \Dcm\Model\TextParameter $id
+     * @param string $id The ID of the adgroup in Dolead system.
      * @return $this
      */
     public function setId($id)
@@ -396,7 +338,7 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Gets name
-     * @return \Dcm\Model\TextParameter
+     * @return string
      */
     public function getName()
     {
@@ -405,7 +347,7 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Dcm\Model\TextParameter $name
+     * @param string $name The account name
      * @return $this
      */
     public function setName($name)
@@ -426,16 +368,58 @@ class CampaignQuery implements ArrayAccess
 
     /**
      * Sets publisher
-     * @param string $publisher Filter over the campaign publisher network
+     * @param string $publisher The type of network
      * @return $this
      */
     public function setPublisher($publisher)
     {
-        $allowed_values = array('GOOGLE', 'BING');
+        $allowed_values = array('FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF');
         if (!in_array($publisher, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'GOOGLE', 'BING'");
+            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF'");
         }
         $this->container['publisher'] = $publisher;
+
+        return $this;
+    }
+
+    /**
+     * Gets publisher_id
+     * @return string
+     */
+    public function getPublisherId()
+    {
+        return $this->container['publisher_id'];
+    }
+
+    /**
+     * Sets publisher_id
+     * @param string $publisher_id The account ID on publisher network
+     * @return $this
+     */
+    public function setPublisherId($publisher_id)
+    {
+        $this->container['publisher_id'] = $publisher_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets rl_sea_account
+     * @return string
+     */
+    public function getRlSeaAccount()
+    {
+        return $this->container['rl_sea_account'];
+    }
+
+    /**
+     * Sets rl_sea_account
+     * @param string $rl_sea_account The ID of the RegieLocale DCM account.
+     * @return $this
+     */
+    public function setRlSeaAccount($rl_sea_account)
+    {
+        $this->container['rl_sea_account'] = $rl_sea_account;
 
         return $this;
     }

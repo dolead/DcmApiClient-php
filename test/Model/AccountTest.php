@@ -1,6 +1,6 @@
 <?php
 /**
- * CampaignQueryTest
+ * AccountTest
  *
  * PHP version 5
  *
@@ -42,17 +42,17 @@
 namespace Dcm;
 
 /**
- * CampaignQueryTest Class Doc Comment
+ * AccountTest Class Doc Comment
  *
  * @category    Class */
-// * @description CampaignQuery
+// * @description Account
 /**
  * @package     Dcm
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CampaignQueryTest extends \PHPUnit_Framework_TestCase
+class AccountTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -88,33 +88,9 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CampaignQuery"
+     * Test "Account"
      */
-    public function testCampaignQuery()
-    {
-
-    }
-
-    /**
-     * Test attribute "account"
-     */
-    public function testPropertyAccount()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_name"
-     */
-    public function testPropertyAccountName()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_publisher_id"
-     */
-    public function testPropertyAccountPublisherId()
+    public function testAccount()
     {
 
     }
@@ -128,17 +104,17 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "base_campaign"
+     * Test attribute "adwords_auto_tagging"
      */
-    public function testPropertyBaseCampaign()
+    public function testPropertyAdwordsAutoTagging()
     {
 
     }
 
     /**
-     * Test attribute "campaign_type"
+     * Test attribute "conversion_service"
      */
-    public function testPropertyCampaignType()
+    public function testPropertyConversionService()
     {
 
     }
@@ -163,6 +139,22 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
      * Test attribute "publisher"
      */
     public function testPropertyPublisher()
+    {
+
+    }
+
+    /**
+     * Test attribute "publisher_id"
+     */
+    public function testPropertyPublisherId()
+    {
+
+    }
+
+    /**
+     * Test attribute "rl_sea_account"
+     */
+    public function testPropertyRlSeaAccount()
     {
 
     }
