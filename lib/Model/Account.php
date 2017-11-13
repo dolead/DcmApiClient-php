@@ -70,6 +70,7 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'bool',
         'conversion_service' => 'string',
         'id' => 'string',
+        'lead_provider_id' => 'string',
         'name' => 'string',
         'publisher' => 'string',
         'publisher_id' => 'string',
@@ -90,6 +91,7 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'adwords_auto_tagging',
         'conversion_service' => 'conversion_service',
         'id' => 'id',
+        'lead_provider_id' => 'lead_provider_id',
         'name' => 'name',
         'publisher' => 'publisher',
         'publisher_id' => 'publisher_id',
@@ -110,6 +112,7 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'setAdwordsAutoTagging',
         'conversion_service' => 'setConversionService',
         'id' => 'setId',
+        'lead_provider_id' => 'setLeadProviderId',
         'name' => 'setName',
         'publisher' => 'setPublisher',
         'publisher_id' => 'setPublisherId',
@@ -130,6 +133,7 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'getAdwordsAutoTagging',
         'conversion_service' => 'getConversionService',
         'id' => 'getId',
+        'lead_provider_id' => 'getLeadProviderId',
         'name' => 'getName',
         'publisher' => 'getPublisher',
         'publisher_id' => 'getPublisherId',
@@ -201,6 +205,7 @@ class Account implements ArrayAccess
         $this->container['adwords_auto_tagging'] = isset($data['adwords_auto_tagging']) ? $data['adwords_auto_tagging'] : null;
         $this->container['conversion_service'] = isset($data['conversion_service']) ? $data['conversion_service'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['lead_provider_id'] = isset($data['lead_provider_id']) ? $data['lead_provider_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
         $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
@@ -332,6 +337,27 @@ class Account implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_provider_id
+     * @return string
+     */
+    public function getLeadProviderId()
+    {
+        return $this->container['lead_provider_id'];
+    }
+
+    /**
+     * Sets lead_provider_id
+     * @param string $lead_provider_id The ID of the provider in Dolead Perf system.
+     * @return $this
+     */
+    public function setLeadProviderId($lead_provider_id)
+    {
+        $this->container['lead_provider_id'] = $lead_provider_id;
 
         return $this;
     }

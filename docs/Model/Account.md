@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **adwords_auto_tagging** | **bool** | Autotagging active or not | [optional] 
 **conversion_service** | **string** | Type of DCM conversion service | [optional] 
 **id** | **string** | The ID of the adgroup in Dolead system. | [optional] 
+**lead_provider_id** | **string** | The ID of the provider in Dolead Perf system. | [optional] 
 **name** | **string** | The account name | [optional] 
 **publisher** | **string** | The type of network | [optional] 
 **publisher_id** | **string** | The account ID on publisher network | [optional] 

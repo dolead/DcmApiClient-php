@@ -96,6 +96,22 @@ class UpdatableCampaignTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "campaign_goal"
+     */
+    public function testPropertyCampaignGoal()
+    {
+
+    }
+
+    /**
+     * Test attribute "campaign_goal_value"
+     */
+    public function testPropertyCampaignGoalValue()
+    {
+
+    }
+
+    /**
      * Test attribute "daily_budget"
      */
     public function testPropertyDailyBudget()

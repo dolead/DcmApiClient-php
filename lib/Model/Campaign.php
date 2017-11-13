@@ -70,6 +70,8 @@ class Campaign implements ArrayAccess
         'advertiser' => 'string',
         'base_campaign' => 'string',
         'budget' => 'int',
+        'campaign_goal' => 'string',
+        'campaign_goal_value' => 'float',
         'campaign_type' => 'string',
         'id' => 'string',
         'name' => 'string',
@@ -93,6 +95,8 @@ class Campaign implements ArrayAccess
         'advertiser' => 'advertiser',
         'base_campaign' => 'base_campaign',
         'budget' => 'budget',
+        'campaign_goal' => 'campaign_goal',
+        'campaign_goal_value' => 'campaign_goal_value',
         'campaign_type' => 'campaign_type',
         'id' => 'id',
         'name' => 'name',
@@ -116,6 +120,8 @@ class Campaign implements ArrayAccess
         'advertiser' => 'setAdvertiser',
         'base_campaign' => 'setBaseCampaign',
         'budget' => 'setBudget',
+        'campaign_goal' => 'setCampaignGoal',
+        'campaign_goal_value' => 'setCampaignGoalValue',
         'campaign_type' => 'setCampaignType',
         'id' => 'setId',
         'name' => 'setName',
@@ -139,6 +145,8 @@ class Campaign implements ArrayAccess
         'advertiser' => 'getAdvertiser',
         'base_campaign' => 'getBaseCampaign',
         'budget' => 'getBudget',
+        'campaign_goal' => 'getCampaignGoal',
+        'campaign_goal_value' => 'getCampaignGoalValue',
         'campaign_type' => 'getCampaignType',
         'id' => 'getId',
         'name' => 'getName',
@@ -153,6 +161,9 @@ class Campaign implements ArrayAccess
         return self::$getters;
     }
 
+    const CAMPAIGN_GOAL_TRAFFIC = 'TRAFFIC';
+    const CAMPAIGN_GOAL_CONVERSIONS = 'CONVERSIONS';
+    const CAMPAIGN_GOAL_COS = 'COS';
     const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
     const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
     const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
@@ -160,6 +171,19 @@ class Campaign implements ArrayAccess
     const STATUS_PAUSED = 'PAUSED';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCampaignGoalAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_GOAL_TRAFFIC,
+            self::CAMPAIGN_GOAL_CONVERSIONS,
+            self::CAMPAIGN_GOAL_COS,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -203,6 +227,8 @@ class Campaign implements ArrayAccess
         $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
         $this->container['base_campaign'] = isset($data['base_campaign']) ? $data['base_campaign'] : null;
         $this->container['budget'] = isset($data['budget']) ? $data['budget'] : null;
+        $this->container['campaign_goal'] = isset($data['campaign_goal']) ? $data['campaign_goal'] : null;
+        $this->container['campaign_goal_value'] = isset($data['campaign_goal_value']) ? $data['campaign_goal_value'] : null;
         $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -220,6 +246,15 @@ class Campaign implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("TRAFFIC", "CONVERSIONS", "COS");
+        if (!in_array($this->container['campaign_goal'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'campaign_goal', must be one of #{allowed_values}.";
+        }
+
+        if (!is_null($this->container['campaign_goal_value']) && ($this->container['campaign_goal_value'] < 0.01)) {
+            $invalid_properties[] = "invalid value for 'campaign_goal_value', must be bigger than or equal to 0.01.";
+        }
+
         $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
@@ -241,6 +276,13 @@ class Campaign implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("TRAFFIC", "CONVERSIONS", "COS");
+        if (!in_array($this->container['campaign_goal'], $allowed_values)) {
+            return false;
+        }
+        if ($this->container['campaign_goal_value'] < 0.01) {
+            return false;
+        }
         $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
@@ -333,6 +375,56 @@ class Campaign implements ArrayAccess
     public function setBudget($budget)
     {
         $this->container['budget'] = $budget;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_goal
+     * @return string
+     */
+    public function getCampaignGoal()
+    {
+        return $this->container['campaign_goal'];
+    }
+
+    /**
+     * Sets campaign_goal
+     * @param string $campaign_goal Campaign goal type.
+     * @return $this
+     */
+    public function setCampaignGoal($campaign_goal)
+    {
+        $allowed_values = array('TRAFFIC', 'CONVERSIONS', 'COS');
+        if (!in_array($campaign_goal, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'campaign_goal', must be one of 'TRAFFIC', 'CONVERSIONS', 'COS'");
+        }
+        $this->container['campaign_goal'] = $campaign_goal;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_goal_value
+     * @return float
+     */
+    public function getCampaignGoalValue()
+    {
+        return $this->container['campaign_goal_value'];
+    }
+
+    /**
+     * Sets campaign_goal_value
+     * @param float $campaign_goal_value Campaign goal value.
+     * @return $this
+     */
+    public function setCampaignGoalValue($campaign_goal_value)
+    {
+
+        if ($campaign_goal_value < 0.01) {
+            throw new \InvalidArgumentException('invalid value for $campaign_goal_value when calling Campaign., must be bigger than or equal to 0.01.');
+        }
+        $this->container['campaign_goal_value'] = $campaign_goal_value;
 
         return $this;
     }

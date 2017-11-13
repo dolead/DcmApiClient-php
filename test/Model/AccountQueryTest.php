@@ -128,6 +128,14 @@ class AccountQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "lead_provider_id"
+     */
+    public function testPropertyLeadProviderId()
+    {
+
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

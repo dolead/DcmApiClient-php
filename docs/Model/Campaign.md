@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **advertiser** | **string** | ID of the advertiser in Dolead system. | [optional] 
 **base_campaign** | **string** | A trial campaign&#39;s link to the base campaign | [optional] 
 **budget** | **int** | Daily budget allowed for the campaign | [optional] 
+**campaign_goal** | **string** | Campaign goal type. | [optional] 
+**campaign_goal_value** | **float** | Campaign goal value. | [optional] 
 **campaign_type** | **string** | Filter over the campaign type | [optional] 
 **id** | **string** | ID of the campaign in Dolead system. | [optional] 
 **name** | **string** | The campaign name | [optional] 
