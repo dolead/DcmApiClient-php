@@ -280,9 +280,9 @@ class Campaign implements ArrayAccess
         if (!in_array($this->container['campaign_goal'], $allowed_values)) {
             return false;
         }
-        if ($this->container['campaign_goal_value'] < 0.01) {
-            return false;
-        }
+        // if ($this->container['campaign_goal_value'] < 0.01) {
+        //     return false;
+        // }
         $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
@@ -421,9 +421,9 @@ class Campaign implements ArrayAccess
     public function setCampaignGoalValue($campaign_goal_value)
     {
 
-        if ($campaign_goal_value < 0.01) {
-            throw new \InvalidArgumentException('invalid value for $campaign_goal_value when calling Campaign., must be bigger than or equal to 0.01.');
-        }
+        // if ($campaign_goal_value < 0.01) {
+        //     throw new \InvalidArgumentException('invalid value for $campaign_goal_value when calling Campaign., must be bigger than or equal to 0.01.');
+        // }
         $this->container['campaign_goal_value'] = $campaign_goal_value;
 
         return $this;
