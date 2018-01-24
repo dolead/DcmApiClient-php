@@ -112,17 +112,25 @@ class AdGroupTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "advertiser"
+     * Test attribute "campaign"
      */
-    public function testPropertyAdvertiser()
+    public function testPropertyCampaign()
     {
 
     }
 
     /**
-     * Test attribute "campaign"
+     * Test attribute "campaign_type"
      */
-    public function testPropertyCampaign()
+    public function testPropertyCampaignType()
+    {
+
+    }
+
+    /**
+     * Test attribute "cpc"
+     */
+    public function testPropertyCpc()
     {
 
     }

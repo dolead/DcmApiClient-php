@@ -208,4 +208,278 @@ class AdGroupApi
         }
     }
 
+    /**
+     * Operation controllersAdGroupGet
+     *
+     * Get campaign by its id
+     *
+     * @param string $ad_group_id ID of ad group (required)
+     * @return \Dcm\Model\AdGroup
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupGet($ad_group_id)
+    {
+        list($response) = $this->controllersAdGroupGetWithHttpInfo($ad_group_id);
+        return $response;
+    }
+
+    /**
+     * Operation controllersAdGroupGetWithHttpInfo
+     *
+     * Get campaign by its id
+     *
+     * @param string $ad_group_id ID of ad group (required)
+     * @return Array of \Dcm\Model\AdGroup, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupGetWithHttpInfo($ad_group_id)
+    {
+        // verify the required parameter 'ad_group_id' is set
+        if ($ad_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $ad_group_id when calling controllersAdGroupGet');
+        }
+        // parse inputs
+        $resourcePath = "/ad_group/{ad_group_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($ad_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "ad_group_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($ad_group_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\AdGroup',
+                '/ad_group/{ad_group_id}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\AdGroup', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\AdGroup', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation controllersAdGroupUpdateMany
+     *
+     * Update campaigns matching given criteria.
+     *
+     * @param \Dcm\Model\AdGroupUpdate $body  (optional)
+     * @return string[]
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupUpdateMany($body = null)
+    {
+        list($response) = $this->controllersAdGroupUpdateManyWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation controllersAdGroupUpdateManyWithHttpInfo
+     *
+     * Update campaigns matching given criteria.
+     *
+     * @param \Dcm\Model\AdGroupUpdate $body  (optional)
+     * @return Array of string[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupUpdateManyWithHttpInfo($body = null)
+    {
+        // parse inputs
+        $resourcePath = "/ad_group";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                'string[]',
+                '/ad_group'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, 'string[]', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string[]', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation controllersAdGroupUpdateOne
+     *
+     * Update campaign by its id
+     *
+     * @param string $ad_group_id ID of ad group to perform update on (required)
+     * @param \Dcm\Model\UpdatableAdGroup $body Update operation (required)
+     * @return \Dcm\Model\Campaign
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupUpdateOne($ad_group_id, $body)
+    {
+        list($response) = $this->controllersAdGroupUpdateOneWithHttpInfo($ad_group_id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation controllersAdGroupUpdateOneWithHttpInfo
+     *
+     * Update campaign by its id
+     *
+     * @param string $ad_group_id ID of ad group to perform update on (required)
+     * @param \Dcm\Model\UpdatableAdGroup $body Update operation (required)
+     * @return Array of \Dcm\Model\Campaign, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Dcm\ApiException on non-2xx response
+     */
+    public function controllersAdGroupUpdateOneWithHttpInfo($ad_group_id, $body)
+    {
+        // verify the required parameter 'ad_group_id' is set
+        if ($ad_group_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $ad_group_id when calling controllersAdGroupUpdateOne');
+        }
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling controllersAdGroupUpdateOne');
+        }
+        // parse inputs
+        $resourcePath = "/ad_group/{ad_group_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($ad_group_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "ad_group_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($ad_group_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('DCM-API-KEY');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['DCM-API-KEY'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Dcm\Model\Campaign',
+                '/ad_group/{ad_group_id}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Campaign', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Campaign', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
 }

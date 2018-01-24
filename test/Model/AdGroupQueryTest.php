@@ -96,25 +96,9 @@ class AdGroupQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "account"
-     */
-    public function testPropertyAccount()
-    {
-
-    }
-
-    /**
      * Test attribute "adg_type"
      */
     public function testPropertyAdgType()
-    {
-
-    }
-
-    /**
-     * Test attribute "advertiser"
-     */
-    public function testPropertyAdvertiser()
     {
 
     }

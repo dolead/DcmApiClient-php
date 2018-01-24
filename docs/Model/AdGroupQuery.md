@@ -3,9 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | **string** | Filter by the ID of the account in Dolead system. | [optional] 
 **adg_type** | **string** | Filter by the type of adgroup | [optional] 
-**advertiser** | **string** | Filter by the ID of the advertiser in Dolead system. | [optional] 
 **campaign** | **string** | Filter by the ID of the campaign in Dolead system. | [optional] 
 **id** | [**\Dcm\Model\TextParameter**](TextParameter.md) |  | [optional] 
 **name** | [**\Dcm\Model\TextParameter**](TextParameter.md) |  | [optional] 

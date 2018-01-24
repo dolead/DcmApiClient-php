@@ -104,22 +104,6 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "account_name"
-     */
-    public function testPropertyAccountName()
-    {
-
-    }
-
-    /**
-     * Test attribute "account_publisher_id"
-     */
-    public function testPropertyAccountPublisherId()
-    {
-
-    }
-
-    /**
      * Test attribute "advertiser"
      */
     public function testPropertyAdvertiser()
@@ -139,14 +123,6 @@ class CampaignQueryTest extends \PHPUnit_Framework_TestCase
      * Test attribute "campaign_type"
      */
     public function testPropertyCampaignType()
-    {
-
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
     {
 
     }

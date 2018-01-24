@@ -1,6 +1,6 @@
 <?php
 /**
- * AdGroupQuery
+ * UpdatableAdGroup
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace Dcm\Model;
 use \ArrayAccess;
 
 /**
- * AdGroupQuery Class Doc Comment
+ * UpdatableAdGroup Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,24 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AdGroupQuery implements ArrayAccess
+class UpdatableAdGroup implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'AdGroupQuery';
+    protected static $swaggerModelName = 'UpdatableAdGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'adg_type' => 'string',
-        'campaign' => 'string',
-        'id' => '\Dcm\Model\TextParameter',
-        'name' => '\Dcm\Model\TextParameter',
-        'publisher_id' => '\Dcm\Model\TextParameter',
+        'cpc' => 'double',
+        'name' => 'string',
         'status' => 'string'
     );
 
@@ -84,11 +81,8 @@ class AdGroupQuery implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'adg_type' => 'adg_type',
-        'campaign' => 'campaign',
-        'id' => 'id',
+        'cpc' => 'cpc',
         'name' => 'name',
-        'publisher_id' => 'publisher_id',
         'status' => 'status'
     );
 
@@ -102,11 +96,8 @@ class AdGroupQuery implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'adg_type' => 'setAdgType',
-        'campaign' => 'setCampaign',
-        'id' => 'setId',
+        'cpc' => 'setCpc',
         'name' => 'setName',
-        'publisher_id' => 'setPublisherId',
         'status' => 'setStatus'
     );
 
@@ -120,11 +111,8 @@ class AdGroupQuery implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'adg_type' => 'getAdgType',
-        'campaign' => 'getCampaign',
-        'id' => 'getId',
+        'cpc' => 'getCpc',
         'name' => 'getName',
-        'publisher_id' => 'getPublisherId',
         'status' => 'getStatus'
     );
 
@@ -133,32 +121,10 @@ class AdGroupQuery implements ArrayAccess
         return self::$getters;
     }
 
-    const ADG_TYPE_UNKNOWN = 'UNKNOWN';
-    const ADG_TYPE_SEARCH_STANDARD = 'SEARCH_STANDARD';
-    const ADG_TYPE_SEARCH_DYNAMIC_ADS = 'SEARCH_DYNAMIC_ADS';
-    const ADG_TYPE_DISPLAY_STANDARD = 'DISPLAY_STANDARD';
-    const ADG_TYPE_SHOPPING_PRODUCT_ADS = 'SHOPPING_PRODUCT_ADS';
-    const ADG_TYPE_SHOPPING_SHOWCASE_ADS = 'SHOPPING_SHOWCASE_ADS';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getAdgTypeAllowableValues()
-    {
-        return [
-            self::ADG_TYPE_UNKNOWN,
-            self::ADG_TYPE_SEARCH_STANDARD,
-            self::ADG_TYPE_SEARCH_DYNAMIC_ADS,
-            self::ADG_TYPE_DISPLAY_STANDARD,
-            self::ADG_TYPE_SHOPPING_PRODUCT_ADS,
-            self::ADG_TYPE_SHOPPING_SHOWCASE_ADS,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -185,11 +151,8 @@ class AdGroupQuery implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['adg_type'] = isset($data['adg_type']) ? $data['adg_type'] : null;
-        $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['cpc'] = isset($data['cpc']) ? $data['cpc'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
@@ -201,11 +164,6 @@ class AdGroupQuery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
-        if (!in_array($this->container['adg_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'adg_type', must be one of #{allowed_values}.";
-        }
-
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
@@ -222,10 +180,6 @@ class AdGroupQuery implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
-        if (!in_array($this->container['adg_type'], $allowed_values)) {
-            return false;
-        }
         $allowed_values = array("ACTIVE", "PAUSED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
@@ -235,75 +189,29 @@ class AdGroupQuery implements ArrayAccess
 
 
     /**
-     * Gets adg_type
-     * @return string
+     * Gets cpc
+     * @return double
      */
-    public function getAdgType()
+    public function getCpc()
     {
-        return $this->container['adg_type'];
+        return $this->container['cpc'];
     }
 
     /**
-     * Sets adg_type
-     * @param string $adg_type Filter by the type of adgroup
+     * Sets cpc
+     * @param double $cpc Default CPC of the AdGroup (AdWords only)
      * @return $this
      */
-    public function setAdgType($adg_type)
+    public function setCpc($cpc)
     {
-        $allowed_values = array('UNKNOWN', 'SEARCH_STANDARD', 'SEARCH_DYNAMIC_ADS', 'DISPLAY_STANDARD', 'SHOPPING_PRODUCT_ADS', 'SHOPPING_SHOWCASE_ADS');
-        if (!in_array($adg_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'adg_type', must be one of 'UNKNOWN', 'SEARCH_STANDARD', 'SEARCH_DYNAMIC_ADS', 'DISPLAY_STANDARD', 'SHOPPING_PRODUCT_ADS', 'SHOPPING_SHOWCASE_ADS'");
-        }
-        $this->container['adg_type'] = $adg_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets campaign
-     * @return string
-     */
-    public function getCampaign()
-    {
-        return $this->container['campaign'];
-    }
-
-    /**
-     * Sets campaign
-     * @param string $campaign Filter by the ID of the campaign in Dolead system.
-     * @return $this
-     */
-    public function setCampaign($campaign)
-    {
-        $this->container['campaign'] = $campaign;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     * @return \Dcm\Model\TextParameter
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     * @param \Dcm\Model\TextParameter $id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['cpc'] = $cpc;
 
         return $this;
     }
 
     /**
      * Gets name
-     * @return \Dcm\Model\TextParameter
+     * @return string
      */
     public function getName()
     {
@@ -312,33 +220,12 @@ class AdGroupQuery implements ArrayAccess
 
     /**
      * Sets name
-     * @param \Dcm\Model\TextParameter $name
+     * @param string $name The adgroup name
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets publisher_id
-     * @return \Dcm\Model\TextParameter
-     */
-    public function getPublisherId()
-    {
-        return $this->container['publisher_id'];
-    }
-
-    /**
-     * Sets publisher_id
-     * @param \Dcm\Model\TextParameter $publisher_id
-     * @return $this
-     */
-    public function setPublisherId($publisher_id)
-    {
-        $this->container['publisher_id'] = $publisher_id;
 
         return $this;
     }
@@ -354,7 +241,7 @@ class AdGroupQuery implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status Filter by the Status of the campaign
+     * @param string $status Status of the campaign
      * @return $this
      */
     public function setStatus($status)

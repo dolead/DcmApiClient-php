@@ -68,8 +68,9 @@ class AdGroup implements ArrayAccess
     protected static $swaggerTypes = array(
         'account' => 'string',
         'adg_type' => 'string',
-        'advertiser' => 'string',
         'campaign' => 'string',
+        'campaign_type' => 'string',
+        'cpc' => 'float',
         'id' => 'string',
         'name' => 'string',
         'publisher_id' => 'string',
@@ -88,8 +89,9 @@ class AdGroup implements ArrayAccess
     protected static $attributeMap = array(
         'account' => 'account',
         'adg_type' => 'adg_type',
-        'advertiser' => 'advertiser',
         'campaign' => 'campaign',
+        'campaign_type' => 'campaign_type',
+        'cpc' => 'cpc',
         'id' => 'id',
         'name' => 'name',
         'publisher_id' => 'publisher_id',
@@ -108,8 +110,9 @@ class AdGroup implements ArrayAccess
     protected static $setters = array(
         'account' => 'setAccount',
         'adg_type' => 'setAdgType',
-        'advertiser' => 'setAdvertiser',
         'campaign' => 'setCampaign',
+        'campaign_type' => 'setCampaignType',
+        'cpc' => 'setCpc',
         'id' => 'setId',
         'name' => 'setName',
         'publisher_id' => 'setPublisherId',
@@ -128,8 +131,9 @@ class AdGroup implements ArrayAccess
     protected static $getters = array(
         'account' => 'getAccount',
         'adg_type' => 'getAdgType',
-        'advertiser' => 'getAdvertiser',
         'campaign' => 'getCampaign',
+        'campaign_type' => 'getCampaignType',
+        'cpc' => 'getCpc',
         'id' => 'getId',
         'name' => 'getName',
         'publisher_id' => 'getPublisherId',
@@ -147,6 +151,10 @@ class AdGroup implements ArrayAccess
     const ADG_TYPE_DISPLAY_STANDARD = 'DISPLAY_STANDARD';
     const ADG_TYPE_SHOPPING_PRODUCT_ADS = 'SHOPPING_PRODUCT_ADS';
     const ADG_TYPE_SHOPPING_SHOWCASE_ADS = 'SHOPPING_SHOWCASE_ADS';
+    const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
+    const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
+    const CAMPAIGN_TYPE_NATIVE = 'NATIVE';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
     
@@ -165,6 +173,20 @@ class AdGroup implements ArrayAccess
             self::ADG_TYPE_DISPLAY_STANDARD,
             self::ADG_TYPE_SHOPPING_PRODUCT_ADS,
             self::ADG_TYPE_SHOPPING_SHOWCASE_ADS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getCampaignTypeAllowableValues()
+    {
+        return [
+            self::CAMPAIGN_TYPE_SEARCH,
+            self::CAMPAIGN_TYPE_SHOPPING,
+            self::CAMPAIGN_TYPE_DISPLAY,
+            self::CAMPAIGN_TYPE_NATIVE,
         ];
     }
     
@@ -195,8 +217,9 @@ class AdGroup implements ArrayAccess
     {
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['adg_type'] = isset($data['adg_type']) ? $data['adg_type'] : null;
-        $this->container['advertiser'] = isset($data['advertiser']) ? $data['advertiser'] : null;
         $this->container['campaign'] = isset($data['campaign']) ? $data['campaign'] : null;
+        $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
+        $this->container['cpc'] = isset($data['cpc']) ? $data['cpc'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['publisher_id'] = isset($data['publisher_id']) ? $data['publisher_id'] : null;
@@ -214,6 +237,11 @@ class AdGroup implements ArrayAccess
         $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
         if (!in_array($this->container['adg_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'adg_type', must be one of #{allowed_values}.";
+        }
+
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY", "NATIVE");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
 
         $allowed_values = array("ACTIVE", "PAUSED");
@@ -234,6 +262,10 @@ class AdGroup implements ArrayAccess
     {
         $allowed_values = array("UNKNOWN", "SEARCH_STANDARD", "SEARCH_DYNAMIC_ADS", "DISPLAY_STANDARD", "SHOPPING_PRODUCT_ADS", "SHOPPING_SHOWCASE_ADS");
         if (!in_array($this->container['adg_type'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY", "NATIVE");
+        if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }
         $allowed_values = array("ACTIVE", "PAUSED");
@@ -276,7 +308,7 @@ class AdGroup implements ArrayAccess
 
     /**
      * Sets adg_type
-     * @param string $adg_type The type of adgroup
+     * @param string $adg_type The type of adgroup (ADWORDS Only)
      * @return $this
      */
     public function setAdgType($adg_type)
@@ -286,27 +318,6 @@ class AdGroup implements ArrayAccess
             throw new \InvalidArgumentException("Invalid value for 'adg_type', must be one of 'UNKNOWN', 'SEARCH_STANDARD', 'SEARCH_DYNAMIC_ADS', 'DISPLAY_STANDARD', 'SHOPPING_PRODUCT_ADS', 'SHOPPING_SHOWCASE_ADS'");
         }
         $this->container['adg_type'] = $adg_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets advertiser
-     * @return string
-     */
-    public function getAdvertiser()
-    {
-        return $this->container['advertiser'];
-    }
-
-    /**
-     * Sets advertiser
-     * @param string $advertiser ID of the advertiser in Dolead system.
-     * @return $this
-     */
-    public function setAdvertiser($advertiser)
-    {
-        $this->container['advertiser'] = $advertiser;
 
         return $this;
     }
@@ -328,6 +339,52 @@ class AdGroup implements ArrayAccess
     public function setCampaign($campaign)
     {
         $this->container['campaign'] = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets campaign_type
+     * @return string
+     */
+    public function getCampaignType()
+    {
+        return $this->container['campaign_type'];
+    }
+
+    /**
+     * Sets campaign_type
+     * @param string $campaign_type Type of the campaign the ad group is in
+     * @return $this
+     */
+    public function setCampaignType($campaign_type)
+    {
+        $allowed_values = array('SEARCH', 'SHOPPING', 'DISPLAY', 'NATIVE');
+        if (!in_array($campaign_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'SHOPPING', 'DISPLAY', 'NATIVE'");
+        }
+        $this->container['campaign_type'] = $campaign_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpc
+     * @return float
+     */
+    public function getCpc()
+    {
+        return $this->container['cpc'];
+    }
+
+    /**
+     * Sets cpc
+     * @param float $cpc Default CPC for the AdGroup (ADWORD Only)
+     * @return $this
+     */
+    public function setCpc($cpc)
+    {
+        $this->container['cpc'] = $cpc;
 
         return $this;
     }
