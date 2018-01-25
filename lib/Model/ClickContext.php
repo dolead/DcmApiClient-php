@@ -305,7 +305,7 @@ class ClickContext implements ArrayAccess
      */
     public function setCampaignType($campaign_type)
     {
-        $allowed_values = array('SEARCH', 'SHOPPING', 'DISPLAY');
+        $allowed_values = array('SEARCH', 'SHOPPING', 'DISPLAY', 'NATIVE', 'MULTI_CHANNEL');
         if (!in_array($campaign_type, $allowed_values)) {
             throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'SHOPPING', 'DISPLAY'");
         }
