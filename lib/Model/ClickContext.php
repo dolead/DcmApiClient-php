@@ -181,7 +181,7 @@ class ClickContext implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY");
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
@@ -197,7 +197,7 @@ class ClickContext implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY");
+        $allowed_values = array("SEARCH", "SHOPPING", "DISPLAY", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }

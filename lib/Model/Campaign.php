@@ -283,7 +283,7 @@ class Campaign implements ArrayAccess
         // if ($this->container['campaign_goal_value'] < 0.01) {
         //     return false;
         // }
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }
