@@ -255,7 +255,7 @@ class Campaign implements ArrayAccess
         //     $invalid_properties[] = "invalid value for 'campaign_goal_value', must be bigger than or equal to 0.01.";
         // }
 
-        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING");
+        $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
