@@ -445,7 +445,7 @@ class Campaign implements ArrayAccess
      */
     public function setCampaignType($campaign_type)
     {
-        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING');
+        $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING', 'NATIVE', 'MULTI_CHANNEL');
         if (!in_array($campaign_type, $allowed_values)) {
             throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
         }
