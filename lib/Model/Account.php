@@ -225,7 +225,7 @@ class Account implements ArrayAccess
             $invalid_properties[] = "invalid value for 'conversion_service', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF");
+        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF", "TABOOLA");
         if (!in_array($this->container['publisher'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'publisher', must be one of #{allowed_values}.";
         }
@@ -245,7 +245,7 @@ class Account implements ArrayAccess
         if (!in_array($this->container['conversion_service'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF");
+        $allowed_values = array("FB_ADS", "GOOGLE", "GMC", "BMC", "BING", "YAHOO", "DOLEAD_PERF", "TABOOLA");
         if (!in_array($this->container['publisher'], $allowed_values)) {
             return false;
         }
@@ -399,9 +399,9 @@ class Account implements ArrayAccess
      */
     public function setPublisher($publisher)
     {
-        $allowed_values = array('FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF');
+        $allowed_values = array('FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF', 'TABOOLA');
         if (!in_array($publisher, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF'");
+            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF', 'TABOOLA'");
         }
         $this->container['publisher'] = $publisher;
 
