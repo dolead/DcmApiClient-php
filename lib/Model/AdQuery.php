@@ -658,7 +658,7 @@ class AdQuery implements ArrayAccess
      */
     public function setStatus($status)
     {
-        $allowed_values = array('ACTIVE', 'PAUSED');
+        $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
             throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
         }
