@@ -123,6 +123,7 @@ class UpdatableAdGroup implements ArrayAccess
 
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -135,6 +136,7 @@ class UpdatableAdGroup implements ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PAUSED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -164,7 +166,7 @@ class UpdatableAdGroup implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -180,7 +182,7 @@ class UpdatableAdGroup implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -248,7 +250,7 @@ class UpdatableAdGroup implements ArrayAccess
     {
         $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED', 'DELETED'");
         }
         $this->container['status'] = $status;
 

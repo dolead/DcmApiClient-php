@@ -74,6 +74,8 @@ class Campaign implements ArrayAccess
         'campaign_goal_value' => 'float',
         'campaign_type' => 'string',
         'id' => 'string',
+        'lead_customer_id' => 'string',
+        'lead_form_ids' => 'string[]',
         'name' => 'string',
         'negative_geo_criterions' => 'string[]',
         'positive_geo_criterions' => 'string[]',
@@ -99,6 +101,8 @@ class Campaign implements ArrayAccess
         'campaign_goal_value' => 'campaign_goal_value',
         'campaign_type' => 'campaign_type',
         'id' => 'id',
+        'lead_customer_id' => 'lead_customer_id',
+        'lead_form_ids' => 'lead_form_ids',
         'name' => 'name',
         'negative_geo_criterions' => 'negative_geo_criterions',
         'positive_geo_criterions' => 'positive_geo_criterions',
@@ -124,6 +128,8 @@ class Campaign implements ArrayAccess
         'campaign_goal_value' => 'setCampaignGoalValue',
         'campaign_type' => 'setCampaignType',
         'id' => 'setId',
+        'lead_customer_id' => 'setLeadCustomerId',
+        'lead_form_ids' => 'setLeadFormIds',
         'name' => 'setName',
         'negative_geo_criterions' => 'setNegativeGeoCriterions',
         'positive_geo_criterions' => 'setPositiveGeoCriterions',
@@ -149,6 +155,8 @@ class Campaign implements ArrayAccess
         'campaign_goal_value' => 'getCampaignGoalValue',
         'campaign_type' => 'getCampaignType',
         'id' => 'getId',
+        'lead_customer_id' => 'getLeadCustomerId',
+        'lead_form_ids' => 'getLeadFormIds',
         'name' => 'getName',
         'negative_geo_criterions' => 'getNegativeGeoCriterions',
         'positive_geo_criterions' => 'getPositiveGeoCriterions',
@@ -167,8 +175,11 @@ class Campaign implements ArrayAccess
     const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
     const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
     const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const CAMPAIGN_TYPE_NATIVE = 'NATIVE';
+    const CAMPAIGN_TYPE_MULTI_CHANNEL = 'MULTI_CHANNEL';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -195,6 +206,8 @@ class Campaign implements ArrayAccess
             self::CAMPAIGN_TYPE_SEARCH,
             self::CAMPAIGN_TYPE_DISPLAY,
             self::CAMPAIGN_TYPE_SHOPPING,
+            self::CAMPAIGN_TYPE_NATIVE,
+            self::CAMPAIGN_TYPE_MULTI_CHANNEL,
         ];
     }
     
@@ -207,6 +220,7 @@ class Campaign implements ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PAUSED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -231,6 +245,8 @@ class Campaign implements ArrayAccess
         $this->container['campaign_goal_value'] = isset($data['campaign_goal_value']) ? $data['campaign_goal_value'] : null;
         $this->container['campaign_type'] = isset($data['campaign_type']) ? $data['campaign_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['lead_customer_id'] = isset($data['lead_customer_id']) ? $data['lead_customer_id'] : null;
+        $this->container['lead_form_ids'] = isset($data['lead_form_ids']) ? $data['lead_form_ids'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['negative_geo_criterions'] = isset($data['negative_geo_criterions']) ? $data['negative_geo_criterions'] : null;
         $this->container['positive_geo_criterions'] = isset($data['positive_geo_criterions']) ? $data['positive_geo_criterions'] : null;
@@ -251,16 +267,12 @@ class Campaign implements ArrayAccess
             $invalid_properties[] = "invalid value for 'campaign_goal', must be one of #{allowed_values}.";
         }
 
-        // if (!is_null($this->container['campaign_goal_value']) && ($this->container['campaign_goal_value'] < 0.01)) {
-        //     $invalid_properties[] = "invalid value for 'campaign_goal_value', must be bigger than or equal to 0.01.";
-        // }
-
         $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -280,14 +292,11 @@ class Campaign implements ArrayAccess
         if (!in_array($this->container['campaign_goal'], $allowed_values)) {
             return false;
         }
-        // if ($this->container['campaign_goal_value'] < 0.01) {
-        //     return false;
-        // }
         $allowed_values = array("SEARCH", "DISPLAY", "SHOPPING", "NATIVE", "MULTI_CHANNEL");
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -420,10 +429,6 @@ class Campaign implements ArrayAccess
      */
     public function setCampaignGoalValue($campaign_goal_value)
     {
-
-        // if ($campaign_goal_value < 0.01) {
-        //     throw new \InvalidArgumentException('invalid value for $campaign_goal_value when calling Campaign., must be bigger than or equal to 0.01.');
-        // }
         $this->container['campaign_goal_value'] = $campaign_goal_value;
 
         return $this;
@@ -447,7 +452,7 @@ class Campaign implements ArrayAccess
     {
         $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING', 'NATIVE', 'MULTI_CHANNEL');
         if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING', 'NATIVE', 'MULTI_CHANNEL'");
         }
         $this->container['campaign_type'] = $campaign_type;
 
@@ -471,6 +476,48 @@ class Campaign implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_customer_id
+     * @return string
+     */
+    public function getLeadCustomerId()
+    {
+        return $this->container['lead_customer_id'];
+    }
+
+    /**
+     * Sets lead_customer_id
+     * @param string $lead_customer_id Dolead Perf's customer ID (forced value)
+     * @return $this
+     */
+    public function setLeadCustomerId($lead_customer_id)
+    {
+        $this->container['lead_customer_id'] = $lead_customer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_form_ids
+     * @return string[]
+     */
+    public function getLeadFormIds()
+    {
+        return $this->container['lead_form_ids'];
+    }
+
+    /**
+     * Sets lead_form_ids
+     * @param string[] $lead_form_ids Dolead Perf's form IDs (forced values)
+     * @return $this
+     */
+    public function setLeadFormIds($lead_form_ids)
+    {
+        $this->container['lead_form_ids'] = $lead_form_ids;
 
         return $this;
     }
@@ -577,7 +624,7 @@ class Campaign implements ArrayAccess
     {
         $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED', 'DELETED'");
         }
         $this->container['status'] = $status;
 

@@ -155,6 +155,7 @@ class AccountQuery implements ArrayAccess
     const PUBLISHER_BING = 'BING';
     const PUBLISHER_YAHOO = 'YAHOO';
     const PUBLISHER_DOLEAD_PERF = 'DOLEAD_PERF';
+    const PUBLISHER_TABOOLA = 'TABOOLA';
     
 
     
@@ -185,6 +186,7 @@ class AccountQuery implements ArrayAccess
             self::PUBLISHER_BING,
             self::PUBLISHER_YAHOO,
             self::PUBLISHER_DOLEAD_PERF,
+            self::PUBLISHER_TABOOLA,
         ];
     }
     
@@ -401,7 +403,7 @@ class AccountQuery implements ArrayAccess
     {
         $allowed_values = array('FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF', 'TABOOLA');
         if (!in_array($publisher, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF'");
+            throw new \InvalidArgumentException("Invalid value for 'publisher', must be one of 'FB_ADS', 'GOOGLE', 'GMC', 'BMC', 'BING', 'YAHOO', 'DOLEAD_PERF', 'TABOOLA'");
         }
         $this->container['publisher'] = $publisher;
 

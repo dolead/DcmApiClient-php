@@ -70,6 +70,8 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'bool',
         'conversion_service' => 'string',
         'id' => 'string',
+        'lead_customer_id' => 'string',
+        'lead_form_ids' => 'string[]',
         'lead_provider_id' => 'string',
         'name' => 'string',
         'publisher' => 'string',
@@ -91,6 +93,8 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'adwords_auto_tagging',
         'conversion_service' => 'conversion_service',
         'id' => 'id',
+        'lead_customer_id' => 'lead_customer_id',
+        'lead_form_ids' => 'lead_form_ids',
         'lead_provider_id' => 'lead_provider_id',
         'name' => 'name',
         'publisher' => 'publisher',
@@ -112,6 +116,8 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'setAdwordsAutoTagging',
         'conversion_service' => 'setConversionService',
         'id' => 'setId',
+        'lead_customer_id' => 'setLeadCustomerId',
+        'lead_form_ids' => 'setLeadFormIds',
         'lead_provider_id' => 'setLeadProviderId',
         'name' => 'setName',
         'publisher' => 'setPublisher',
@@ -133,6 +139,8 @@ class Account implements ArrayAccess
         'adwords_auto_tagging' => 'getAdwordsAutoTagging',
         'conversion_service' => 'getConversionService',
         'id' => 'getId',
+        'lead_customer_id' => 'getLeadCustomerId',
+        'lead_form_ids' => 'getLeadFormIds',
         'lead_provider_id' => 'getLeadProviderId',
         'name' => 'getName',
         'publisher' => 'getPublisher',
@@ -155,6 +163,7 @@ class Account implements ArrayAccess
     const PUBLISHER_BING = 'BING';
     const PUBLISHER_YAHOO = 'YAHOO';
     const PUBLISHER_DOLEAD_PERF = 'DOLEAD_PERF';
+    const PUBLISHER_TABOOLA = 'TABOOLA';
     
 
     
@@ -185,6 +194,7 @@ class Account implements ArrayAccess
             self::PUBLISHER_BING,
             self::PUBLISHER_YAHOO,
             self::PUBLISHER_DOLEAD_PERF,
+            self::PUBLISHER_TABOOLA,
         ];
     }
     
@@ -205,6 +215,8 @@ class Account implements ArrayAccess
         $this->container['adwords_auto_tagging'] = isset($data['adwords_auto_tagging']) ? $data['adwords_auto_tagging'] : null;
         $this->container['conversion_service'] = isset($data['conversion_service']) ? $data['conversion_service'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['lead_customer_id'] = isset($data['lead_customer_id']) ? $data['lead_customer_id'] : null;
+        $this->container['lead_form_ids'] = isset($data['lead_form_ids']) ? $data['lead_form_ids'] : null;
         $this->container['lead_provider_id'] = isset($data['lead_provider_id']) ? $data['lead_provider_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
@@ -337,6 +349,48 @@ class Account implements ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_customer_id
+     * @return string
+     */
+    public function getLeadCustomerId()
+    {
+        return $this->container['lead_customer_id'];
+    }
+
+    /**
+     * Sets lead_customer_id
+     * @param string $lead_customer_id Dolead Perf's customer ID (forced value)
+     * @return $this
+     */
+    public function setLeadCustomerId($lead_customer_id)
+    {
+        $this->container['lead_customer_id'] = $lead_customer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets lead_form_ids
+     * @return string[]
+     */
+    public function getLeadFormIds()
+    {
+        return $this->container['lead_form_ids'];
+    }
+
+    /**
+     * Sets lead_form_ids
+     * @param string[] $lead_form_ids Dolead Perf's form IDs (forced values)
+     * @return $this
+     */
+    public function setLeadFormIds($lead_form_ids)
+    {
+        $this->container['lead_form_ids'] = $lead_form_ids;
 
         return $this;
     }

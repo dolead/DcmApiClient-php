@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **campaign_goal_value** | **float** | Campaign goal value. | [optional] 
 **campaign_type** | **string** | Filter over the campaign type | [optional] 
 **id** | **string** | ID of the campaign in Dolead system. | [optional] 
+**lead_customer_id** | **string** | Dolead Perf&#39;s customer ID (forced value) | [optional] 
+**lead_form_ids** | **string[]** | Dolead Perf&#39;s form IDs (forced values) | [optional] 
 **name** | **string** | The campaign name | [optional] 
 **negative_geo_criterions** | **string[]** |  | [optional] 
 **positive_geo_criterions** | **string[]** |  | [optional] 

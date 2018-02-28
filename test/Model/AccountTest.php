@@ -128,6 +128,22 @@ class AccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "lead_customer_id"
+     */
+    public function testPropertyLeadCustomerId()
+    {
+
+    }
+
+    /**
+     * Test attribute "lead_form_ids"
+     */
+    public function testPropertyLeadFormIds()
+    {
+
+    }
+
+    /**
      * Test attribute "lead_provider_id"
      */
     public function testPropertyLeadProviderId()

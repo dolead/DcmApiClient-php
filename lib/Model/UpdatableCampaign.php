@@ -142,6 +142,7 @@ class UpdatableCampaign implements ArrayAccess
     const CAMPAIGN_GOAL_COS = 'COS';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -167,6 +168,7 @@ class UpdatableCampaign implements ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PAUSED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -205,15 +207,11 @@ class UpdatableCampaign implements ArrayAccess
             $invalid_properties[] = "invalid value for 'campaign_goal', must be one of #{allowed_values}.";
         }
 
-        if (!is_null($this->container['campaign_goal_value']) && ($this->container['campaign_goal_value'] < 0.01)) {
-            $invalid_properties[] = "invalid value for 'campaign_goal_value', must be bigger than or equal to 0.01.";
-        }
-
         if (!is_null($this->container['name']) && (strlen($this->container['name']) < 2)) {
             $invalid_properties[] = "invalid value for 'name', the character length must be bigger than or equal to 2.";
         }
 
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -233,13 +231,10 @@ class UpdatableCampaign implements ArrayAccess
         if (!in_array($this->container['campaign_goal'], $allowed_values)) {
             return false;
         }
-        if ($this->container['campaign_goal_value'] < 0.01) {
-            return false;
-        }
         if (strlen($this->container['name']) < 2) {
             return false;
         }
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -288,10 +283,6 @@ class UpdatableCampaign implements ArrayAccess
      */
     public function setCampaignGoalValue($campaign_goal_value)
     {
-
-        if ($campaign_goal_value < 0.01) {
-            throw new \InvalidArgumentException('invalid value for $campaign_goal_value when calling UpdatableCampaign., must be bigger than or equal to 0.01.');
-        }
         $this->container['campaign_goal_value'] = $campaign_goal_value;
 
         return $this;
@@ -403,7 +394,7 @@ class UpdatableCampaign implements ArrayAccess
     {
         $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED', 'DELETED'");
         }
         $this->container['status'] = $status;
 

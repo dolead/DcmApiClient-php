@@ -128,6 +128,22 @@ class CampaignTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "campaign_goal"
+     */
+    public function testPropertyCampaignGoal()
+    {
+
+    }
+
+    /**
+     * Test attribute "campaign_goal_value"
+     */
+    public function testPropertyCampaignGoalValue()
+    {
+
+    }
+
+    /**
      * Test attribute "campaign_type"
      */
     public function testPropertyCampaignType()
@@ -139,6 +155,22 @@ class CampaignTest extends \PHPUnit_Framework_TestCase
      * Test attribute "id"
      */
     public function testPropertyId()
+    {
+
+    }
+
+    /**
+     * Test attribute "lead_customer_id"
+     */
+    public function testPropertyLeadCustomerId()
+    {
+
+    }
+
+    /**
+     * Test attribute "lead_form_ids"
+     */
+    public function testPropertyLeadFormIds()
     {
 
     }

@@ -136,6 +136,8 @@ class ClickContext implements ArrayAccess
     const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
     const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
     const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
+    const CAMPAIGN_TYPE_NATIVE = 'NATIVE';
+    const CAMPAIGN_TYPE_MULTI_CHANNEL = 'MULTI_CHANNEL';
     
 
     
@@ -149,6 +151,8 @@ class ClickContext implements ArrayAccess
             self::CAMPAIGN_TYPE_SEARCH,
             self::CAMPAIGN_TYPE_SHOPPING,
             self::CAMPAIGN_TYPE_DISPLAY,
+            self::CAMPAIGN_TYPE_NATIVE,
+            self::CAMPAIGN_TYPE_MULTI_CHANNEL,
         ];
     }
     
@@ -307,7 +311,7 @@ class ClickContext implements ArrayAccess
     {
         $allowed_values = array('SEARCH', 'SHOPPING', 'DISPLAY', 'NATIVE', 'MULTI_CHANNEL');
         if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'SHOPPING', 'DISPLAY'");
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'SHOPPING', 'DISPLAY', 'NATIVE', 'MULTI_CHANNEL'");
         }
         $this->container['campaign_type'] = $campaign_type;
 

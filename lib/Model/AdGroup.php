@@ -157,6 +157,7 @@ class AdGroup implements ArrayAccess
     const CAMPAIGN_TYPE_NATIVE = 'NATIVE';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -199,6 +200,7 @@ class AdGroup implements ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PAUSED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -244,7 +246,7 @@ class AdGroup implements ArrayAccess
             $invalid_properties[] = "invalid value for 'campaign_type', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -268,7 +270,7 @@ class AdGroup implements ArrayAccess
         if (!in_array($this->container['campaign_type'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -470,7 +472,7 @@ class AdGroup implements ArrayAccess
     {
         $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED', 'DELETED'");
         }
         $this->container['status'] = $status;
 

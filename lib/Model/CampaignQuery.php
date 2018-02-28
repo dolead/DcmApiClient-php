@@ -148,6 +148,8 @@ class CampaignQuery implements ArrayAccess
     const CAMPAIGN_TYPE_SEARCH = 'SEARCH';
     const CAMPAIGN_TYPE_DISPLAY = 'DISPLAY';
     const CAMPAIGN_TYPE_SHOPPING = 'SHOPPING';
+    const CAMPAIGN_TYPE_NATIVE = 'NATIVE';
+    const CAMPAIGN_TYPE_MULTI_CHANNEL = 'MULTI_CHANNEL';
     const PUBLISHER_GOOGLE = 'GOOGLE';
     const PUBLISHER_BING = 'BING';
     
@@ -163,6 +165,8 @@ class CampaignQuery implements ArrayAccess
             self::CAMPAIGN_TYPE_SEARCH,
             self::CAMPAIGN_TYPE_DISPLAY,
             self::CAMPAIGN_TYPE_SHOPPING,
+            self::CAMPAIGN_TYPE_NATIVE,
+            self::CAMPAIGN_TYPE_MULTI_CHANNEL,
         ];
     }
     
@@ -366,7 +370,7 @@ class CampaignQuery implements ArrayAccess
     {
         $allowed_values = array('SEARCH', 'DISPLAY', 'SHOPPING', 'NATIVE', 'MULTI_CHANNEL');
         if (!in_array($campaign_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING'");
+            throw new \InvalidArgumentException("Invalid value for 'campaign_type', must be one of 'SEARCH', 'DISPLAY', 'SHOPPING', 'NATIVE', 'MULTI_CHANNEL'");
         }
         $this->container['campaign_type'] = $campaign_type;
 

@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **adwords_auto_tagging** | **bool** | Autotagging active or not | [optional] 
 **conversion_service** | **string** | Type of DCM conversion service | [optional] 
 **id** | **string** | The ID of the adgroup in Dolead system. | [optional] 
+**lead_customer_id** | **string** | Dolead Perf&#39;s customer ID (forced value) | [optional] 
+**lead_form_ids** | **string[]** | Dolead Perf&#39;s form IDs (forced values) | [optional] 
 **lead_provider_id** | **string** | The ID of the provider in Dolead Perf system. | [optional] 
 **name** | **string** | The account name | [optional] 
 **publisher** | **string** | The type of network | [optional] 

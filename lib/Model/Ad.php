@@ -193,6 +193,7 @@ class Ad implements ArrayAccess
     const AD_TYPE_SHOWCASE = 'SHOWCASE';
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_PAUSED = 'PAUSED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -225,6 +226,7 @@ class Ad implements ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PAUSED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -274,7 +276,7 @@ class Ad implements ArrayAccess
             $invalid_properties[] = "invalid value for 'ad_type', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -294,7 +296,7 @@ class Ad implements ArrayAccess
         if (!in_array($this->container['ad_type'], $allowed_values)) {
             return false;
         }
-        $allowed_values = array("ACTIVE", "PAUSED");
+        $allowed_values = array("ACTIVE", "PAUSED", "DELETED");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -660,7 +662,7 @@ class Ad implements ArrayAccess
     {
         $allowed_values = array('ACTIVE', 'PAUSED', 'DELETED');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'ACTIVE', 'PAUSED', 'DELETED'");
         }
         $this->container['status'] = $status;
 
