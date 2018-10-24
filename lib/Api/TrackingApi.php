@@ -108,7 +108,7 @@ class TrackingApi
      * Get tracking by its id
      *
      * @param string $dldclck_id ID of Dolead click (required)
-     * @return void
+     * @return \Dcm\Model\Tracking
      * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersTrackingGet($dldclck_id)
@@ -123,7 +123,7 @@ class TrackingApi
      * Get tracking by its id
      *
      * @param string $dldclck_id ID of Dolead click (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Dcm\Model\Tracking, HTTP status code, HTTP response headers (array of strings)
      * @throws \Dcm\ApiException on non-2xx response
      */
     public function controllersTrackingGetWithHttpInfo($dldclck_id)
@@ -175,13 +175,17 @@ class TrackingApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                null,
+                '\Dcm\Model\Tracking',
                 '/tracking/{dldclck_id}'
             );
 
-            return array(null, $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\Dcm\Model\Tracking', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Dcm\Model\Tracking', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
             }
 
             throw $e;

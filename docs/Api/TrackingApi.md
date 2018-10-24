@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **controllersTrackingGet**
-> controllersTrackingGet($dldclck_id)
+> \Dcm\Model\Tracking controllersTrackingGet($dldclck_id)
 
 Get tracking by its id
 
@@ -26,7 +26,8 @@ $api_instance = new Dcm\Api\TrackingApi();
 $dldclck_id = "dldclck_id_example"; // string | ID of Dolead click
 
 try {
-    $api_instance->controllersTrackingGet($dldclck_id);
+    $result = $api_instance->controllersTrackingGet($dldclck_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TrackingApi->controllersTrackingGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -41,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Dcm\Model\Tracking**](../Model/Tracking.md)
 
 ### Authorization
 
